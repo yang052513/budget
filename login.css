@@ -1,17 +1,81 @@
+/* On screens that are 400px or less */
 * {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
-.body{
-	height: 100%;	
+html { 
+  background: url("resource/loginBG.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+
+body {
+	background-attachment: fixed;
+}
+
+#nav-bar {
+	height: 3.0rem;
+}
+
+#nav-bar ul {
+	padding-top: 1.0rem;	
+}
+
+#nav-bar li {
+	color: rgb(255, 255, 255);
+	list-style-type: none;
+	display: inline;
+	padding-left: 2.5rem;
+	font-size: 1.0rem;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#nav-bar a {
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+}
+
+/* Login card with glass effect DISABLED */
+/* .mdl-card {
+    background: inherit;
+}
+
+.mdl-card: before {
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+	filter: blur(10px);
+	background: inherit;
+} */
 
 #firebaseui-auth-container {
 	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-image: url(loginBG.jpg);
 }
+
+.mdl-button--raised.mdl-button--colored {
+	background: #42a5f5;
+}
+
+.mdl-button.mdl-button--colored {
+	background: #42a5f5;
+}
+
+/* On screens that are 400px or less */
+@media screen and (max-width: 420px) {
+* {
+  padding: 0;
+  margin: 0;
+}
+#container{
+	background-image: url("resource/loginIMG.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: center;
+}
+}
+
 

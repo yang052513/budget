@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: none;
+    font-family: 'Raleway', sans-serif;
+}
+
+#container {
+    display: grid;
+    height: 100%;
+    grid-gap: 0px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 45rem 40rem 40rem 10rem;
+}
+
+/* Section One  */
+#section-1 {
+    grid-column: 1/13;
+    background: url("resource/loginBG.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#main-title {
+    font-size: 12em;
+    color: white;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+}
+
+#subtitle {
+    font-size: 1.5em;
+    color: white;
+    padding-left: 4.5em;
+}
+
+
+/* Section Two  */
+#section-2 {
+    grid-column: 1/13;
+    background: url("resource/budget2.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#box-wrap {
+    display: grid;
+    padding-top: 10em;
+    margin-left: 3em;
+}
+
+.box-topborder {
+    height: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #00a6a4;
+}
+
+.box-title {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.image-wrap {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.box-content {
+    text-align: center;
+    line-height: 25px;
+    padding: 20px;
+}
+
+#box-1 {
+    width: 400px;
+    height: 320px;
+    background-color: rgb(255, 255, 255);
+    grid-column: 1/4;
+    border-radius: 10px 10px 15px 15px;
+    filter: drop-shadow(5px 5px 5px #464545);
+}
+
+#box-2 {
+    width: 400px;
+    height: 320px;
+    background-color: rgb(255, 255, 255);
+    grid-column: 5/8;
+    border-radius: 15px;
+    filter: drop-shadow(10px 10px 4px #676666);
+}
+
+#box-3 {
+    width: 400px;
+    height: 320px;
+    background-color: rgb(255, 255, 255);
+    grid-column: 9/12;
+    border-radius: 15px;
+    filter: drop-shadow(10px 10px 4px #676666);
+}
+
+
+
+/* Section Three  */
+#section-3 {
+    grid-column: 1/13;
+    background-color: lightcyan;
+}
+
+.section3-content-wrap {
+    width: 50%;
+    float: left;
+}
+
+.section3-img-wrap {
+    width: 50%;
+    padding-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section3-title {
+    padding-left: 80px;
+    padding-top: 30px;
+    font-size: 3em;
+    font-weight: 900;
+}
+
+.section3-subtitle {
+    padding-left: 80px;
+    font-size: 1.2em;
+}
+
+.promotion-list-item {
+    padding-left: 40px;
+}
+
+.list-icon {
+    display: inline-block;
+}
+
+li {
+    display: inline-block;
+}
+
+#promiotion-list {
+    padding-left: 60px;
+}
+
+#promotion-list li {
+    padding-top: 20px;
+}
+
+.list-icon {
+    vertical-align: middle;
+}
+
+.signup-button {
+    border: 2px solid #00a6a4;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    width: 200px;
+    height: 50px;
+    margin-left: 80px;
+    margin-top: -130px;
+}
+
+.signup-link {
+    text-decoration: none;
+    color: #00a6a4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 12px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.signup-button:hover {
+    background-color: rgb(179, 209, 255);
+    transition: all .24s ease-in-out;
+    transition-property: all;
+    transition-duration: 0.24s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+/* Section Four  */
+#section-4 {
+    grid-column: 1/13;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.socialmedia-icon-wrap {
+    position: relative;
+    float: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fa {
+    padding: 20px;
+    font-size: 10px;
+    width: 15px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 20px;
+    border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
+
+.fa-snapchat-ghost {
+    background: #fffc00;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+.fa-reddit {
+    background: #ff5700;
+    color: white;
+}

@@ -1,59 +1,74 @@
 <html>
+
 <head>
     <title>Login</title>
-        <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
 
-        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-        <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
 
-        <!-- Add Firebase products that you want to use -->
-        <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>  
-        
-        <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
 
-        <script>
-           // Your web app's Firebase configuration
-           var firebaseConfig = {
-                  apiKey: "AIzaSyCNtxFAdwe3ZKlLPgAzdjONa4qvkt0Mv48",
-                  authDomain: "comp1930-inclass.firebaseapp.com",
-                  databaseURL: "https://comp1930-inclass.firebaseio.com",
-                  projectId: "comp1930-inclass",
-                  storageBucket: "comp1930-inclass.appspot.com",
-                  messagingSenderId: "414200644411",
-                  appId: "1:414200644411:web:517d703b463b197451ed1e",
-                  measurementId: "G-FDMTKKWKHP"
-                };
-                // Initialize Firebase
-                firebase.initializeApp(firebaseConfig);
-                firebase.analytics();
-         </script>
-				<link rel="stylesheet" href="login.css" />
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCNtxFAdwe3ZKlLPgAzdjONa4qvkt0Mv48",
+            authDomain: "comp1930-inclass.firebaseapp.com",
+            databaseURL: "https://comp1930-inclass.firebaseio.com",
+            projectId: "comp1930-inclass",
+            storageBucket: "comp1930-inclass.appspot.com",
+            messagingSenderId: "414200644411",
+            appId: "1:414200644411:web:517d703b463b197451ed1e",
+            measurementId: "G-FDMTKKWKHP"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <link rel="stylesheet" href="login.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
-    <body>
-       <div id="firebaseui-auth-container"></div>
-       <div id="loader">Loading...</div>
+<body>
+    <!--			Nav bar Part-->
+    <nav id="nav-bar">
+        <ul>
+            <li><a href="main.html">HOME</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+            <li><a href="setting.html">SETTINGS</a></li>
+            <li><a href="contact">CONTACTS</a></li>
+        </ul>
+    </nav>
+
+    <!--			Login Part-->
+    <div id="container">
+        <div id="firebaseui-auth-container"></div>
+        <div id="loader">Loading...</div>
 
         <script>
             // Initialize the FirebaseUI Widget using Firebase.
             var ui = new firebaseui.auth.AuthUI(firebase.auth());
-            
+
             var uiConfig = {
                 callbacks: {
-                    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-                    // User successfully signed in.
-                    // Return type determines whether we continue the redirect automatically
-                    // or whether we leave that to developer to handle.
-                    return true;
+                    signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                        // User successfully signed in.
+                        // Return type determines whether we continue the redirect automatically
+                        // or whether we leave that to developer to handle.
+                        return true;
                     },
-                    uiShown: function() {
-                    // The widget is rendered.
-                    // Hide the loader.
-                    document.getElementById('loader').style.display = 'none';
+                    uiShown: function () {
+                        // The widget is rendered.
+                        // Hide the loader.
+                        document.getElementById('loader').style.display = 'none';
                     }
                 },
                 // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
@@ -72,12 +87,13 @@
                 tosUrl: 'main.html',
                 // Privacy policy url.
                 privacyPolicyUrl: 'main.html'
-                };
+            };
 
-                // The start method will wait until the DOM is loaded.
+            // The start method will wait until the DOM is loaded.
 
             ui.start('#firebaseui-auth-container', uiConfig);
-					
         </script>
-    </body>
+    </div>
+
+</body>
 </html>

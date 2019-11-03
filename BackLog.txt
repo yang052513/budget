@@ -1,7 +1,10 @@
 Back Log
 
+2019.11.2 Saturday
+- Created the landing page (index.html)
+- Footer, social media link, and section 3 background image need to change
 
 2019.11.1 Friday
-Created the login page with css
-Background image might need change
-Add logo(black) above the email address
+- Created the login page with css (mobile version)
+- Background image might need change
+- Add logo(black) above the email address
