@@ -16,27 +16,6 @@ body {
 	background-attachment: fixed;
 }
 
-#nav-bar {
-	height: 3.0rem;
-}
-
-#nav-bar ul {
-	padding-top: 1.0rem;	
-}
-
-#nav-bar li {
-	color: rgb(255, 255, 255);
-	list-style-type: none;
-	display: inline;
-	padding-left: 2.5rem;
-	font-size: 1.0rem;
-	font-family: 'Open Sans', sans-serif;
-}
-
-#nav-bar a {
-	text-decoration: none;
-	color: rgb(255, 255, 255);
-}
 
 /* Login card with glass effect DISABLED */
 /* .mdl-card {
