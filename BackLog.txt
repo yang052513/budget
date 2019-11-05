@@ -1,5 +1,8 @@
 Back Log
 
+2019.11.3 Monday
+- Updated contact page mobile version
+
 2019.11.2 Saturday
 - Created the landing page (index.html) desktop version**
 - Footer, social media link, and section 3 background image need to change
