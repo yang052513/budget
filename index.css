@@ -10,7 +10,7 @@ body {
     height: 100%;
     grid-gap: 0px;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 45rem 40rem 40rem 10rem;
+    grid-template-rows: 45rem 40rem 40rem 18rem 3rem;
 }
 
 /* Section One  */
@@ -27,7 +27,7 @@ body {
     font-size: 12em;
     color: white;
     padding-left: 0.5em;
-    padding-top: 0.5em;
+    padding-top: 0.25em;
 }
 
 #subtitle {
@@ -36,6 +36,19 @@ body {
     padding-left: 4.5em;
 }
 
+.nav-bar li{
+    margin-left: 45px;
+    padding-top: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-bar li:hover {
+    color: rgb(33, 176, 138);
+    user-select: none;
+    border-bottom: 3px solid rgb(33, 176, 138);
+}
 
 /* Section Two  */
 #section-2 {
@@ -195,26 +208,39 @@ li {
 /* Section Four  */
 #section-4 {
     grid-column: 1/13;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(61, 186, 208);
+    color: rgb(255, 255, 255);
+    padding-top: 25px;
 
 }
 
-.socialmedia-icon-wrap {
-    position: relative;
-    float: left;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.section4-inner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.section4-column1 {
+    padding-left: 130px;
+
+}
+
+.section4-column2 {
+    text-align: center;
+
+}
+
+.section4-column3 p+h4{
+    padding: 10px 10px 10px 10px;
+    line-height: 1.5em;
 }
 
 .fa {
     padding: 20px;
-    font-size: 10px;
-    width: 15px;
+    font-size: 15px;
+    width: 10px;
+    height: 10px;
     text-align: center;
     text-decoration: none;
     margin: 5px 20px;
-    border-radius: 50%;
 }
 
 .fa:hover {
@@ -231,25 +257,28 @@ li {
     color: white;
 }
 
-.fa-youtube {
-    background: #bb0000;
-    color: white;
-}
-
 .fa-instagram {
     background: #125688;
     color: white;
 }
 
-
-.fa-snapchat-ghost {
-    background: #fffc00;
-    color: white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-
 .fa-reddit {
     background: #ff5700;
     color: white;
 }
+
+/* Section 5 */
+#section-5 {
+    grid-column: 1/13;
+    background-color: rgb(41, 41, 41);
+}
+
+.section5-inner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;;
+    text-align: center;
+    padding-top: 15px;
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+}
+

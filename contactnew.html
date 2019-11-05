@@ -1,30 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="contact.css" />
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="contactnew.css" />
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Contact</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="section-1">
-            <div class="intro-wrap">
-                <img src="resource/contact-bg.jpg" style="width:100%">
-                <p class="caption">CONTACT US</p>
-                <p class="caption-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor
-                    incididunt ut labore et dolore magna aliqua. </p>
+        <!-- Section 1: Intro Part -->
+        <div class="section1">
+            <div class="nav-bar-grid">
+                <div class="nav-bar">
+                    <ul>
+                        <li>HOME</li>
+                        <li>ABOUT US</li>
+                        <li>SETTINGS</li>
+                        <li>CONTACTS</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <img src="resource/menu-icon.png" width="25px" height="25px">
             </div>
         </div>
 
-        <div class="section-2">
-            <div style="text-align:center">
-                <h2>Contact Us</h2>
-            </div>
-
+        <!-- Section 2: Form Part -->
+        <div class="section2">
+            <h2>Contact Us</h2>
             <div class="form-wrap">
                 <form action="index.html">
                     <label for="fname">First Name</label>
@@ -293,12 +301,39 @@
                     <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"
                         required></textarea>
                     <div class="submit-button">
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Submit" class="submit-button">
                     </div>
+                    <br>
+                    <br>
                 </form>
             </div>
         </div>
-    </div>
+
+        <div class="section-3">
+            <div class="section3-inner-grid">
+                <div class="section3-column1">
+                    <h4>CONTACT US</h4>
+                    <p>STERKRADER STR 49-59</p>
+                    <p>TURM 13, 13507 BERLIN</p>
+                    <p>E-MAIL: INFO@TEAM22.CA</p>
+                </div>
+                <div class="section3-column2">
+                    <div class="socialmedia-icon-wrap">
+                        <a href="http://www.facebook.ca" class="fa fa-facebook"></a>
+                        <a href="http://www.twitter.ca" class="fa fa-twitter"></a>
+                        <a href="http://www.instagram.ca" class="fa fa-instagram"></a>
+                        <a href="http://www.reddit.ca" class="fa fa-reddit"></a>
+                    </div>
+                </div>
+                <div class="section3-column3">
+                    <h4>ABOUT BUDGET</h4>
+                    <p>Budget is the program that built by team 22 2019 Fall term 1 studengt, the
+                        app is to help users to track their expenses and achieve financial well being
+                    </p>
+
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
