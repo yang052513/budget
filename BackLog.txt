@@ -1,5 +1,9 @@
 Back Log
 
+
+2019.11.5 Tuesday
+- Index page, login page, contact page (mobile and desktop) done *****
+
 2019.11.3 Monday
 - Updated contact page mobile version
 
