@@ -43,18 +43,21 @@ body {
 	background: #42a5f5;
 }
 
-/* On screens that are 400px or less */
-@media screen and (max-width: 420px) {
+/* On screens that are 420px or less */
+@media screen and (max-width: 800px) {
 * {
   padding: 0;
   margin: 0;
 }
-#container{
-	background-image: url("resource/loginIMG.jpg");
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	background-position: center;
-}
+
+html { 
+	background: url("../resource/loginIMG.jpg") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+  }
+
 }
 
 
