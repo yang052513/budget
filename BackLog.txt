@@ -1,6 +1,9 @@
 Back Log
 
 
+2019.11.9 Saturday
+- Home page transition (create expense flow) done
+
 2019.11.5 Tuesday
 - Index page, login page, contact page (mobile and desktop) done *****
 
