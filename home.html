@@ -194,21 +194,38 @@
     <div id="setup-budget">
         <div id="setup-budget-content">
             <p class="budget-modal-title">Enter your budget</p>
-            <div class="cancel-budget-btn"><img src ="resource/close.png" class="budget-cancel" width="50px" heigh="50px"></div>
+            <div class="cancel-budget-btn"><img src="resource/close.png" class="budget-cancel" width="50px"
+                    heigh="50px"></div>
             <input type="number" id="user-budget" name="budget" required onfocus="this.value=''">
-            <button id="submit-budget-btn">Save</button>
+            <div class="setup-btn-wrap">
+                <button id="submit-budget-btn">Save</button>
+                <button id="mob-cancel-btn">Cancel</button>
+            </div>
         </div>
     </div>
     <!-- Set the budget number modal -->
 
+    <!-- Other info pop up menu modal -->
+    <div id="other-menu-modal">
+        <div id="other-menu-modal-content">
+            <div class="other-close-btn"><img id="close-modal-btn" src="resource/close-menu.png" width="40px"
+                    height="40px"></div>
+            <div class="other-menu-link">
+                <h4><a href="about.html">About Us</a></h4>
+                <h4><a href="contact.html">Contact Page</a></h4>
+                <h4><a href="process.html">Our Project</a></h4>
+            </div>
+        </div>
+    </div>
+    <!-- Other info pop up menu modal -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="JS/home.js"></script>
     <script src="JS/foopicker.js"></script>
     <script>
         var foopicker = new FooPicker({
-          id: 'datepicker'
+            id: 'datepicker'
         });
-      </script>
+    </script>
 </body>
 
 </html>

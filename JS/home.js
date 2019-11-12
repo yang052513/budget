@@ -184,7 +184,7 @@ $(document).ready(function () {
 
         //Update the percentage
         var updatePercent = (1 - (expenseTotal / budgetStore)) * 100;
-        $(".budget_percent_num").html(updatePercent + "%");
+        $(".budget_percent_num").html(Math.round(updatePercent) + "%");
     });
     
     //Open up the budget setup modal
@@ -208,6 +208,31 @@ $(document).ready(function () {
     //Manually close the budget window
     $(".budget-cancel").click(function() {
         $("#setup-budget").fadeOut();
+    });
+
+    $("#mob-cancel-btn").click(function() {
+        $("#setup-budget").fadeOut();
+    });
+
+    //Open the other menu widndow
+    var otherSlideIn= {
+        "margin-top": "0",
+        "easing": "swing",
+        "opacity": "1"
+    };
+
+    var otherSlideOut= {
+        "margin-top": "-100%",
+        "easing": "swing",
+        "opacity": "0"
+    };
+    
+    $("#other-icon").click(function() {
+        $("#other-menu-modal").animate(otherSlideIn, 1000);
+    });
+
+    $("#close-modal-btn").click(function() {
+        $("#other-menu-modal").animate(otherSlideOut, 1000);
     });
 
 });
