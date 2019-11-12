@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="CSS/home.css" />
+    <link rel="stylesheet" href="CSS/foopicker.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+
     <title>Home Page</title>
 </head>
 
@@ -38,7 +40,7 @@
     <!-- Time line section  -->
     <div class="timeline-line"></div>
     <div class="timeline-container">
-        
+
         <div class="timeline-block timeline-block-right">
             <div class="marker"></div>
             <div class="timeline-content">
@@ -47,7 +49,7 @@
                 <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste odit illum
                     laborum
                 </p>
-            </div>   
+            </div>
         </div>
 
         <div class="timeline-block timeline-block-left">
@@ -96,14 +98,14 @@
     <div class="mob-nav-bar">
         <div class="mob-grid">
             <div class="mob-col-1">
-                <img class="mob-nav-icon" id="home-icon" src="resource/home-icon.png" width="35px" height="35px">
+                <img class="mob-nav-icon" id="home-icon" src="resource/purse-icon.png" width="35px" height="35px">
 
             </div>
             <div class="mob-col-2">
-                <img class="mob-nav-icon" id="create-icon" src="resource/mob-plus-icon.png" width="35px" height="35px">
+                <img class="mob-nav-icon" id="create-icon" src="resource/mob-plus-icon2.png" width="35px" height="35px">
             </div>
             <div class="mob-col-3">
-                <img class="mob-nav-icon" id="other-icon" src="resource/other-icon.png" width="30px" height="32px">
+                <img class="mob-nav-icon" id="other-icon" src="resource/menu-icon.png" width="30px" height="32px">
             </div>
         </div>
     </div>
@@ -171,8 +173,8 @@
         <div class="section-title">Enter</div>
         <div class="enter-wrap">
             <div class="enter-grid">
-                <label for="date-field">Date</label>
-                <input type="text" id="date-field" name="date" required onfocus="this.value=''">
+                <label for="datepicker">Date</label>
+                <input type="text" id="datepicker" name="date" value="28-Jun-2019" required>
 
                 <label for="amount-field">Amount</label>
                 <input type="text" id="amount-field" name="amount" required onfocus="this.value=''">
@@ -192,6 +194,7 @@
     <div id="setup-budget">
         <div id="setup-budget-content">
             <p class="budget-modal-title">Enter your budget</p>
+            <div class="cancel-budget-btn"><img src ="resource/close.png" class="budget-cancel" width="50px" heigh="50px"></div>
             <input type="number" id="user-budget" name="budget" required onfocus="this.value=''">
             <button id="submit-budget-btn">Save</button>
         </div>
@@ -200,6 +203,12 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="JS/home.js"></script>
+    <script src="JS/foopicker.js"></script>
+    <script>
+        var foopicker = new FooPicker({
+          id: 'datepicker'
+        });
+      </script>
 </body>
 
 </html>

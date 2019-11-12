@@ -7,6 +7,11 @@
 body {
     margin: 0;
     padding: 0;
+    background: url("../resource/main-BG2.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 /** Header section */
@@ -16,7 +21,7 @@ body {
     margin-top: 25px;
     font-family: 'Quicksand', sans-serif;
     font-size: 45px;
-    color: rgb(10, 118, 157)
+    color: rgb(6, 82, 109);
 }
 
 .budget-container {
@@ -139,11 +144,13 @@ body {
     z-index: 1;
 }
 
+
 .timeline-content {
     width: 95%;
     padding: 0 15px;
     color: #666;
-    background-color: rgb(142, 209, 233, 0.3);
+    background-color: rgb(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .category {
@@ -202,6 +209,19 @@ body {
     transform: translate(-50%, -50%);
     border-radius: 25px;
     text-align: center;  
+}
+
+.cancel-budget-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.budget-cancel {
+    width: 3vw;
+    height: 3vw;
 }
 
 .budget-modal-title {

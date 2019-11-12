@@ -140,7 +140,7 @@ $(document).ready(function () {
         $("body").css("overflow", "auto");
         
         //Retrive value from the input type
-        userExpense.date = document.getElementById('date-field').value;
+        userExpense.date = document.getElementById('datepicker').value;
         userExpense.amount = document.getElementById('amount-field').value;
         userExpense.note = document.getElementById('note-field').value;
         expenseList.push(userExpense.amount);
@@ -203,6 +203,11 @@ $(document).ready(function () {
             $("#setup-budget").fadeOut();
             budgetStore = userInput;
         }
+    });
+
+    //Manually close the budget window
+    $(".budget-cancel").click(function() {
+        $("#setup-budget").fadeOut();
     });
 
 });
