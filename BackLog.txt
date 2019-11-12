@@ -1,5 +1,7 @@
 Back Log
 
+2019.11.11 Monday
+- Finish basic javascript function for home page
 
 2019.11.9 Saturday
 - Home page transition (create expense flow) done

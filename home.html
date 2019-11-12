@@ -38,7 +38,7 @@
     <!-- Time line section  -->
     <div class="timeline-line"></div>
     <div class="timeline-container">
-
+        
         <div class="timeline-block timeline-block-right">
             <div class="marker"></div>
             <div class="timeline-content">
@@ -47,7 +47,7 @@
                 <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste odit illum
                     laborum
                 </p>
-            </div>
+            </div>   
         </div>
 
         <div class="timeline-block timeline-block-left">
@@ -113,47 +113,47 @@
     <div id="slideShow">
         <div class="section-title">CATEGORY</div>
         <div class="category-grid">
-            <div class="category-card">
+            <div class="category-card" id="food-card">
                 <img class="category-icon" src="resource/Category/food-icon.jpg" alt="food" width="50px" height="50px">
                 <p class="category-caption">Food</p>
             </div>
 
-            <div class="category-card">
+            <div class="category-card" id="health-card">
                 <img class="category-icon" src="resource/Category/health-icon.png" alt="health" width="50px"
                     height="50px">
                 <p class="category-caption">Health</p>
             </div>
 
-            <div class="category-card">
+            <div class="category-card" id="auto-card">
                 <img class="category-icon" src="resource/Category/auto-icon.png" alt="auto" width="50px" height="50px">
                 <p class="category-caption">Autos</p>
             </div>
 
-            <div class="category-card">
+            <div class="category-card" id="shopping-card">
                 <img class="category-icon" src="resource/Category/shopping-icon.jpg" alt="shopping" width="50px"
                     height="50px">
                 <p class="category-caption">Clothes</p>
             </div>
 
-            <div class="category-card">
+            <div class="category-card" id="sport-card">
                 <img class="category-icon" src="resource/Category/sports-icon.png" alt="sport" width="50px"
                     height="50px">
                 <p class="category-caption">Sports</p>
             </div>
 
-            <div class="category-card">
+            <div class="category-card" id="education-card">
                 <img class="category-icon" src="resource/Category/education-icon.jpg" alt="education" width="50px"
                     height="50px">
                 <p class="category-caption">Education</p>
             </div>
 
-            <div class="category-card">
+            <div class="category-card" id="bill-card">
                 <img class="category-icon" src="resource/Category/bills-icon.png" alt="bills" width="50px"
                     height="50px">
                 <p class="category-caption">Bills</p>
             </div>
 
-            <div class="category-card">
+            <div class="category-card" id="other-card">
                 <img class="category-icon" src="resource/Category/other-icon.jpg" alt="other" width="50px"
                     height="50px">
                 <p class="category-caption">Others</p>
@@ -162,7 +162,6 @@
 
         <div class="category-btn-wrap">
             <button id="cancel-btn" class="category-btn">Cancel</button>
-            <button id="next-btn" class="category-btn">Next</button>
         </div>
     </div>
     <!-- Category Slide in Ends -->
@@ -173,13 +172,13 @@
         <div class="enter-wrap">
             <div class="enter-grid">
                 <label for="date-field">Date</label>
-                <input type="text" id="date-field" name="date" required>
+                <input type="text" id="date-field" name="date" required onfocus="this.value=''">
 
                 <label for="amount-field">Amount</label>
-                <input type="text" id="amount-field" name="amount" required>
+                <input type="text" id="amount-field" name="amount" required onfocus="this.value=''">
 
-                <label for="detail-field">Details</label>
-                <input type="text" id="detail-field" name="detail" required>
+                <label for="note-field">Details</label>
+                <input type="text" id="note-field" name="detail" required onfocus="this.value=''">
             </div>
         </div>
         <div class="enter-btn-wrap">
@@ -188,6 +187,16 @@
         </div>
     </div>
     <!-- Slide in Details Page Ends -->
+
+    <!-- Set the budget number modal -->
+    <div id="setup-budget">
+        <div id="setup-budget-content">
+            <p class="budget-modal-title">Enter your budget</p>
+            <input type="number" id="user-budget" name="budget" required onfocus="this.value=''">
+            <button id="submit-budget-btn">Save</button>
+        </div>
+    </div>
+    <!-- Set the budget number modal -->
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="JS/home.js"></script>
