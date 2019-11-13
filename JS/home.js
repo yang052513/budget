@@ -60,8 +60,18 @@ $(document).ready(function () {
 
     //Expense Details Slide in: open category page
     $("#create-icon").click(function () {
+        //if budget is 0 an d trying to create new expense: throw error
+        if (budgetStore == 0) {
+            $("#nobudget-modal").fadeIn();
+        } else {
         $("#slideShow").animate(slideIn, 1000);
         $("body").css("overflow", "hidden");
+        }
+    });
+
+    //Open up the budget setup modal
+    $("#home-icon").click(function () {
+        $("#setup-budget").fadeIn();
     });
 
     //Expense Details Slide out: return to home page
@@ -85,7 +95,7 @@ $(document).ready(function () {
     };
 
     //Choose category event: open expense fill info page
-    $(".category-card").click(function () {
+    $(".category-card").click(function () {   
         $("#enter-slide").animate(infoSlideIn, 1000);
         $("body").css("overflow", "hidden");
     });
@@ -179,19 +189,22 @@ $(document).ready(function () {
         for (var i in expenseList) {
             expenseTotal += (1 * expenseList[i]);
         }
+
         //Write the new expenses
         $(expenseControl).html("$" + (expenseTotal));
 
         //Update the percentage
         var updatePercent = (1 - (expenseTotal / budgetStore)) * 100;
+
+        var water = $(".water");
+        var calPercent = updatePercent *(-1);
+        var waveHeight = calPercent + 88;
+
+        $(water).css({"transform":"translateY(" + waveHeight + "%)"});
+
         $(".budget_percent_num").html(Math.round(updatePercent) + "%");
     });
     
-    //Open up the budget setup modal
-    $("#home-icon").click(function () {
-        $("#setup-budget").fadeIn();
-    });
-
     //Set the budet number
     var budgetStore = 0;
     $("#submit-budget-btn").click(function () {
@@ -203,6 +216,12 @@ $(document).ready(function () {
             $("#setup-budget").fadeOut();
             budgetStore = userInput;
         }
+    });
+
+    //Direct to the setting budget function
+    $("#setup-btn-error").click(function() {
+        $("#setup-budget").fadeIn();
+        $("#nobudget-modal").fadeOut();
     });
 
     //Manually close the budget window

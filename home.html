@@ -30,9 +30,11 @@
     <!-- Budget and expense value store -->
 
     <!-- Percentage of budget section  -->
-
-    <div class="circle-shape">
-        <div class="budget_percent_num">100%</dv>
+    <div class="wave-fill">
+        <div class="budget_percent_num">100%</div>
+        <div class="water">
+            <span class="wave"></span>
+            <span class="deep-water"></span>
         </div>
     </div>
     <!-- Percentage of budget section  -->
@@ -52,6 +54,7 @@
             </div>
         </div>
 
+        <!-- Delete later -->
         <div class="timeline-block timeline-block-left">
             <div class="marker"></div>
             <div class="timeline-content">
@@ -91,7 +94,9 @@
                     cupiditate!</p>
             </div>
         </div>
+        <!-- Delete later -->
     </div>
+
     <!-- Time line section ends -->
 
     <!-- Mobile Version Nav Bar -->
@@ -218,6 +223,20 @@
         </div>
     </div>
     <!-- Other info pop up menu modal -->
+
+    <!-- No Budget Error -->
+    <div id="nobudget-modal">
+        <div id="nobudget-modal-content">
+            <!-- <div id="cancel-nobudget-btn"><img src="resource/close.png" width="30px" heigh="30px"></div> -->
+            <div class="nobudget-wrap">
+                <img src="resource/question-emoji-blue.png" width="80px" height="80px">
+                <p>Running on a debt?</p>
+                <button id="setup-btn-error">set my budget</button>
+            </div>
+        </div>
+    </div>
+    <!-- No Budget Error -->
+    
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="JS/home.js"></script>
     <script src="JS/foopicker.js"></script>

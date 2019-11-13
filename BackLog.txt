@@ -1,5 +1,8 @@
 Back Log
 
+2019.11.12 Tuesday
+- Water wave animation done
+
 2019.11.11 Monday
 - Finish basic javascript function for home page
 

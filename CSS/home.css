@@ -7,12 +7,13 @@
 body {
     margin: 0;
     padding: 0;
-    background: url("../resource/main-BG2.jpg") no-repeat center center fixed; 
+    background: url("../resource/main-BG3.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
+
 
 /** Header section */
 #header-wrap {
@@ -45,21 +46,53 @@ body {
 }
 
 /** Percentage Section Animation*/
-.circle-shape {
-    background-color: rgb(139, 203, 227);
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin: 0 auto;
-}
-
 .budget_percent_num {
-    text-align: center;
-    vertical-align: middle;
+    position: absolute;
     line-height: 200px;
     font-size: 50px;
     font-family: 'Raleway', sans-serif;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 }
+
+.wave-fill {
+    margin: 0 auto;
+    height: 200px;
+    width: 200px;
+    background: rgb(255, 255, 255, 0.1);
+    -webkit-mask-image: url("/resource/test.png");
+    -webkit-mask-size: contain;
+    position: relative;
+  }
+
+span {
+    display: block;
+    width: 100%;
+  }
+
+  .wave {
+    background: url("/resource/wave-3.png");
+    height: 22px;
+    background-size: contain;
+    animation: wave 10s linear infinite;
+  }
+
+  .deep-water {
+    background: #64c6f3;
+    height: 200px;
+  }
+  
+  @keyframes wave {
+    from {
+      background-position: 0px 0px;
+    }
+    to {
+      background-position: 1000px 0px;
+    }
+  }
+
 
 /** Mobile nav bar stying */
 .mob-nav-bar {
@@ -270,6 +303,59 @@ body {
 
 }
 
+/** No budget error modal */
+#nobudget-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 5;
+    display: none;
+}
+
+#nobudget-modal-content {
+    background-color: white;
+    width: 400px;
+    height: 200px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    text-align: center; 
+}
+
+.nobudget-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#setup-btn-error {
+    border-radius: 30px;
+    width: 150px;
+    height: 40px;
+    font-size: 15px;
+    font-family: 'Quicksand', sans-serif;
+    border: 1px solid rgb(34, 146, 187);
+}
+
+#setup-btn-error:hover {
+    color:white;
+    background-color: rgb(34, 146, 187);
+}
+
+#cancel-nobudget-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
 /* Category Page Styling */
 #slideShow {
     background-color: rgba(255, 255, 255);
@@ -329,8 +415,8 @@ body {
 }
 
 #cancel-btn:hover {
-    color: rgb(255, 111, 111);
-    /** For testing, change later */
+    color: rgb(255, 255, 255);
+    background-color: rgb(34, 146, 187);
 }
 
 #cancel-btn {
@@ -391,13 +477,14 @@ label {
 }
 
 #back-btn:hover {
-    color: rgb(255, 111, 111);
-    /** For testing, change later */
+    color: rgb(255, 255, 255);
+    background-color: rgb(34, 146, 187);  
 }
 
 #save-btn:hover {
-    color: rgb(255, 111, 111);
-    /** For testing, change later */
+   background-color: white;
+   border: 1px solid rgb(34, 146, 187);
+   color: rgb(34, 146, 187);
 }
 
 #save-btn {
