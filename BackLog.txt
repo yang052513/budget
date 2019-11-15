@@ -1,5 +1,9 @@
 Back Log
 
+2019.11.14 
+- Fix expense > budget
+- About us page done
+
 2019.11.12 Tuesday
 - Water wave animation done
 

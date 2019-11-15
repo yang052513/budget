@@ -103,7 +103,7 @@ span {
     left: 0;
     bottom: 0;
     border-top: 1px solid black;
-    z-index: 5;
+    z-index: 2;
 }
 
 .mob-grid {
@@ -222,7 +222,7 @@ span {
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 5;
+    z-index: 3;
     display: none;
 }
 
@@ -311,7 +311,7 @@ span {
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 5;
+    z-index: 3;
     display: none;
 }
 
