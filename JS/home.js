@@ -3,14 +3,14 @@ $(document).ready(function () {
     //Create new expense function
     class Expense {
         constructor(category, amount, date, note) {
-        this.newCategory = category;
-        this.newAmount = amount;
-        this.newDate = date;
-        this.newNote = note;
+            this.newCategory = category;
+            this.newAmount = amount;
+            this.newDate = date;
+            this.newNote = note;
         }
 
         set category(category) {
-            this.newCategory =category;
+            this.newCategory = category;
         }
 
         get category() {
@@ -64,8 +64,8 @@ $(document).ready(function () {
         if (budgetStore == 0) {
             $("#nobudget-modal").fadeIn();
         } else {
-        $("#slideShow").animate(slideIn, 1000);
-        $("body").css("overflow", "hidden");
+            $("#slideShow").animate(slideIn, 1000);
+            $("body").css("overflow", "hidden");
         }
     });
 
@@ -95,7 +95,7 @@ $(document).ready(function () {
     };
 
     //Choose category event: open expense fill info page
-    $(".category-card").click(function () {   
+    $(".category-card").click(function () {
         $("#enter-slide").animate(infoSlideIn, 1000);
         $("body").css("overflow", "hidden");
     });
@@ -132,7 +132,7 @@ $(document).ready(function () {
     $("#other-card").click(function () {
         userExpense.category = "Other: $";
     });
-    
+
     //go back to category page
     $("#back-btn").click(function () {
         $("#enter-slide").animate(infoSlideOut, 1000);
@@ -140,50 +140,18 @@ $(document).ready(function () {
 
     //save the new expense: return to home page
     var flag = false;
-    
+
     var expenseControl = $("#expense_store");
     var expenseList = [];
 
     $("#save-btn").click(function () {
-        $("#enter-slide").animate(infoSlideOut, 1000);
-        $("#slideShow").animate(slideOut, 500);
-        $("body").css("overflow", "auto");
-        
+
         //Retrive value from the input type
         userExpense.date = document.getElementById('datepicker').value;
         userExpense.amount = document.getElementById('amount-field').value;
         userExpense.note = document.getElementById('note-field').value;
         expenseList.push(userExpense.amount);
 
-        //Create new Time line Block
-        var newTimeLineBlock = $("<div></div>");
-
-        if(!flag) {
-            flag = true;
-            $(newTimeLineBlock).addClass("timeline-block timeline-block-left");
-        } else {
-            flag = false;
-            $(newTimeLineBlock).addClass("timeline-block timeline-block-right");
-        }
-
-        var newMarker = $("<div class=marker></div>");
-        var newTimeLineContent = $("<div class=timeline-content></div>");
-        
-        //Create new Timeline details
-        var newTimeLineTitle = $("<h3 class=category></h3>");
-        newTimeLineTitle.append(userExpense.category, userExpense.amount);
-
-        var newTimeLineDate = $("<span class=date></span>");
-        newTimeLineDate.append(userExpense.date);
-
-        var newTimeLineNote = $("<p class=description></p>");
-        newTimeLineNote.append(userExpense.note);
-
-        newTimeLineContent.append(newTimeLineTitle,newTimeLineDate,newTimeLineNote );
-        newTimeLineBlock.append(newMarker, newTimeLineContent);
-
-        $(".timeline-container").prepend(newTimeLineBlock);
-        
         //Update expenses
         var expenseTotal = 0;
         for (var i in expenseList) {
@@ -191,20 +159,69 @@ $(document).ready(function () {
         }
 
         //Write the new expenses
-        $(expenseControl).html("$" + (expenseTotal));
+        if (expenseTotal > budgetStore) {
+            //Open up the alert modal
+            $("#expense-error-modal").css("display", "flex");
+            $("#setup-btn-expense").click(function () {
+                $("#expense-error-modal").css("display", "none");  
+            });
+            expenseList.pop();  //remove the last value
+        } else {
+            //Create new Time line Block
+            var newTimeLineBlock = $("<div></div>");
 
-        //Update the percentage
-        var updatePercent = (1 - (expenseTotal / budgetStore)) * 100;
+            if (!flag) {
+                flag = true;
+                $(newTimeLineBlock).addClass("timeline-block timeline-block-left");
+            } else {
+                flag = false;
+                $(newTimeLineBlock).addClass("timeline-block timeline-block-right");
+            }
 
-        var water = $(".water");
-        var calPercent = updatePercent *(-1);
-        var waveHeight = calPercent + 88;
+            var newMarker = $("<div class=marker></div>");
+            var newTimeLineContent = $("<div class=timeline-content></div>");
 
-        $(water).css({"transform":"translateY(" + waveHeight + "%)"});
+            //Create new Timeline details
+            var newTimeLineTitle = $("<h3 class=category></h3>");
+            newTimeLineTitle.append(userExpense.category, userExpense.amount);
 
-        $(".budget_percent_num").html(Math.round(updatePercent) + "%");
+            var newTimeLineDate = $("<span class=date></span>");
+            newTimeLineDate.append(userExpense.date);
+
+            var newTimeLineNote = $("<p class=description></p>");
+            newTimeLineNote.append(userExpense.note);
+
+            newTimeLineContent.append(newTimeLineTitle, newTimeLineDate, newTimeLineNote);
+            newTimeLineBlock.append(newMarker, newTimeLineContent);
+
+            $(".timeline-container").prepend(newTimeLineBlock);
+
+            //write the new expense
+            $(expenseControl).html("$" + (expenseTotal));
+
+            //Update the percentage
+            var updatePercent = (1 - (expenseTotal / budgetStore)) * 100;
+            
+            var budgetController = budgetStore;
+            budgetController -= expenseTotal;
+            console.log("show expnese" + expenseList);
+            
+            var water = $(".water");
+            var calPercent = updatePercent * (-1);
+            var waveHeight = calPercent + 88;
+
+            $(water).css({
+                "transform": "translateY(" + waveHeight + "%)"
+            });
+
+            $(".budget_percent_num").html(updatePercent.toFixed(1) + "%");
+
+            $("#enter-slide").animate(infoSlideOut, 1000);
+            $("#slideShow").animate(slideOut, 500);
+            $("body").css("overflow", "auto");
+        }
     });
-    
+
     //Set the budet number
     var budgetStore = 0;
     $("#submit-budget-btn").click(function () {
@@ -219,38 +236,38 @@ $(document).ready(function () {
     });
 
     //Direct to the setting budget function
-    $("#setup-btn-error").click(function() {
+    $("#setup-btn-error").click(function () {
         $("#setup-budget").fadeIn();
         $("#nobudget-modal").fadeOut();
     });
 
     //Manually close the budget window
-    $(".budget-cancel").click(function() {
+    $(".budget-cancel").click(function () {
         $("#setup-budget").fadeOut();
     });
 
-    $("#mob-cancel-btn").click(function() {
+    $("#mob-cancel-btn").click(function () {
         $("#setup-budget").fadeOut();
     });
 
     //Open the other menu widndow
-    var otherSlideIn= {
+    var otherSlideIn = {
         "margin-top": "0",
         "easing": "swing",
         "opacity": "1"
     };
 
-    var otherSlideOut= {
+    var otherSlideOut = {
         "margin-top": "-100%",
         "easing": "swing",
         "opacity": "0"
     };
-    
-    $("#other-icon").click(function() {
+
+    $("#other-icon").click(function () {
         $("#other-menu-modal").animate(otherSlideIn, 1000);
     });
 
-    $("#close-modal-btn").click(function() {
+    $("#close-modal-btn").click(function () {
         $("#other-menu-modal").animate(otherSlideOut, 1000);
     });
 
