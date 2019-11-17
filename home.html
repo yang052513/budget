@@ -39,62 +39,16 @@
     </div>
     <!-- Percentage of budget section  -->
 
+
+    <!-- Welcome user name -->
+    <div id="welcome-user">Hi, <span id="user-name">Yang</span></div>
+    <!-- Welcome user name -->
+
+
     <!-- Time line section  -->
     <div class="timeline-line"></div>
     <div class="timeline-container">
-
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h3 class="category">Food: <span class="amount">$25</span></h3>
-                <span class="date">Nov 8, 2019</span>
-                <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste odit illum
-                    laborum
-                </p>
-            </div>
-        </div>
-
-        <!-- Delete later -->
-        <div class="timeline-block timeline-block-left">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h3 class="category">Education: <span class="amount">$300</span></h3>
-                <span class="date">Nov 8, 2019</span>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, nostrum
-                    cupiditate!</p>
-            </div>
-        </div>
-
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h3 class="category">Education: <span class="amount">$300</span></h3>
-                <span class="date">Nov 8, 2019</span>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, nostrum
-                    cupiditate!</p>
-            </div>
-        </div>
-
-        <div class="timeline-block timeline-block-left">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h3 class="category">Education: <span class="amount">$300</span></h3>
-                <span class="date">Nov 8, 2019</span>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, nostrum
-                    cupiditate!</p>
-            </div>
-        </div>
-
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h3 class="category">Education: <span class="amount">$300</span></h3>
-                <span class="date">Nov 8, 2019</span>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, nostrum
-                    cupiditate!</p>
-            </div>
-        </div>
-        <!-- Delete later -->
+        
     </div>
 
     <!-- Time line section ends -->
@@ -256,6 +210,36 @@
         var foopicker = new FooPicker({
             id: 'datepicker'
         });
+    </script>
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+   https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCNtxFAdwe3ZKlLPgAzdjONa4qvkt0Mv48",
+            authDomain: "comp1930-inclass.firebaseapp.com",
+            databaseURL: "https://comp1930-inclass.firebaseio.com",
+            projectId: "comp1930-inclass",
+            storageBucket: "comp1930-inclass.appspot.com",
+            messagingSenderId: "414200644411",
+            appId: "1:414200644411:web:517d703b463b197451ed1e",
+            measurementId: "G-FDMTKKWKHP"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        
     </script>
 </body>
 

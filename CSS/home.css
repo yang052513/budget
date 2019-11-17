@@ -93,6 +93,17 @@ span {
     }
   }
 
+/* Welcome user container */
+#welcome-user {
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+#user-name {
+    display: inline;
+}
 
 /** Mobile nav bar stying */
 .mob-nav-bar {

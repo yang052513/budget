@@ -32,6 +32,8 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
+        var db = firebase.firestore();
+
     </script>
     <link rel="stylesheet" href="CSS/login.css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
@@ -40,7 +42,6 @@
 <body>
     <!--			Login Part-->
     <div id="container">
-        
         <div id="firebaseui-auth-container"></div>
         <div id="loader">Loading...</div>
 
@@ -64,7 +65,7 @@
                 },
                 // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
                 signInFlow: 'popup',
-                signInSuccessUrl: 'main.html',
+                signInSuccessUrl: 'home.html',
                 signInOptions: [
                     // Leave the lines as is for the providers you want to offer your users.
                     // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -75,9 +76,9 @@
                     // firebase.auth.PhoneAuthProvider.PROVIDER_ID
                 ],
                 // Terms of service url.
-                tosUrl: 'main.html',
+                tosUrl: 'home.html',
                 // Privacy policy url.
-                privacyPolicyUrl: 'main.html'
+                privacyPolicyUrl: 'home.html'
             };
 
             // The start method will wait until the DOM is loaded.

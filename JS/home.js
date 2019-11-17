@@ -1,4 +1,82 @@
 $(document).ready(function () {
+    var db = firebase.firestore();
+
+    // if the current user logged in user
+    // is authenticated, then grab "uid" "displayName" and "email"
+    // use "set()" with merge (if document did not exist it will be created)   
+    function createUser() {
+        firebase.auth().onAuthStateChanged(function (user) {
+            db.collection("user")
+                .doc(user.uid)
+                .set({
+                    "name": user.displayName,
+                    "email": user.email,
+                }, {
+                    merge: true
+                });
+
+            //Get user name displayed
+            db.collection("user").doc(user.uid).onSnapshot(function (snap) {
+                document.getElementById("user-name").innerHTML = snap.data().name;
+            });
+
+            //Get user stored budget
+            db.collection("user").doc(user.uid).onSnapshot(function (snap) {
+                document.getElementById("budget_store").innerHTML = "$" + snap.data().BudgetStore;
+                document.getElementById("expense_store").innerHTML = "$" + snap.data().ExpenseStore;
+                $(".budget_percent_num").html(snap.data().PercentStore + "%");
+                $(".water").css({
+                    "transform": "translateY(" + snap.data().WaveHeight + "%)"
+                });
+            });
+
+            var oldFlag = false;
+            db.collection("user").doc(user.uid).collection("Expense")
+                .get() //get collection of documents
+                .then(function (snap) {
+                    snap.forEach(function (doc) { //iterate thru collection
+                        var oldCategory = doc.data().Category;
+                        var oldDate = doc.data().Date;
+                        var oldValue = doc.data().Value;
+                        var oldNote = doc.data().Description;
+
+                        //Create new Time line Block
+                        var oldTimeLineBlock = $("<div></div>");
+
+                        if (!oldFlag) {
+                            oldFlag = true;
+                            $(oldTimeLineBlock).addClass("timeline-block timeline-block-left");
+                        } else {
+                            oldFlag = false;
+                            $(oldTimeLineBlock).addClass("timeline-block timeline-block-right");
+                        }
+
+                        var oldMarker = $("<div class=marker></div>");
+                        var oldTimeLineContent = $("<div class=timeline-content></div>");
+
+                        //Create new Timeline details
+                        var oldTimeLineTitle = $("<h3 class=category></h3>");
+                        oldTimeLineTitle.append(oldCategory, oldValue);
+
+                        var oldTimeLineDate = $("<span class=date></span>");
+                        oldTimeLineDate.append(oldDate);
+
+                        var oldTimeLineNote = $("<p class=description></p>");
+                        oldTimeLineNote.append(oldNote);
+
+                        oldTimeLineContent.append(oldTimeLineTitle, oldTimeLineDate, oldTimeLineNote);
+                        oldTimeLineBlock.append(oldMarker, oldTimeLineContent);
+
+                        $(".timeline-container").append(oldTimeLineBlock);
+
+
+                    });
+                });
+
+        });
+
+    }
+    createUser();
 
     //Create new expense function
     class Expense {
@@ -139,7 +217,7 @@ $(document).ready(function () {
     });
 
     //save the new expense: return to home page
-    var flag = false;
+    var flag = true;
 
     var expenseControl = $("#expense_store");
     var expenseList = [];
@@ -158,15 +236,27 @@ $(document).ready(function () {
             expenseTotal += (1 * expenseList[i]);
         }
 
+        //Write total expense to firebase
+        firebase.auth().onAuthStateChanged(function (user) {
+            db.collection("user")
+                .doc(user.uid)
+                .set({
+                    "ExpenseStore": parseInt(expenseTotal),
+                }, {
+                    merge: true
+                });
+        });
+
         //Write the new expenses
         if (expenseTotal > budgetStore) {
             //Open up the alert modal
             $("#expense-error-modal").css("display", "flex");
             $("#setup-btn-expense").click(function () {
-                $("#expense-error-modal").css("display", "none");  
+                $("#expense-error-modal").css("display", "none");
             });
-            expenseList.pop();  //remove the last value
+            expenseList.pop(); //remove the last value
         } else {
+
             //Create new Time line Block
             var newTimeLineBlock = $("<div></div>");
 
@@ -201,11 +291,11 @@ $(document).ready(function () {
 
             //Update the percentage
             var updatePercent = (1 - (expenseTotal / budgetStore)) * 100;
-            
+
             var budgetController = budgetStore;
             budgetController -= expenseTotal;
-            console.log("show expnese" + expenseList);
-            
+            // console.log("show expnese" + expenseList);
+
             var water = $(".water");
             var calPercent = updatePercent * (-1);
             var waveHeight = calPercent + 88;
@@ -216,22 +306,62 @@ $(document).ready(function () {
 
             $(".budget_percent_num").html(updatePercent.toFixed(1) + "%");
 
+            //Write total expense to firebase
+            firebase.auth().onAuthStateChanged(function (user) {
+                db.collection("user")
+                    .doc(user.uid)
+                    .set({
+                        "PercentStore": parseInt(updatePercent),
+                        "WaveHeight": parseInt(waveHeight),
+                    }, {
+                        merge: true
+                    });
+            });
+
+            //Exit enter slide animation
             $("#enter-slide").animate(infoSlideOut, 1000);
             $("#slideShow").animate(slideOut, 500);
             $("body").css("overflow", "auto");
         }
+
+        //Write the data to firebase, all the value below are gather from UI
+        function writeExpenseEvent() {
+            var docData = {
+                Category: userExpense.category,
+                Value: userExpense.amount,
+                Date: userExpense.date,
+                Description: userExpense.note
+            };
+
+            //write to database for user
+            firebase.auth().onAuthStateChanged(function (user) {
+                db.collection("user").doc(user.uid).collection("Expense").add(docData);
+            });
+        };
+
+        writeExpenseEvent();
     });
 
     //Set the budet number
     var budgetStore = 0;
     $("#submit-budget-btn").click(function () {
         var userInput = document.getElementById('user-budget').value;
+
         if (userInput < 0) {
-            alert('wtf');
+            alert('Value cannot be negative, change to modal later');
         } else {
             $("#budget_store").html("$" + (userInput / 1));
             $("#setup-budget").fadeOut();
             budgetStore = userInput;
+            firebase.auth().onAuthStateChanged(function (user) {
+                db.collection("user")
+                    .doc(user.uid)
+                    .set({
+                        "BudgetStore": parseInt(userInput),
+                    }, {
+                        merge: true
+                    });
+            });
         }
     });
 
