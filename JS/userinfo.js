@@ -37,6 +37,23 @@ function createUser() {
   });
 }
 
+// test
+function writeExpenseEvent() {
+
+  var docData = {
+    category: "food",
+    value: 25,
+    date: "Nov 13 2019",
+    description: "sample text"
+  };
+
+  function.auth().onAuthStateChanged(function (user) {
+    console.log(user.uid);
+    db.collection("")
+  });
+
+};
+
 //=================================================
 // This files contains all the javascript functions
 // used in the project
