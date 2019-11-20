@@ -125,8 +125,39 @@ span {
     padding-top: 5px;
 }
 
-.mob-nav-icon:hover {
-    color: rgb(48, 124, 152);
+.block-hover {
+    border-bottom: 1px solid rgb(34, 146, 187);
+    padding-bottom: 10px;
+    font-family: 'Raleway', sans-serif;
+}
+
+#budget-pop {
+    opacity: 0;
+    position: relative;
+    top: 50px;
+}
+
+#expense-pop {
+    opacity: 0;
+    position: relative;
+    top: 50px;
+}
+
+#explore-pop {
+    opacity: 0;
+    position: relative;
+    top: 50px;
+}
+
+.mob-navbar-hover {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(-70px);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
 }
 
 * {
@@ -468,7 +499,8 @@ span {
     height: 35px;
     width: 100%;
     border: 1px solid #237D9A;
-    border-radius: 25px;
+    border-radius: 5px;
+    padding-left: 10px;
 }
 
 label {

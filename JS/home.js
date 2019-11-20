@@ -448,4 +448,41 @@ $(document).ready(function () {
         $("#other-menu-modal").animate(otherSlideOut, 1000);
     });
 
+
+    var hintSlideUp = {
+        "top": "0",
+        "easing": "swing",
+        "opacity": "1"
+    };
+
+    var hintSlideDown = {
+        "top": "50px",
+        "easing": "swing",
+        "opacity": "0"
+    };
+
+    $("#home-icon").mouseenter(function () {
+        $("#budget-pop").animate(hintSlideUp, 800);
+    });
+
+    $("#home-icon").mouseleave(function () {
+        $("#budget-pop").animate(hintSlideDown, 800);
+    });
+
+    $("#create-icon").mouseenter(function () {
+        $("#expense-pop").animate(hintSlideUp, 800);
+    });
+
+    $("#create-icon").mouseleave(function () {
+        $("#expense-pop").animate(hintSlideDown, 800);
+    });
+
+    $("#other-icon").mouseenter(function () {
+        $("#explore-pop").animate(hintSlideUp, 800);
+    });
+
+    $("#other-icon").mouseleave(function () {
+        $("#explore-pop").animate(hintSlideDown, 800);
+    });
+
 });

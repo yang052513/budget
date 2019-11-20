@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="CSS/foopicker.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
 
     <title>Home Page</title>
 </head>
@@ -48,7 +51,7 @@
     <!-- Time line section  -->
     <div class="timeline-line"></div>
     <div class="timeline-container">
-        
+
     </div>
 
     <!-- Time line section ends -->
@@ -58,7 +61,6 @@
         <div class="mob-grid">
             <div class="mob-col-1">
                 <img class="mob-nav-icon" id="home-icon" src="resource/setbudget-icon.png" width="35px" height="35px">
-
             </div>
             <div class="mob-col-2">
                 <img class="mob-nav-icon" id="create-icon" src="resource/create2-icon.png" width="35px" height="35px">
@@ -69,6 +71,16 @@
         </div>
     </div>
     <!-- Mobile Version Nav Bar finish -->
+
+
+    <!-- Mobile nav bar hover hint -->
+    <div class="mob-navbar-hover">
+        <div id="budget-pop" class="block-hover">Set you budget</div>
+        <div id="expense-pop" class="block-hover">Add a new expense</div>
+        <div id="explore-pop" class="block-hover">Explore</div>
+    </div>
+    <!-- Mobile nav bar hover hint finish -->
+
 
     <!-- Slide in Category  -->
     <div id="slideShow">
@@ -138,10 +150,10 @@
                 <label for="amount-field">Amount</label>
                 <input type="number" id="amount-field" name="amount" required onfocus="this.value=''">
 
-                <label for="note-field">Details</label>
+                <label for="note-field">Notes</label>
                 <input type="text" id="note-field" name="detail" required onfocus="this.value=''">
             </div>
-           
+
         </div>
         <div class="enter-btn-wrap">
             <button id="back-btn" class="enter-btn">Go back</button>
@@ -207,6 +219,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="JS/home.js"></script>
     <script src="JS/foopicker.js"></script>
+    <script src="JS/autoload.js"></script>
     <script>
         var foopicker = new FooPicker({
             id: 'datepicker'
@@ -215,15 +228,15 @@
 
 
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-<!-- Add Firebase products that you want to use -->
-<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
-<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
    https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
 
     <script>
         // Your web app's Firebase configuration
@@ -240,7 +253,6 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
-        
     </script>
 </body>
 
