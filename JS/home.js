@@ -235,113 +235,119 @@ $(document).ready(function () {
         userExpense.date = document.getElementById('datepicker').value;
         userExpense.amount = document.getElementById('amount-field').value;
         userExpense.note = document.getElementById('note-field').value;
-        expenseList.push(userExpense.amount);
 
-        //Update expenses
-        if (expenseUpdate > 0) {
-            var expenseTotal = expenseUpdate;
+        if (userExpense.amount < 0 || userExpense.amount == '') {
+            alert('wtf');
         } else {
-            expenseTotal = 0;
-        }
-        var expenseTotal = expenseUpdate;
-        for (var i in expenseList) {
-            expenseTotal += (1 * expenseList[i]);
-            expenseList.shift();
-        }
-        console.log(expenseList);
-        //Write the new expenses
-        if (expenseTotal > budgetStore) {
-            //Open up the alert modal
-            $("#expense-error-modal").css("display", "flex");
-            $("#setup-btn-expense").click(function () {
-                $("#expense-error-modal").css("display", "none");
-            });
-            expenseList.pop(); //remove the last value
-        } else {
+            expenseList.push(userExpense.amount);
 
-            //Create new Time line Block
-            var newTimeLineBlock = $("<div></div>");
-
-            if (!flag) {
-                flag = true;
-                $(newTimeLineBlock).addClass("timeline-block timeline-block-left");
+            //Update expenses
+            if (expenseUpdate > 0) {
+                var expenseTotal = expenseUpdate;
             } else {
-                flag = false;
-                $(newTimeLineBlock).addClass("timeline-block timeline-block-right");
+                expenseTotal = 0;
+            }
+            var expenseTotal = expenseUpdate;
+            for (var i in expenseList) {
+                expenseTotal += (1 * expenseList[i]);
+                expenseList.shift();
+            }
+            console.log(expenseList);
+            //Write the new expenses
+            if (expenseTotal > budgetStore) {
+                //Open up the alert modal
+                $("#expense-error-modal").css("display", "flex");
+                $("#setup-btn-expense").click(function () {
+                    $("#expense-error-modal").css("display", "none");
+                });
+                expenseList.pop(); //remove the last value
+            } else {
+
+                //Create new Time line Block
+                var newTimeLineBlock = $("<div></div>");
+
+                if (!flag) {
+                    flag = true;
+                    $(newTimeLineBlock).addClass("timeline-block timeline-block-left");
+                } else {
+                    flag = false;
+                    $(newTimeLineBlock).addClass("timeline-block timeline-block-right");
+                }
+
+                var newMarker = $("<div class=marker></div>");
+                var newTimeLineContent = $("<div class=timeline-content></div>");
+
+                //Create new Timeline details
+                var newTimeLineTitle = $("<h3 class=category></h3>");
+                newTimeLineTitle.append(userExpense.category, userExpense.amount);
+
+                var newTimeLineDate = $("<span class=date></span>");
+                newTimeLineDate.append(userExpense.date);
+
+                var newTimeLineNote = $("<p class=description></p>");
+                newTimeLineNote.append(userExpense.note);
+
+                newTimeLineContent.append(newTimeLineTitle, newTimeLineDate, newTimeLineNote);
+                newTimeLineBlock.append(newMarker, newTimeLineContent);
+
+                $(".timeline-container").prepend(newTimeLineBlock);
+
+                //write the new expense
+                $(expenseControl).html("$" + (expenseTotal));
+
+                //Update the percentage
+                var updatePercent = (1 - (expenseTotal / budgetStore)) * 100;
+
+                var budgetController = budgetStore;
+                budgetController -= expenseTotal;
+
+                var water = $(".water");
+                var calPercent = updatePercent * (-1);
+                var waveHeight = calPercent + 88;
+
+                $(water).css({
+                    "transform": "translateY(" + waveHeight + "%)"
+                });
+
+                $(".budget_percent_num").html(updatePercent.toFixed(1) + "%");
+
+                //Write total expense to firebase
+                firebase.auth().onAuthStateChanged(function (user) {
+                    db.collection("user")
+                        .doc(user.uid)
+                        .set({
+                            "PercentStore": parseInt(updatePercent),
+                            "WaveHeight": parseInt(waveHeight),
+                            "ExpenseStore": parseInt(expenseTotal),
+                        }, {
+                            merge: true
+                        });
+                });
+
+                //Exit enter slide animation
+                $("#slideShow").animate(slideOut, 1000);
+                $("#enter-slide").animate(infoSlideOut, 1000);
+                $("body").css("overflow", "auto");
+
             }
 
-            var newMarker = $("<div class=marker></div>");
-            var newTimeLineContent = $("<div class=timeline-content></div>");
+            //Write the data to firebase, all the value below are gather from UI
+            function writeExpenseEvent() {
+                var docData = {
+                    Category: userExpense.category,
+                    Value: userExpense.amount,
+                    Date: userExpense.date,
+                    Description: userExpense.note
+                };
 
-            //Create new Timeline details
-            var newTimeLineTitle = $("<h3 class=category></h3>");
-            newTimeLineTitle.append(userExpense.category, userExpense.amount);
-
-            var newTimeLineDate = $("<span class=date></span>");
-            newTimeLineDate.append(userExpense.date);
-
-            var newTimeLineNote = $("<p class=description></p>");
-            newTimeLineNote.append(userExpense.note);
-
-            newTimeLineContent.append(newTimeLineTitle, newTimeLineDate, newTimeLineNote);
-            newTimeLineBlock.append(newMarker, newTimeLineContent);
-
-            $(".timeline-container").prepend(newTimeLineBlock);
-
-            //write the new expense
-            $(expenseControl).html("$" + (expenseTotal));
-
-            //Update the percentage
-            var updatePercent = (1 - (expenseTotal / budgetStore)) * 100;
-
-            var budgetController = budgetStore;
-            budgetController -= expenseTotal;
-
-            var water = $(".water");
-            var calPercent = updatePercent * (-1);
-            var waveHeight = calPercent + 88;
-
-            $(water).css({
-                "transform": "translateY(" + waveHeight + "%)"
-            });
-
-            $(".budget_percent_num").html(updatePercent.toFixed(1) + "%");
-
-            //Write total expense to firebase
-            firebase.auth().onAuthStateChanged(function (user) {
-                db.collection("user")
-                    .doc(user.uid)
-                    .set({
-                        "PercentStore": parseInt(updatePercent),
-                        "WaveHeight": parseInt(waveHeight),
-                        "ExpenseStore": parseInt(expenseTotal),
-                    }, {
-                        merge: true
-                    });
-            });
-
-            //Exit enter slide animation
-            $("#slideShow").animate(slideOut, 1000);
-            $("#enter-slide").animate(infoSlideOut, 1000);
-            $("body").css("overflow", "auto");
-        }
-
-        //Write the data to firebase, all the value below are gather from UI
-        function writeExpenseEvent() {
-            var docData = {
-                Category: userExpense.category,
-                Value: userExpense.amount,
-                Date: userExpense.date,
-                Description: userExpense.note
+                //write to database for user
+                firebase.auth().onAuthStateChanged(function (user) {
+                    db.collection("user").doc(user.uid).collection("Expense").add(docData);
+                });
             };
 
-            //write to database for user
-            firebase.auth().onAuthStateChanged(function (user) {
-                db.collection("user").doc(user.uid).collection("Expense").add(docData);
-            });
-        };
-
-        writeExpenseEvent();
+            writeExpenseEvent();
+        }
     });
 
     //Set the budget number

@@ -25,11 +25,11 @@
 }
 
 .foopicker__day {
-  border-radius: 100%;
+  border-radius: 50%;
   cursor: pointer;
   padding: 5px 2px;
   transition: all .2s ease-out;
-  width: 22px;
+  width: 27px;
 }
 
 .foopicker__day:hover {
@@ -64,7 +64,7 @@
 }
 
 .foopicker__header {
-  background: #f2f2f4;
+  background: rgb(70, 189, 232, 0.5);
   padding: 15px;
   text-align: center;
 }
