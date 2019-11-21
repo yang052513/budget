@@ -42,9 +42,11 @@
 <body>
     <!--			Login Part-->
     <div id="container">
-        <div id="firebaseui-auth-container"></div>
+        
+        <div id="firebaseui-auth-container">
+        </div>
         <div id="loader">Loading...</div>
-
+    </div>
         <script>
             // Initialize the FirebaseUI Widget using Firebase.
             var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -85,7 +87,7 @@
 
             ui.start('#firebaseui-auth-container', uiConfig);
         </script>
-    </div>
+
 
 </body>
 </html>

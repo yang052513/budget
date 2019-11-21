@@ -123,6 +123,8 @@ span {
     grid-template-columns: repeat(3, 1fr);
     text-align: center;
     padding-top: 5px;
+    padding-left: 350px;
+    padding-right: 350px;
 }
 
 .block-hover {
@@ -653,12 +655,20 @@ label {
     background-color: rgb(34, 146, 187);
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 950px) {
+    .mob-grid {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
     #mob-cancel-btn {
         visibility: visible;
 
     }
-    
+
     .budget-cancel {
         display: none;
     }
