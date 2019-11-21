@@ -1,0 +1,37 @@
+body {
+    font-family: "Raleway", sans-serif;
+}
+
+.container-1 {
+    display: flex;
+    justify-content: flex-start;
+    background-image: url("../resource/project-banner.jpg");
+}
+
+#banner {
+    align-content: center;
+    justify-content: space-around;
+}
+
+.nav-bar {
+    display: none;
+}
+
+/* Responsive layout when the screen is more than 900px wide. */
+@media screen and (min-width: 900px) {
+    .nav-bar {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .nav-bar li {
+        list-style-type: none;
+        display: inline-block;
+        margin-left: 55px;
+        margin-top: 10px;
+        padding-bottom: 5px;
+        font-size: 1.2vw;
+    }
+}
