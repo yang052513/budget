@@ -65,6 +65,15 @@ body {
     position: relative;
 }
 
+.other-link {
+    color: black;
+}
+
+.current-link {
+    border-bottom: 1px solid rgb(69, 109, 157);
+    color: rgb(69, 109, 157);
+}
+
 .section2 {
     grid-column: 1/13;
     /* background: url("resource/test.jpg") no-repeat center center fixed;
