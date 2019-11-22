@@ -78,7 +78,7 @@ function loadWidget(waifuPath, apiPath) {
 			else if (domain == "google") text = `Hello！来自 谷歌搜索 的朋友<br>欢迎阅读<span style="color:#0099cc;">『${document.title.split(" - ")[0]}』</span>`;
 			else text = `Hello！来自 <span style="color:#0099cc;">${referrer.hostname}</span> 的朋友`;
 		} else {
-			text = `欢迎阅读<span style="color:#0099cc;">『${document.title.split(" - ")[0]}』</span>`;
+			text = `Welcome to<span style="color:#0099cc;">『${document.title.split(" - ")[0]}』</span>I am the host of budget~ `;
 		}
 		showMessage(text, 7000, 8);
 	}
@@ -197,6 +197,7 @@ function loadWidget(waifuPath, apiPath) {
 		});
 	}
 
+	// 更改其他看板娘
 	function loadOtherModel() {
 		var modelId = localStorage.getItem("modelId");
 		$.ajax({

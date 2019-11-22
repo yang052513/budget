@@ -9,6 +9,18 @@ body {
     grid-template-columns: repeat(12, 1fr);
 }
 
+textarea {
+    resize: none;
+}
+
+button:focus {
+    outline:none;
+}
+
+input:focus {
+    outline: none;
+}
+
 #mob-navbar {
     display: none;
 }
@@ -80,6 +92,48 @@ body {
     height: 100%;
 }
 
+#form-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-modal-content {
+    width: 400px;
+    height: 250px;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.form-content-wrap {
+    padding: 25px 0;
+}
+
+#return-contact-btn {
+    font-size: 15px;
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid rgb(107, 162, 230);
+    color: rgb(107, 162, 230);
+}
+
+#return-contact-btn:hover {
+    color: white;
+    background-color: rgb(107, 162, 230);
+}
+
+#form-modal-wrap {
+    display: none;
+}
+
 .section2 {
     grid-column: 1/13;
     /* background: url("resource/test.jpg") no-repeat center center fixed;
@@ -108,7 +162,12 @@ textarea {
     border: 1px solid #ccc;
     margin-top: 6px;
     margin-bottom: 16px;
-    resize: vertical;
+    border-radius: 15px;
+    font-size: 15px;
+}
+
+input, textarea:focus {
+    outline: none;
 }
 
 input[type=submit] {
