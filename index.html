@@ -4,11 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index Page</title>
+    <title>Budget</title>
     <link rel="stylesheet" href="CSS/index.css" />
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 
 <body>
@@ -19,12 +20,25 @@
             <!-- <div class="logo-wrap">
                 <img src="resource/logo.png" width="75px" height="75px" alt="project logo">
             </div> -->
+
+            <div id="mob-navbar">
+                <img id="mob-navbar-icon" src="/resource/menu-icon.png" width="30px" height="30px">
+            </div>
+
+            <div id="mob-navbar-modal">
+                <ul>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li><a href="OurProject.html">OUR PROJECT</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+
             <div class="nav-bar">
                 <ul>
-                    <li>HOME</li>
-                    <li>ABOUT US</li>
-                    <li>OUR PROJECT</li>
-                    <li>CONTACTS</li>
+                    <li id="current-link">HOME</li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li><a href="OurProject.html">OUR PROJECT</a></li>
+                    <li><a href="contact.html">CONTACTS</a></li>
                 </ul>
             </div>
 
@@ -40,7 +54,8 @@
                 <div class="box-wrap">
                     <img class="box-image" src="resource/homeColor.png" alt="404 Error" width="85px" height="85px">
                     <h2 class="box-title">All-in-one Tracker</h2>
-                    <p class="box-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eius facilis cum vel nemo quos.</p>
+                    <p class="box-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eius facilis
+                        cum vel nemo quos.</p>
                 </div>
             </div>
 
@@ -49,7 +64,8 @@
                 <div class="box-wrap">
                     <img class="box-image" src="resource/ideaColor.png" alt="404 Error" width="85px" height="85px">
                     <h2 class="box-title">Budgets made simple</h2>
-                    <p class="box-content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam, aliquam.</p>
+                    <p class="box-content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam,
+                        aliquam.</p>
                 </div>
             </div>
 
@@ -58,7 +74,8 @@
                 <div class="box-wrap">
                     <img class="box-image" src="resource/targetColor.png" alt="404 Error" width="85px" height="85px">
                     <h2 class="box-title">Visiual budget icon</h2>
-                    <p class="box-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, aliquam dolorem.</p>
+                    <p class="box-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, aliquam
+                        dolorem.</p>
                 </div>
             </div>
         </div>
@@ -69,15 +86,17 @@
             <div class="section3-wrap">
                 <div class="section3-content">
                     <h2 class="section3-title">Our Project Ideas</h2>
-                    <p class="section3-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga vero dolore cum voluptatem nesciunt? Dolorem?</p>
+                    <p class="section3-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga vero
+                        dolore cum voluptatem nesciunt? Dolorem?</p>
                     <div class="feature-list">
                         <ul>
-                        <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque, magnam.</li>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a asperiores tempore.</li>
-                        <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
-                    </ul>
-                </div>
+                            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque, magnam.</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a asperiores tempore.
+                            </li>
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
+                        </ul>
+                    </div>
                     <div class="signup-button">
                         <a href="login.html" class="signup-link">Sign Up Today</a>
                     </div>
@@ -99,7 +118,7 @@
                         <h4>CONTACT US</h4>
                         <p>3700, Willingdon Ave</p>
                         <p>Burnaby, BC V5G 3H2</p>
-                        <p>E-MAIL: INFO@TEAM22.CA</p>
+                        <p>E-MAIL: INFO@BUDGET.CA</p>
                     </div>
                 </div>
 
@@ -131,7 +150,7 @@
         <div id="section-5">
             <div class="copyright-wrap">
                 <div class="section5-inner-grid">
-                    <div class="section5-column1">YANG JONNY SUE</div>
+                    <div class="section5-column1">YANG & JONNY</div>
                     <div class="section5-column2">@2019 TEAM 22</div>
                     <div class="section5-column3">COMP1930</div>
                 </div>
@@ -141,7 +160,7 @@
     </div>
 
     <!-- Mobile Version Nav Bar -->
-    <div class="mob-nav-bar">
+    <!-- <div class="mob-nav-bar">
         <div class="mob-grid">
             <div class="mob-col-1">
                 <img src="resource/home-icon.png" width="35px" height="35px">
@@ -153,8 +172,11 @@
                 <img src="resource/user-icon.png" width="35px" height="35px">
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Mobile Version Nav Bar finish -->
+    <script src="/JS/index.js"></script>
+
 </body>
+
 
 </html>
