@@ -1,22 +1,67 @@
 body {
     font-family: "Raleway", sans-serif;
+    margin: 0;
+}
+
+.section-1 {
+    display: flex;
+    align-items: center;
+    background-image: url("../resource/project-banner.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    height: 49vw;
+    margin-bottom: 3vw;
 }
 
 .container-1 {
-    display: flex;
-    justify-content: flex-start;
-    background-image: url("../resource/project-banner.jpg");
+    padding-top: 60px;
+    text-align: center;
 }
 
-#banner {
-    align-content: center;
-    justify-content: space-around;
+.container-1 h1 {
+    font-size: 5vw;
+    color: rgb(69, 109, 157);
+}
+
+.container-1 p {
+    color: white;
 }
 
 .nav-bar {
-    display: none;
+    justify-content: flex-start;
+    font-size: 1.2vw;
 }
 
+.other-link {
+    color: black;
+}
+
+.current-link {
+    border-bottom: 1px solid rgb(69, 109, 157);
+    color: rgb(69, 109, 157);
+}
+
+.section-2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 4vw;
+    margin: 8vw 12vw 0vw 12vw;
+    color: rgb(69, 109, 157);
+}
+
+p {
+    flex-wrap: wrap;
+    margin: 5vw 12vw 5vw 12vw;
+    line-height: 1.8em;
+}
 /* Responsive layout when the screen is more than 900px wide. */
 @media screen and (min-width: 900px) {
     .nav-bar {

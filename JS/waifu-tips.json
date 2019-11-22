@@ -4,7 +4,11 @@
 		"text": ["How you doing today?", "Do you like Haikyuu?", "I am a 2D girl obviously.", "Hello Hello ~~ ？", "(ノ≧∇≦)ノ", "Do you know happy Keith?", "Seems like you are boring right now", "Hey boys"]
 	}, {
 		"selector": "#waifu-tool .fa-comment",
+<<<<<<< HEAD
 		"text": ["Guess what I'm gonna say？", "I learn a lot of life lessons from Keith.", "Nandini is insane - by Yang"]
+=======
+		"text": ["Guess what I'm gonna say？", "I learned a lot of life lesson from Keith.", "Nandhini is insane - by Yang"]
+>>>>>>> de3f3d7a3072787384074faa905f8a6ab3beda4f
 	}, {
 		"selector": "#waifu-tool .fa-user-circle",
 		"text": ["You dont like me anymore...", "Wanna see my friend？", "Wait, are u cheating on me？", "U wanna see someone else？"]
@@ -22,7 +26,7 @@
 		"text": ["Time to say goodbye？", "OK QAQ See u next time……", "Dont leave me alone……", "Will we, will we, ever see each other again...", "You will regret！"]
 	}, {
 		"selector": "#home-icon",
-		"text": ["Let's set a new budget!", "Click it to set a new budget~~", "What's you budget?"]
+		"text": ["Let's set a new budget!", "Click it to set a new budget~~", "What's your budget?"]
 	}, {
 		"selector": "#create-icon",
 		"text": ["Create a new expense~~", "What did you spend on？", "Log your new expense~"]
@@ -34,7 +38,11 @@
 		"text": ["That's your current budget~", "Remember to not go beyond your expense~", "That's all you have~"]
 	}, {
 		"selector": ".expense-container",
+<<<<<<< HEAD
 		"text": ["That's your total expense so far", "Watch your expense frequently~", "Don't let that go too high"]
+=======
+		"text": ["That's your total expense so far", "Watch your expense frequently~", "The number you dont want go over!"]
+>>>>>>> de3f3d7a3072787384074faa905f8a6ab3beda4f
 	}, {
 		"selector": ".wave-fill",
 		"text": ["WOW that's a dope effect", "Try to keep water high~", "How did Yang actually do that?"]
@@ -46,7 +54,7 @@
 		"text": ["Broccoli...?"]
 	}, {
 		"selector": "#health-card",
-		"text": ["Did you get sick?", "Take care yourself"]
+		"text": ["Did you get sick?", "Take care of yourself!"]
 	}, {
 		"selector": "#auto-card",
 		"text": ["Gas is so expensive rn", "Skytrain? Bus?"]
