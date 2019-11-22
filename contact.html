@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="CSS/contact.css" />
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Contact</title>
 </head>
@@ -16,8 +17,22 @@
     <div class="container">
         <!-- Section 1: Intro Part -->
         <div class="section1">
+            
+            <div id="mob-navbar">
+                <img id="mob-navbar-icon" src="/resource/menu-icon-black.png" width="30px" height="30px">
+            </div>
+
+            <div id="mob-navbar-modal">
+                <ul>
+                    <li><a href="about.html">HOME</a></li>
+                    <li><a href="OurProject.html">ABOUT US</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+
             <!-- <div class="nav-bar-grid"> -->
-            <div class="nav-bar">
+                <!-- <div class="overlay"></div> -->
+                <div class="nav-bar">
                 <ul>
                     <li>HOME</li>
                     <li>ABOUT US</li>
@@ -25,7 +40,7 @@
                     <li>CONTACT</li>
                 </ul>
             </div>
-
+           
         </div>
         <div class="showcase-title">CONTACT US</div>
         <div class="showcase-subtitle">Get in touch with us. We would like to hear your feedback</div>
@@ -360,7 +375,7 @@
     <!-- Copyright section end-->
 
     <!-- Mobile Version Nav Bar -->
-    <div class="mob-nav-bar">
+    <!-- <div class="mob-nav-bar">
         <div class="mob-grid">
             <div class="mob-col-1">
                 <img src="resource/home-icon.png" width="35px" height="35px">
@@ -372,9 +387,10 @@
                 <img src="resource/user-icon.png" width="35px" height="35px">
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Mobile Version Nav Bar finish -->
 
+    <script src="JS/index.js"></script>
 </body>
 
 </html>

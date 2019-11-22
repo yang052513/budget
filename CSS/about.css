@@ -8,6 +8,37 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+#mob-navbar {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+#mob-navbar-modal li{
+    list-style-type: none;
+    padding: 10px 10px;
+    font-size: 10px;
+}
+
+#mob-navbar-modal {
+    position: absolute;
+    top: 0;
+    left: -300px;
+}
+
+#mob-navbar-modal ul {
+    padding-left: 20px;
+}
+
+ul a {
+    text-decoration: none;
+    color: white;
+}
+
+ul a:hover {
+    color: rgb(69, 109, 157);
+}
+
 #show-case {
     background-image: url("../resource/aboutus-banner.jpg");
     background-position: center;
@@ -38,11 +69,11 @@ body {
     color: white;
 }
 
-.showcase-title {
+.main-title {
     font-size: 6vw;
 }
 
-.showcase-content {
+.main-content {
     margin-top: 15px;
     font-size: 1vw;
 }
@@ -209,6 +240,20 @@ iframe {
         margin-top: 10px;
         padding-bottom: 5px;
         font-size: 1.2vw;
+    }
+
+    .nav-bar li:hover {
+        color: rgb(69, 109, 157);
+        user-select: none;
+        border-bottom: 1px solid rgb(69, 109, 157);
+    }
+
+    #mob-navbar-modal {
+        display: none;
+    }
+
+    #mob-navbar {
+        display: none;
     }
 
     .other-link {

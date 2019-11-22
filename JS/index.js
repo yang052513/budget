@@ -15,11 +15,11 @@ $(document).ready(function () {
     $("#mob-navbar-icon").click(function(){  
        if(showMenu) {   
             $("#mob-navbar-modal").animate(navbarSlideIn, 800);
-            $(".main-title").fadeOut();
+            $(".main-title, .main-content, #read-more-btn").fadeOut();
             showMenu = false;
         } else {       
             $("#mob-navbar-modal").animate(navbarSlideOut, 800);
-            $(".main-title").fadeIn();
+            $(".main-title, .main-content, #read-more-btn").fadeIn();
             showMenu = true;
         }
     }); 
