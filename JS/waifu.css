@@ -19,11 +19,11 @@
 	z-index: 10;
 	line-height: 0;
 	transition: transform .3s ease-in-out;
-	transform: translateY(10px);
+	transform: translateY(13px);
 }
 
 #waifu:hover {
-	transform: translateY(10px);
+	transform: translateY(13px);
 }
 
 #waifu-tips {

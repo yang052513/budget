@@ -7,6 +7,44 @@ body {
     overflow-x: hidden;
 }
 
+#mob-navbar {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+#mob-navbar-modal li{
+    list-style-type: none;
+    padding: 10px 10px;
+    font-size: 10px;
+    color: black;
+}
+
+#mob-navbar-modal {
+    position: absolute;
+    top: 0;
+    left: -300px;
+}
+
+#mob-navbar-modal ul {
+    padding-left: 20px;
+}
+
+ul a {
+    text-decoration: none;
+    color: white;
+}
+
+ul a:hover {
+    color: rgb(69, 109, 157);
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
+
 #container {
     display: grid;
     height: 100%;
@@ -37,6 +75,12 @@ body {
     color: white;
     padding-left: 9vw;
     margin-top: -40px;        /** move the subtitle position */
+}
+
+#current-link {
+    border-bottom: 1px solid rgb(69, 109, 157);
+    color: rgb(69, 109, 157);
+    padding-bottom: 5px;
 }
 
 .mob-nav-bar {
@@ -253,8 +297,16 @@ ul {
     
     }
 
+    #mob-navbar-modal {
+        display: none;
+    }
+
+    #mob-navbar {
+        display: none;
+    }
+
     .nav-bar li {
-        color: rgb(65, 65, 65);
+        color: rgb(255, 255, 255);
         list-style-type: none;
         display: inline-block;
         margin-top: 10px;
@@ -262,12 +314,13 @@ ul {
         font-size: 1.2vw;
         font-weight: bold;
         border-bottom: 3px solid transparent;
+        padding-bottom: 5px;
     }
     
     .nav-bar li:hover {
         color: rgb(69, 109, 157);
         user-select: none;
-        border-bottom: 2px solid rgb(69, 109, 157);
+        border-bottom: 1px solid rgb(69, 109, 157);
     }
 
     .feature-list {
@@ -361,6 +414,20 @@ ul {
     .section3-img-wrap img {
         width: 200px;
         height: 300px;
+    }
+
+    .main-title {
+        font-size: 15vw;
+        color: white;
+        padding-left: 0.5em;
+        padding-top: 0.25em;
+    }
+    
+    .sub-title {
+        font-size: 2vw;
+        color: white;
+        padding-left: 9vw;
+        margin-top: -20px;        /** move the subtitle position */
     }
 
 }

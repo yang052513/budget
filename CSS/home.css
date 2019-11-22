@@ -276,9 +276,10 @@ span {
 
 #user-budget {
     height: 35px;
-    width: 80%;
+    width: 50%;
     border: 1px solid #237D9A;
     border-radius: 25px;
+    padding: 0 10px;
 }
 
 #setup-budget-content {

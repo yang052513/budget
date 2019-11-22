@@ -9,11 +9,25 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <title>About Us</title>
 </head>
 
 <body>
     <div id="show-case">
+
+            <div id="mob-navbar">
+                    <img id="mob-navbar-icon" src="/resource/menu-icon.png" width="30px" height="30px">
+                </div>
+    
+                <div id="mob-navbar-modal">
+                    <ul>
+                        <li><a href="home.html">HOME</a></li>
+                        <li><a href="OurProject.html">OUR PROJECT</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                    </ul>
+                </div>
+
         <div class="nav-bar">
             <ul>
                 <li class="other-link"><a href="home.html">HOME</a></li>
@@ -25,8 +39,8 @@
 
         <div id="showcase-overlay"></div>
         <div class="showcase-content-wrap">
-            <div class="showcase-title">About Us</div>
-            <div class="showcase-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ipsum
+            <div class="main-title">About Us</div>
+            <div class="main-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ipsum
                 voluptatum temporibus.</div>
             <a href="#test"><button id="read-more-btn">Read More</button></a>
         </div>
@@ -60,9 +74,9 @@
                 <h4>Yang Li</h4>
                 <p>Coder</p>
                 <div class="user-socialmedia">
-                    <img class="socialmedia-icon" src="resource/ins-color.png">
-                    <img class="socialmedia-icon" src="resource/twitter-color.png">
-                    <img class="socialmedia-icon" src="resource/github-logo.png">
+                    <a href="https://www.instagram.com/yang05_li/" target="_blank"><img class="socialmedia-icon" src="resource/ins-color.png"></a>
+                    <a href="https://twitter.com/liyang0525" target="_blank"><img class="socialmedia-icon" src="resource/twitter-color.png"></a>
+                    <a href="https://github.com/yang052513" target="_blank"><img class="socialmedia-icon" src="resource/github-logo.png"></a>
                 </div>
             </div>
             <div class="profile-wrap">
@@ -70,9 +84,9 @@
                 <h4>Jonny Lu</h4>
                 <p>Designer</p>
                 <div class="user-socialmedia">
-                    <img class="socialmedia-icon" src="resource/ins-color.png">
-                    <img class="socialmedia-icon" src="resource/twitter-color.png">
-                    <img class="socialmedia-icon" src="resource/github-logo.png">
+                    <a href="https://www.instagram.com/lynnoj/" target="_blank"><img class="socialmedia-icon" src="resource/ins-color.png"></a>
+                    <a href="https://twitter.com/keithtang241413" target="_blank"><img class="socialmedia-icon" src="resource/twitter-color.png"></a>
+                    <a href="https://github.com/lynnoj" target="_blank"><img class="socialmedia-icon" src="resource/github-logo.png"></a>
                 </div>
             </div>
         </div>
@@ -135,6 +149,8 @@
         </div>
     </div>
     <!-- Copyright section end-->
+
+    <script src="/JS/index.js"></script>
 </body>
 
 </html>

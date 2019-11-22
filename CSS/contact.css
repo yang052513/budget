@@ -9,6 +9,26 @@ body {
     grid-template-columns: repeat(12, 1fr);
 }
 
+textarea {
+    resize: none;
+}
+
+button:focus {
+    outline:none;
+}
+
+input:focus {
+    outline: none;
+}
+
+#mob-navbar {
+    display: none;
+}
+
+#mob-navbar-modal {
+    display: none;
+}
+
 .mob-nav-bar {
     display: none;
 }
@@ -39,7 +59,7 @@ body {
 }
 
 .nav-bar li {
-    color: rgb(65, 65, 65);
+    color: rgb(0, 0, 0);
     list-style-type: none;
     display: inline-block;
     margin-top: 10px;
@@ -63,6 +83,55 @@ body {
     background-repeat: no-repeat;
     height: 49vw;
     position: relative;
+
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
+
+#form-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-modal-content {
+    width: 400px;
+    height: 250px;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.form-content-wrap {
+    padding: 25px 0;
+}
+
+#return-contact-btn {
+    font-size: 15px;
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid rgb(107, 162, 230);
+    color: rgb(107, 162, 230);
+}
+
+#return-contact-btn:hover {
+    color: white;
+    background-color: rgb(107, 162, 230);
+}
+
+#form-modal-wrap {
+    display: none;
 }
 
 .other-link {
@@ -102,7 +171,12 @@ textarea {
     border: 1px solid #ccc;
     margin-top: 6px;
     margin-bottom: 16px;
-    resize: vertical;
+    border-radius: 15px;
+    font-size: 15px;
+}
+
+input, textarea:focus {
+    outline: none;
 }
 
 input[type=submit] {
@@ -222,6 +296,45 @@ input[type=submit]:hover {
 
 /* Responsive layout - when the screen is less than 900px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 900px) {
+    #mob-navbar {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        display: flex;
+    }
+
+    #mob-navbar-modal {
+        display: flex;
+    }
+    
+    #mob-navbar-modal li{
+        list-style-type: none;
+        padding: 10px 10px;
+        font-size: 10px;
+        color: black;
+    }
+    
+    #mob-navbar-modal {
+        position: absolute;
+        top: 0;
+        left: -300px;
+    }
+    
+    #mob-navbar-modal ul {
+        padding-left: 20px;
+    }
+    
+    ul a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+    }
+    
+    ul a:hover {
+        color: rgb(69, 109, 157);
+    }
+    
+    
+    
     .mob-nav-bar {
         display: block;
         height: 50px;
@@ -232,6 +345,7 @@ input[type=submit]:hover {
         bottom: 0;
         border-top: 1px solid black;
     }
+
     
     .mob-grid {
         display: grid;
