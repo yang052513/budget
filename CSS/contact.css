@@ -69,7 +69,7 @@ input:focus {
     border-bottom: 3px solid transparent;
 }
 
-.nav-bar li:hover {
+.other-:hover {
     color: rgb(69, 109, 157);
     user-select: none;
     border-bottom: 2px solid rgb(69, 109, 157);
@@ -134,8 +134,15 @@ input:focus {
     display: none;
 }
 
-.other-link {
+.other-link a {
     color: black;
+    text-decoration: none;
+}
+
+
+.other-link a:hover {
+    color: rgb(107, 162, 230);
+    text-decoration: none;
 }
 
 .current-link {
