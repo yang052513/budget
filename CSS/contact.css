@@ -134,6 +134,7 @@ input:focus {
     display: none;
 }
 
+<<<<<<< HEAD
 .other-link a {
     color: black;
     text-decoration: none;
@@ -150,6 +151,8 @@ input:focus {
     color: rgb(69, 109, 157);
 }
 
+=======
+>>>>>>> 43eacdb41c0a1223bd5c62ed9dfd9f9520cbeeca
 .section2 {
     grid-column: 1/13;
     /* background: url("resource/test.jpg") no-repeat center center fixed;
