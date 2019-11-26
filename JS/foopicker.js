@@ -4,7 +4,7 @@ var FooPicker = (function () {
 
   var hasEventListener = window.addEventListener;
   var weeks = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
-  var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
 
   function FooPicker() {
     var _self = this;
@@ -12,7 +12,7 @@ var FooPicker = (function () {
 
     var defaults = {
       className: 'foopicker',
-      dateFormat: 'dd-MMM-yyyy',
+      dateFormat: 'yyyy-MMM-dd',
       disable: []
     };
 

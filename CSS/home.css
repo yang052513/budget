@@ -13,8 +13,22 @@ body {
     -o-background-size: cover;
     background-size: cover; */
     background-color: #e9f0f5;
+    /* background: linear-gradient(-45deg, #ffcfc1, #ffa8c9, #a6e7ff, #b8ffef);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite; */
 }
 
+/* @keyframes gradientBG {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+} */
 
 /** Header section */
 #header-wrap {
@@ -73,17 +87,17 @@ span {
     width: 100%;
   }
 
-  .wave {
+.wave {
     background: url("../resource/wave-3.png");
     height: 22px;
     background-size: contain;
     animation: wave 10s linear infinite;
-  }
+}
 
-  .deep-water {
+.deep-water {
     background: #64c6f3;
     height: 200px;
-  }
+}
   
   @keyframes wave {
     from {
@@ -185,7 +199,7 @@ span {
     left: 50%;
     width: 1px;
     height: 100%;
-    background: rgb(34, 146, 187);
+    background: rgb(45, 188, 240);
     margin-top: 60px;
 }
 
@@ -228,8 +242,8 @@ span {
     width: 95%;
     padding: 0 15px;
     color: #666;
-    background-color: rgba(255, 255, 255);
-    filter: drop-shadow(1px 1px 1px #676666);
+    background-color: #ace2ff;
+    /* filter: drop-shadow(1px 1px 1px #676666); */
     border-radius: 20px;
     border: 1px solid rgb(233, 233, 233);
     /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); */
@@ -642,7 +656,7 @@ label {
     transform: translate(-50%, -50%);
 }
 
-#setup-btn-expense{
+.modal-btn-style {
     border-radius: 30px;
     width: 200px;
     height: 40px;
@@ -651,9 +665,102 @@ label {
     border: 1px solid rgb(34, 146, 187);
 }
 
-#setup-btn-expense:hover {
+.modal-btn-style:hover {
     color:white;
     background-color: rgb(34, 146, 187);
+}
+
+/* Enter a zero budget and pop up modal */
+#budget-zero-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 6;
+    display: none;
+}
+
+#budget-zero-content {
+    background-color: white;
+    width: 400px;
+    height: 250px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    text-align: center; 
+}
+
+.budget-zero-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Enter a budget that less than expense */
+#budget-less-expense-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 6;
+    display: none;
+}
+
+#budget-less-expense-content {
+    background-color: white;
+    width: 400px;
+    height: 250px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    text-align: center; 
+}
+
+.budget-less-expense-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Enter a expense that is 0 or empty value */
+#invalid-expense-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 6;
+    display: none;
+}
+
+#invalid-expense-content {
+    background-color: white;
+    width: 400px;
+    height: 250px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    text-align: center; 
+}
+
+.invalid-expense-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @media screen and (max-width: 950px) {

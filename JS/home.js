@@ -1,9 +1,12 @@
 $(document).ready(function () {
+    //Initialize firebase database
     var db = firebase.firestore();
+
+    //Initialize budget and expense number
     var budgetStore = 0;
     var expenseUpdate = 0;
 
-    //Once the current user being logged in
+    //Merge user name and email to firebase
     firebase.auth().onAuthStateChanged(function (user) {
         db.collection("user")
             .doc(user.uid)
@@ -14,37 +17,40 @@ $(document).ready(function () {
                 merge: true
             });
 
-        //Get user name displayed
+        //Display user name on the home pgae
         db.collection("user").doc(user.uid).onSnapshot(function (snap) {
             document.getElementById("user-name").innerHTML = snap.data().name;
         });
 
-        //Collect user data based on their ID, Read data from firebase
+        //Pull the budget and expense data from firebase
         db.collection("user").doc(user.uid).onSnapshot(function (snap) {
-            //When budget > 0 which has previous data, write old data
+            //When budget > 0 which has previous data, readold data
             if (snap.data().BudgetStore > 0) {
                 document.getElementById("budget_store").innerHTML = "$" + snap.data().BudgetStore;
                 budgetStore = snap.data().BudgetStore;
+            //If budget < 0 in firebase, initialize with 0
             } else {
                 document.getElementById("budget_store").innerHTML = "$" + 0;
             }
 
-            //When expense > 0, read previous data
+            //When expense > 0 which has previous data, read previous data
             if (snap.data().ExpenseStore > 0) {
                 document.getElementById("expense_store").innerHTML = "$" + snap.data().ExpenseStore;
                 expenseUpdate = snap.data().ExpenseStore;
                 console.log(expenseUpdate);
+            //If expense < 0 in firebase, initialize with 0
             } else {
                 document.getElementById("expense_store").innerHTML = "$" + 0;
             }
 
-            //When Percent > 0, read previous data
+            //If the percentage > 0, read previous data from firebase
             if (snap.data().PercentStore > 0) {
                 $(".budget_percent_num").html(snap.data().PercentStore + "%");
                 $(".water").css({
                     "transform": "translateY(" + snap.data().WaveHeight + "%)"
                 });
 
+            //If the percentage <= 0, initialize with 0
             } else {
                 $(".budget_percent_num").html(100 + "%");
                 $(".water").css({
@@ -53,10 +59,14 @@ $(document).ready(function () {
             }
         });
 
+        //Append user expense item from firebase
+        
+        //Determine whether the item is left or right float
         var oldFlag = false;
-        db.collection("user").doc(user.uid).collection("Expense").orderBy("Date", "asc")
-            .get() //get collection of documents
-
+        
+        //Get all user past expense, order by Date from the newest to the oldest
+        db.collection("user").doc(user.uid).collection("Expense").orderBy("Date", "desc")
+            .get()
             .then(function (snap) {
                 snap.forEach(function (doc) { //iterate thru collection
                     var oldCategory = doc.data().Category;
@@ -64,7 +74,7 @@ $(document).ready(function () {
                     var oldValue = doc.data().Value;
                     var oldNote = doc.data().Description;
 
-                    //Create new Time line Block
+                    //Read the old time line Block
                     var oldTimeLineBlock = $("<div></div>");
 
                     if (!oldFlag) {
@@ -75,6 +85,7 @@ $(document).ready(function () {
                         $(oldTimeLineBlock).addClass("timeline-block timeline-block-right");
                     }
 
+                    //Creare new marker and content container
                     var oldMarker = $("<div class=marker></div>");
                     var oldTimeLineContent = $("<div class=timeline-content></div>");
 
@@ -82,21 +93,23 @@ $(document).ready(function () {
                     var oldTimeLineTitle = $("<h3 class=category></h3>");
                     oldTimeLineTitle.append(oldCategory, oldValue);
 
+                    //Create new data span
                     var oldTimeLineDate = $("<span class=date></span>");
                     oldTimeLineDate.append(oldDate);
 
+                    //Create new note for the description
                     var oldTimeLineNote = $("<p class=description></p>");
                     oldTimeLineNote.append(oldNote);
 
+                    //Append all the data pulled from firebase to the html page
                     oldTimeLineContent.append(oldTimeLineTitle, oldTimeLineDate, oldTimeLineNote);
                     oldTimeLineBlock.append(oldMarker, oldTimeLineContent);
-
                     $(".timeline-container").append(oldTimeLineBlock);
                 });
             });
     });
 
-    //Create new expense function
+    //Create new expense class
     class Expense {
         constructor(category, amount, date, note) {
             this.newCategory = category;
@@ -224,24 +237,40 @@ $(document).ready(function () {
         $("#enter-slide").animate(infoSlideOut, 1000);
     });
 
-    //save the new expense: return to home page
+
+    ///////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////// 
+    //save the new expense function: return to home page
     var flag = true;
 
     var expenseControl = $("#expense_store");
+    
+    //expense array list, hold the expense amount values
     var expenseList = [];
 
+    //User click the save expense button
     $("#save-btn").click(function () {
         //Retrive value from the input type
         userExpense.date = document.getElementById('datepicker').value;
         userExpense.amount = document.getElementById('amount-field').value;
         userExpense.note = document.getElementById('note-field').value;
 
+        //If the expense entered is less than 0 or empty value
         if (userExpense.amount < 0 || userExpense.amount == '') {
-            alert('wtf');
+            $("#invalid-expense-modal").fadeIn();
+            console.log('Amount can not be empty');
+
+            //Return back to enter page
+            $("#invalid-expense-btn").click(function() {
+                $("#invalid-expense-modal").fadeOut();
+            });
+        
+        //If the expense is valid
         } else {
+            //push the expense to the array and store the value
             expenseList.push(userExpense.amount);
 
-            //Update expenses
+            //Update expenses if greater than 0
             if (expenseUpdate > 0) {
                 var expenseTotal = expenseUpdate;
             } else {
@@ -253,6 +282,7 @@ $(document).ready(function () {
                 expenseList.shift();
             }
             console.log(expenseList);
+            
             //Write the new expenses
             if (expenseTotal > budgetStore) {
                 //Open up the alert modal
@@ -301,6 +331,7 @@ $(document).ready(function () {
                 var budgetController = budgetStore;
                 budgetController -= expenseTotal;
 
+                //Update the water animation effect
                 var water = $(".water");
                 var calPercent = updatePercent * (-1);
                 var waveHeight = calPercent + 88;
@@ -347,19 +378,41 @@ $(document).ready(function () {
             };
 
             writeExpenseEvent();
+            $('input[type="text"], textarea').val('');
         }
     });
 
     //Set the budget number
     $("#submit-budget-btn").click(function () {
+
         var userInput = document.getElementById('user-budget').value;
-        if (userInput < 0) {
-            alert('Value cannot be negative, change to modal later');
+        //If set the budget less or equal to 0
+        if (userInput <= 0) {
+            //pop up the warning modal
+            console.log('Value cannot be negative or zero!');
+            $("#budget-zero-modal").fadeIn();
+
+            //click return back to budget setting modal
+            $("#zero-budget-btn-expense").click(function() {
+                $("#budget-zero-modal").fadeOut();
+            });
+
+        //If set the budget less or equal to expense
+        } else if (userInput < expenseUpdate) {
+            console.log('The Budget is less than the expense, try it again!');
+            $("#budget-less-expense-modal").fadeIn();
+            
+            //click return back to budget setting modal
+            $("#budget-less-expense-btn").click(function() {
+                $("#budget-less-expense-modal").fadeOut();
+            });
+    
+        //If budget is greater than expense and not 0
         } else {
             $("#budget_store").html("$" + (userInput / 1));
             $("#setup-budget").fadeOut();
             budgetStore = userInput;
-            console.log(budgetStore);
+
             firebase.auth().onAuthStateChanged(function (user) {
                 db.collection("user").doc(user.uid).onSnapshot(function (snap) {
                     var expenseRefresh = snap.data().ExpenseStore;
@@ -392,12 +445,9 @@ $(document).ready(function () {
                     }, {
                         merge: true
                     });
-
             });
         }
-
     });
-
 
     //Direct to the setting budget function
     $("#setup-btn-error").click(function () {
@@ -446,45 +496,4 @@ $(document).ready(function () {
             $("body").css("overflow", "hidden");
         }
     });
-
-
-
-
-    // 2D GIRL INSTEAD
-    // var hintSlideUp = {
-    //     "top": "0",
-    //     "easing": "swing",
-    //     "opacity": "1"
-    // };
-
-    // var hintSlideDown = {
-    //     "top": "50px",
-    //     "easing": "swing",
-    //     "opacity": "0"
-    // };
-
-    // $("#home-icon").mouseenter(function () {
-    //     $("#budget-pop").animate(hintSlideUp, 800);
-    // });
-
-    // $("#home-icon").mouseleave(function () {
-    //     $("#budget-pop").animate(hintSlideDown, 800);
-    // });
-
-    // $("#create-icon").mouseenter(function () {
-    //     $("#expense-pop").animate(hintSlideUp, 800);
-    // });
-
-    // $("#create-icon").mouseleave(function () {
-    //     $("#expense-pop").animate(hintSlideDown, 800);
-    // });
-
-    // $("#other-icon").mouseenter(function () {
-    //     $("#explore-pop").animate(hintSlideUp, 800);
-    // });
-
-    // $("#other-icon").mouseleave(function () {
-    //     $("#explore-pop").animate(hintSlideDown, 800);
-    // });
-
 });
