@@ -427,6 +427,13 @@ $(document).ready(function () {
         "opacity": "0"
     };
 
+    $("#other-icon").click(function () {
+        $("#other-menu-modal").animate(otherSlideIn, 1000);
+    });
+
+    $("#close-modal-btn").click(function () {
+        $("#other-menu-modal").animate(otherSlideOut, 1000);
+    });
 
     //Expense Details Slide in: open category page
     $("#create-icon").click(function () {
@@ -440,13 +447,7 @@ $(document).ready(function () {
         }
     });
 
-    $("#other-icon").click(function () {
-        $("#other-menu-modal").animate(otherSlideIn, 1000);
-    });
 
-    $("#close-modal-btn").click(function () {
-        $("#other-menu-modal").animate(otherSlideOut, 1000);
-    });
 
 
     // 2D GIRL INSTEAD

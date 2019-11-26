@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="CSS/index.css" />
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="icon" href="/resource/setbudget-icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
@@ -17,12 +18,8 @@
     <div id="container">
         <!-- Section 1 -->
         <div id="section-1">
-            <!-- <div class="logo-wrap">
-                <img src="resource/logo.png" width="75px" height="75px" alt="project logo">
-            </div> -->
-
             <div id="mob-navbar">
-                <img id="mob-navbar-icon" src="/resource/menu-icon.png" width="30px" height="30px">
+                <img id="mob-navbar-icon" src="resource/menu-icon.png" width="30px" height="30px">
             </div>
 
             <div id="mob-navbar-modal">
@@ -33,6 +30,7 @@
                 </ul>
             </div>
 
+            <a id="test">
             <div class="nav-bar">
                 <ul>
                     <li id="current-link">HOME</li>
@@ -41,6 +39,7 @@
                     <li><a href="contact.html">CONTACTS</a></li>
                 </ul>
             </div>
+            </a>
 
             <h1 class="main-title">Budget</h1>
             <p class="sub-title">Set your budget and we track it for you.</p>
@@ -54,8 +53,8 @@
                 <div class="box-wrap">
                     <img class="box-image" src="resource/homeColor.png" alt="404 Error" width="85px" height="85px">
                     <h2 class="box-title">All-in-one Tracker</h2>
-                    <p class="box-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eius facilis
-                        cum vel nemo quos.</p>
+                    <p class="box-content">Add all your expenses to the budget app, with different categories, amount
+                        you spent, and the date.</p>
                 </div>
             </div>
 
@@ -64,8 +63,7 @@
                 <div class="box-wrap">
                     <img class="box-image" src="resource/ideaColor.png" alt="404 Error" width="85px" height="85px">
                     <h2 class="box-title">Budgets made simple</h2>
-                    <p class="box-content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam,
-                        aliquam.</p>
+                    <p class="box-content">All you need is to set the budget and we will track it for you.</p>
                 </div>
             </div>
 
@@ -74,8 +72,8 @@
                 <div class="box-wrap">
                     <img class="box-image" src="resource/targetColor.png" alt="404 Error" width="85px" height="85px">
                     <h2 class="box-title">Visiual budget icon</h2>
-                    <p class="box-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, aliquam
-                        dolorem.</p>
+                    <p class="box-content">Our budget water effect helps you visualize the budet amount, and the live 2D
+                        characters will guide you how to use the app.</p>
                 </div>
             </div>
         </div>
@@ -86,15 +84,17 @@
             <div class="section3-wrap">
                 <div class="section3-content">
                     <h2 class="section3-title">Our Project Ideas</h2>
-                    <p class="section3-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga vero
-                        dolore cum voluptatem nesciunt? Dolorem?</p>
+                    <div class="title-underline"></div>
+                    <p class="section3-subtitle">Most financial app will let you set both income and budget. However,
+                        our app main idea is to help people who dont have income but want to track their budget over a
+                        period of time.</p>
                     <div class="feature-list">
                         <ul>
-                            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque, magnam.</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci a asperiores tempore.
+                            <li>Students who have student loan want to track their budget</li>
+                            <li>People who want to know what they spend on.</li>
+                            <li>Multiple categories chocie for you to choose.
                             </li>
-                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
+                            <li>Visiual animation effect give you clear idea about your budget.</li>
                         </ul>
                     </div>
                     <div class="signup-button">
@@ -103,7 +103,7 @@
                 </div>
 
                 <div class="section3-img-wrap">
-                    <img src="resource/sample.png" alt="budget" width="400px" height="500px">
+                    <img src="resource/project-idea.jpg" alt="budget" width="auto" height="500px">
                 </div>
             </div>
         </div>
@@ -136,8 +136,8 @@
                 <div class="section4-column3-wrap">
                     <div class="section4-column3">
                         <h4>ABOUT BUDGET</h4>
-                        <p>Budget is the program that built by team 22 2019 Fall term 1 studengt, the
-                            app is to help users to track their expenses and achieve financial well being
+                        <p>Budget is the program that built by Yang and Jonny for COMP1930 Project. The app is to help
+                            users to track their expenses and achieve financial well being
                         </p>
 
                     </div>
@@ -159,22 +159,21 @@
         <!-- Copyright section end-->
     </div>
 
-    <!-- Mobile Version Nav Bar -->
-    <!-- <div class="mob-nav-bar">
-        <div class="mob-grid">
-            <div class="mob-col-1">
-                <img src="resource/home-icon.png" width="35px" height="35px">
-            </div>
-            <div class="mob-col-2">
-                <img src="resource/bills-icon.png" width="35px" height="35px">
-            </div>
-            <div class="mob-col-3">
-                <img src="resource/user-icon.png" width="35px" height="35px">
+    <!-- Other info pop up menu modal -->
+    <div id="other-menu-modal">
+        <div id="other-menu-modal-content">
+            <div class="other-close-btn"><img id="close-modal-btn" src="resource/close-menu.png" width="40px"
+                    height="40px"></div>
+            <div class="other-menu-link">
+                <h4 id="about-read"><a href="about.html" target="_blank">About Us</a></h4>
+                <h4 id="contact-read"><a href="contact.html" target="_blank">Contact Us</a></h4>
+                <h4 id="project-read"><a href="OurProject.html" target="_blank">Our Project</a></h4>
             </div>
         </div>
-    </div> -->
-    <!-- Mobile Version Nav Bar finish -->
-    <script src="/JS/index.js"></script>
+    </div>
+    <!-- Other info pop up menu modal -->
+
+    <script src="JS/index.js"></script>
 
 </body>
 

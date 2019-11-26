@@ -29,10 +29,6 @@ input:focus {
     display: none;
 }
 
-.mob-nav-bar {
-    display: none;
-}
-
 .showcase-title {
     position: absolute;
     top: 22vw;
@@ -94,6 +90,7 @@ ul li a:hover{
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
+    display: none;
 }
 
 #form-modal {
@@ -138,7 +135,6 @@ ul li a:hover{
     display: none;
 }
 
-<<<<<<< HEAD
 .other-link a {
     color: black;
     text-decoration: none;
@@ -306,6 +302,56 @@ input[type=submit]:hover {
     padding-top: 15px;
 }
 
+#other-menu-modal {
+    background-color: rgb(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: -100%;
+    opacity: 0;
+}
+
+#other-menu-modal-content {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}
+
+.other-close-btn {
+   background-color: white;
+   border-radius: 50%;
+   width: 200px;
+   height: 200px;
+   position: absolute;
+   top: 0;
+   right: 0;
+   margin-top: -80px;
+   margin-right: -96px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+#close-modal-btn {
+    margin-left: -55px;
+    transform: translateY(30px);
+}
+
+.other-menu-link a {
+    text-decoration: none;
+    color: white;
+}
+
+.other-menu-link a:hover {
+    color: rgb(34, 146, 187);
+}
+
 /* Responsive layout - when the screen is less than 900px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 900px) {
     #mob-navbar {
@@ -313,6 +359,7 @@ input[type=submit]:hover {
         left: 20px;
         top: 20px;
         display: flex;
+        z-index: 10;
     }
 
     #mob-navbar-modal {
@@ -324,6 +371,10 @@ input[type=submit]:hover {
         padding: 10px 10px;
         font-size: 10px;
         color: black;
+    }
+
+    #mob-navbar-modal li a{
+        color: rgb(255, 255, 255);
     }
     
     #mob-navbar-modal {
@@ -338,14 +389,11 @@ input[type=submit]:hover {
     
     ul a {
         text-decoration: none;
-        color: rgb(0, 0, 0);
     }
     
-    ul a:hover {
+    #mob-navbar-modal li a:hover {
         color: rgb(69, 109, 157);
     }
-    
-    
     
     .mob-nav-bar {
         display: block;
@@ -364,6 +412,11 @@ input[type=submit]:hover {
         grid-template-columns: repeat(3, 1fr);
         text-align: center;
         padding-top: 5px;
+    }
+
+    .form-wrap {
+        width: 70%;
+        margin: 0 auto;
     }
 
     .nav-bar {

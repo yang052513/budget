@@ -9,24 +9,26 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="resource/setbudget-icon.png">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="JS/about.js"></script>
     <title>About Us</title>
 </head>
 
 <body>
     <div id="show-case">
 
-            <div id="mob-navbar">
-                    <img id="mob-navbar-icon" src="resource/menu-icon.png" width="30px" height="30px">
-                </div>
-    
-                <div id="mob-navbar-modal">
-                    <ul>
-                        <li><a href="home.html">HOME</a></li>
-                        <li><a href="OurProject.html">OUR PROJECT</a></li>
-                        <li><a href="contact.html">CONTACT</a></li>
-                    </ul>
-                </div>
+        <div id="mob-navbar">
+            <img id="mob-navbar-icon" src="resource/menu-icon.png" width="30px" height="30px">
+        </div>
+
+        <div id="mob-navbar-modal">
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="OurProject.html">OUR PROJECT</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
 
         <div class="nav-bar">
             <ul>
@@ -40,65 +42,64 @@
         <div id="showcase-overlay"></div>
         <div class="showcase-content-wrap">
             <div class="main-title">About Us</div>
-            <div class="main-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ipsum
-                voluptatum temporibus.</div>
-            <a href="#test"><button id="read-more-btn">Read More</button></a>
+            <div class="main-content">We are BCIT CST Term 1 Students</div>
+            <a href="#test"><button class="read-more-btn">Read More</button></a>
         </div>
     </div>
 
-    <div id="section-1-intro">
+    <div id="section-1-intro" class="section-wrap">
         <a id="test">
             <h3>Welcome</h3>
         </a>
-        <p class="text-content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio ratione quos nulla
-            commodi inventore
-            consectetur debitis. Molestias adipisci iste labore iure repellat nulla incidunt quaerat. Natus fugit animi
-            accusantium minus reiciendis molestias! Deserunt perspiciatis, error magni sequi reiciendis tempora magnam
-            voluptates molestias facilis earum velit deleniti nam perferendis ut eos! Voluptate, suscipit? Id a
-            consequatur sequi totam, quia dolor eum, ipsa vero ut explicabo libero nostrum labore architecto adipisci
-            magnam beatae temporibus. Optio ducimus laboriosam id natus doloremque voluptates non sunt exercitationem
-            nisi aliquam quas temporibus, velit excepturi nesciunt. Sequi asperiores assumenda fuga dolores totam sunt
-            dolorem modi numquam voluptate.</p>
+        <p class="text-content">Hey! We are BCIT CST 2019 Fall Term 1 student. The budget web app is built by Team 22:
+            Yang Li and Jonny. After leaning Basic Web Development principles and Database store, we decided to create
+            our first project: Budget. We like web design and hopefully this web app can actually help you in some
+            extent. Jonny is our team designer who design the layout of our website. Yang is the coder for the project
+            includes front and back end. However, our roles are not exclusively. Sometimes we will collaborate and work
+            one coding or designing together.</p>
     </div>
 
     <div id="section-2-team">
         <h3>Our Team</h3>
-        <p class="text-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis quaerat possimus
-            ducimus asperiores
-            numquam placeat. Quis quas, vero ipsum ipsa officiis cupiditate iste adipisci voluptate velit modi libero,
-            maxime reiciendis veritatis magni labore tenetur quia quod, ducimus explicabo. Iste velit repellat officiis
-            beatae, quibusdam asperiores inventore quis eaque expedita repellendus?</p>
+        <p class="text-content"></p>
         <div class="teaminfo-wrap">
             <div class="profile-wrap">
-                <img class="profile-pic" src="resource/profile-yang.png">
+                <img id="yang" class="profile-pic" src="resource/profile-yang.png">
                 <h4>Yang Li</h4>
                 <p>Coder</p>
                 <div class="user-socialmedia">
-                    <a href="https://www.instagram.com/yang05_li/" target="_blank"><img class="socialmedia-icon" src="resource/ins-color.png"></a>
-                    <a href="https://twitter.com/liyang0525" target="_blank"><img class="socialmedia-icon" src="resource/twitter-color.png"></a>
-                    <a href="https://github.com/yang052513" target="_blank"><img class="socialmedia-icon" src="resource/github-logo.png"></a>
+                    <a href="https://www.instagram.com/yang05_li/" target="_blank"><img class="socialmedia-icon"
+                            src="resource/ins-color.png"></a>
+                    <a href="https://twitter.com/liyang0525" target="_blank"><img class="socialmedia-icon"
+                            src="resource/twitter-color.png"></a>
+                    <a href="https://github.com/yang052513" target="_blank"><img class="socialmedia-icon"
+                            src="resource/github-logo.png"></a>
                 </div>
+                <button id="read-more-yang-btn" class="read-more-btn">Read More</button>
             </div>
+
             <div class="profile-wrap">
-                <img class="profile-pic" src="resource/profile-jonny.png">
+                <img id="jonny" class="profile-pic" src="resource/profile-jonny.png">
                 <h4>Jonny Lu</h4>
                 <p>Designer</p>
                 <div class="user-socialmedia">
-                    <a href="https://www.instagram.com/lynnoj/" target="_blank"><img class="socialmedia-icon" src="resource/ins-color.png"></a>
-                    <a href="https://twitter.com/keithtang241413" target="_blank"><img class="socialmedia-icon" src="resource/twitter-color.png"></a>
-                    <a href="https://github.com/lynnoj" target="_blank"><img class="socialmedia-icon" src="resource/github-logo.png"></a>
+                    <a href="https://www.instagram.com/lynnoj/" target="_blank"><img class="socialmedia-icon"
+                            src="resource/ins-color.png"></a>
+                    <a href="https://twitter.com/keithtang241413" target="_blank"><img class="socialmedia-icon"
+                            src="resource/twitter-color.png"></a>
+                    <a href="https://github.com/lynnoj" target="_blank"><img class="socialmedia-icon"
+                            src="resource/github-logo.png"></a>
                 </div>
+                <button id="read-more-jonny-btn" class="read-more-btn">Read More</button>
             </div>
         </div>
     </div>
 
     <div id="section-3-location">
         <h3>Our Location</h3>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20835.645666744535!2d-122.9805138046408!3d49.24880785391546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548676e1e49ab735%3A0x3acab7711e1f10d!2sBritish%20Columbia%20Institute%20of%20Technology!5e0!3m2!1sen!2sca!4v1574202998146!5m2!1sen!2sca" 
-        frameborder="0" allowfullscreen=""></iframe>
-        <!-- <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20843.350536576057!2d-123.01217342191367!3d49.230548207321554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548676e1e37125a3%3A0xcef19ec766ed7764!2zQkNJVCDlurfmqILkuK3lv4M!5e0!3m2!1szh-CN!2sca!4v1573784428128!5m2!1szh-CN!2sca"
-            frameborder="0" allowfullscreen=""></iframe> -->
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20835.645666744535!2d-122.9805138046408!3d49.24880785391546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548676e1e49ab735%3A0x3acab7711e1f10d!2sBritish%20Columbia%20Institute%20of%20Technology!5e0!3m2!1sen!2sca!4v1574202998146!5m2!1sen!2sca"
+            frameborder="0" allowfullscreen=""></iframe>
     </div>
 
     <!-- Section 4 -->
@@ -128,8 +129,8 @@
             <div class="section4-column3-wrap">
                 <div class="section4-column3">
                     <h4>ABOUT BUDGET</h4>
-                    <p>Budget is the program that built by team 22 2019 Fall term 1 studengt, the
-                        app is to help users to track their expenses and achieve financial well being
+                    <p>Budget is the program that built by Yang and Jonny for COMP1930 Project. The app is to help users
+                        to track their expenses and achieve financial well being
                     </p>
 
                 </div>
@@ -149,6 +150,52 @@
         </div>
     </div>
     <!-- Copyright section end-->
+
+    <!-- Other info pop up menu modal -->
+    <div id="other-menu-modal">
+        <div id="other-menu-modal-content">
+            <div class="other-close-btn"><img id="close-modal-btn" src="resource/close-menu.png" width="40px"
+                    height="40px"></div>
+            <div class="other-menu-link">
+                <h4 id="about-read"><a href="home.html" target="_blank">Home</a></h4>
+                <h4 id="contact-read"><a href="contact.html" target="_blank">Contact Us</a></h4>
+                <h4 id="project-read"><a href="OurProject.html" target="_blank">Our Project</a></h4>
+            </div>
+        </div>
+    </div>
+    <!-- Other info pop up menu modal -->
+
+    <!-- Read more yang info modal -->
+    <div id="yang-modal-wrap" class="team-modal-wrap">
+        <div id="yang-modal" class="team-modal">
+            <div id="yang-modal-content" class="team-modal-content">
+                <img class="team-profile" src="/resource/profile-yang.png" width="auto" height="100px">
+                <p class="team-name">Yang Li</p>
+                <p class="team-intro">The guy who only wear attack on titan t-shirt during the workout.</p>
+                <p class="team-content">Email: liyang0525@hotmail.com</p>
+                <p class="team-content">Phone: 604-781-0561</p>
+                <p class="team-name">Skills</p>
+                <img class="team-skill-box" src="/resource/after-effects.png" width="auto" height="50px">
+                <img class="team-skill-box" src="/resource/premiere.png" width="auto" height="50px">
+            </div>
+        </div>
+    </div>
+
+    <!-- Read more jonny info modal -->
+    <div id="jonny-modal-wrap" class="team-modal-wrap">
+        <div id="jonny-modal" class="team-modal">
+            <div id="jonny-modal-content" class="team-modal-content">
+                <img class="team-profile" src="/resource/profile-jonny.png" width="auto" height="100px">
+                <p class="team-name">Jonny Lu</p>
+                <p class="team-intro">The guy who only wear attack on titan t-shirt during the workout.</p>
+                <p class="team-content">Email: liyang0525@hotmail.com</p>
+                <p class="team-content">Phone: 604-781-0561</p>
+                <p class="team-name">Skills</p>
+                <img class="team-skill-box" src="/resource/photoshop.png" width="auto" height="50px">
+                <img class="team-skill-box" src="/resource/illustrator.png" width="auto" height="50px">
+            </div>
+        </div>
+    </div>
 
     <script src="JS/index.js"></script>
 </body>

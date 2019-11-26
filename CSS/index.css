@@ -11,6 +11,7 @@ body {
     position: absolute;
     left: 20px;
     top: 20px;
+    z-index: 10;
 }
 
 #mob-navbar-modal li{
@@ -143,6 +144,15 @@ ul a:hover {
 .section3-title {
     font-size: 3em;
     line-height: 1.2em;
+    margin-bottom: 15px;
+    color: #3b7294;
+}
+
+.title-underline{
+    width: 70%;
+    height: 2px;
+    background-color: #3b7294;
+    margin: 0 auto;
 }
 
 .section3-wrap {
@@ -282,6 +292,56 @@ ul {
     font-family: 'Quicksand', sans-serif ;
 }
 
+#other-menu-modal {
+    background-color: rgb(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: -100%;
+    opacity: 0;
+}
+
+#other-menu-modal-content {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}
+
+.other-close-btn {
+   background-color: white;
+   border-radius: 50%;
+   width: 200px;
+   height: 200px;
+   position: absolute;
+   top: 0;
+   right: 0;
+   margin-top: -80px;
+   margin-right: -96px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+#close-modal-btn {
+    margin-left: -55px;
+    transform: translateY(30px);
+}
+
+.other-menu-link a {
+    text-decoration: none;
+    color: white;
+}
+
+.other-menu-link a:hover {
+    color: rgb(34, 146, 187);
+}
+
 
 
 /* Responsive layout - when the screen is more than 900px wide, make the two columns stack on top of each other instead of next to each other */
@@ -344,6 +404,7 @@ ul {
     .box-title {
         padding-top: 10px;
         font-size: 30px;
+        color: #3b7294;
     }
     
     .box-content {
@@ -369,6 +430,13 @@ ul {
         height: 50px;
         margin: 0;
         margin-top: 50px;
+    }
+
+    .title-underline{
+        width: 380px;
+        height: 2px;
+        background-color: #3b7294;
+        margin: 0 0 10px 0;
     }
 
     .section4-inner-grid {
@@ -412,8 +480,8 @@ ul {
 /* Responsive layout - when the screen is less than 400px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 450px) {
     .section3-img-wrap img {
-        width: 200px;
-        height: 300px;
+        width: 300px;
+        height: auto;
     }
 
     .main-title {
