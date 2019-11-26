@@ -1,0 +1,29 @@
+Back Log
+
+2019.11.14 
+- Fix expense > budget
+- About us page done
+
+2019.11.12 Tuesday
+- Water wave animation done
+
+2019.11.11 Monday
+- Finish basic javascript function for home page
+
+2019.11.9 Saturday
+- Home page transition (create expense flow) done
+
+2019.11.5 Tuesday
+- Index page, login page, contact page (mobile and desktop) done *****
+
+2019.11.3 Monday
+- Updated contact page mobile version
+
+2019.11.2 Saturday
+- Created the landing page (index.html) desktop version**
+- Footer, social media link, and section 3 background image need to change
+
+2019.11.1 Friday
+- Created the login page with css (mobile version)
+- Background image might need change
+- Add logo(black) above the email address
