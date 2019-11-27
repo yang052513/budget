@@ -13,22 +13,7 @@ body {
     -o-background-size: cover;
     background-size: cover; */
     background-color: #e9f0f5;
-    /* background: linear-gradient(-45deg, #ffcfc1, #ffa8c9, #a6e7ff, #b8ffef);
-    background-size: 400% 400%;
-    animation: gradientBG 10s ease infinite; */
 }
-
-/* @keyframes gradientBG {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-} */
 
 /** Header section */
 #header-wrap {
@@ -92,6 +77,7 @@ span {
     height: 22px;
     background-size: contain;
     animation: wave 10s linear infinite;
+    border: none;
 }
 
 .deep-water {
@@ -190,6 +176,7 @@ span {
     position: relative;
     overflow: hidden;
     margin-bottom: 20px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .timeline-container:before {
@@ -253,7 +240,8 @@ span {
     margin-top: 5px;
     margin-bottom: 5px;
     font-size: 25px;
-    font-weight: 500
+    font-weight: 500;
+    color: rgb(91, 91, 91);
 }
 
 .amount {
@@ -265,7 +253,7 @@ span {
 
 .date {
     font-size: 15px;
-    color: #a4a4a4;
+    color: #767676;
 }
 
 .description {

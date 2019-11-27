@@ -256,9 +256,10 @@ $(document).ready(function () {
         userExpense.note = document.getElementById('note-field').value;
 
         //If the expense entered is less than 0 or empty value
-        if (userExpense.amount < 0 || userExpense.amount == '') {
+        //之后有时间可以换成别的modal
+        if (userExpense.amount < 0 || userExpense.amount == '' || userExpense.date == '' || userExpense.note == '') {
             $("#invalid-expense-modal").fadeIn();
-            console.log('Amount can not be empty');
+            console.log('You forgot fill some fields');
 
             //Return back to enter page
             $("#invalid-expense-btn").click(function() {
