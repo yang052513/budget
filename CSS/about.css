@@ -154,12 +154,26 @@ iframe {
     margin-bottom: -10px;
 }
 
+/* Section 3 */
+.section-3-location {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: .1vw 0vw .1vw 0vw;
+}
+
+.section-3-iframe {
+    margin: 0vw 0vw 0vw 0vw;
+}
+
 /* Section 4  */
 .section-4 {
     grid-column: 1/-1;
     background-color: rgb(69, 109, 157);
     color: rgb(255, 255, 255);
     font-family: 'Quicksand', sans-serif ;
+    margin: 0vw 0vw 0vw 0vw;
 }
 
 .section4-inner-grid {
