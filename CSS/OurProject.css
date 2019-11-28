@@ -19,7 +19,7 @@ body {
     z-index: 10;
 }
 
-#mob-navbar-modal li{
+#mob-navbar-modal li {
     list-style-type: none;
     padding: 10px 10px;
     font-size: 10px;
@@ -155,7 +155,7 @@ ul a:hover {
     max-width: 28%;
 }
 
-.section-4-header{
+.section-4-header {
     text-align: center;
     flex-wrap: nowrap;
     font-size: 2.8vw;
@@ -249,7 +249,7 @@ ul a:hover {
     grid-column: 1/-1;
     background-color: rgb(69, 109, 157);
     color: rgb(255, 255, 255);
-    font-family: 'Quicksand', sans-serif ;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .section8-inner-grid {
@@ -360,21 +360,25 @@ ul a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
- }
- 
- #close-modal-btn {
-     margin-left: -55px;
-     transform: translateY(30px);
- }
- 
- .other-menu-link a {
-     text-decoration: none;
-     color: white;
- }
- 
- .other-menu-link a:hover {
-     color: rgb(34, 146, 187);
- }
+}
+
+.other-close-btn:hover {
+    background-color: rgb(34, 146, 187);
+}
+
+#close-modal-btn {
+    margin-left: -55px;
+    transform: translateY(30px);
+}
+
+.other-menu-link a {
+    text-decoration: none;
+    color: white;
+}
+
+.other-menu-link a:hover {
+    color: rgb(34, 146, 187);
+}
 
 /* Responsive layout when the screen is greater than 900px wide. */
 @media screen and (min-width: 900px) {
@@ -392,7 +396,7 @@ ul a:hover {
         top: 0;
         left: 0;
     }
-    
+
     .nav-bar li {
         list-style-type: none;
         display: inline-block;
@@ -432,19 +436,19 @@ ul a:hover {
         padding-left: 100px;
         padding-bottom: 20px;
     }
-    
+
     .section8-column2 {
         text-align: center;
         font-size: 3vw;
     }
-    
-    .section8-column3{ 
+
+    .section8-column3 {
         display: block;
         line-height: 1.5em;
         font-size: 1vw;
         padding: 0px 20px 0px 10px;
     }
-    
+
     .section8-column3-wrap {
         margin: 0 auto;
     }

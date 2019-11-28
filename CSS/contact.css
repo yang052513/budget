@@ -338,6 +338,10 @@ input[type=submit]:hover {
    align-items: center;
 }
 
+.other-close-btn:hover {
+    background-color: rgb(34, 146, 187);
+}
+
 #close-modal-btn {
     margin-left: -55px;
     transform: translateY(30px);
