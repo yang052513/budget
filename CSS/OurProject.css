@@ -140,7 +140,16 @@ ul a:hover {
     justify-content: space-evenly;
 }
 
-.section-4 img {
+.section-4-p2 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0vw 9vw 0vw 9vw;
+}
+
+.section-4-p2 img {
     margin: 0vw 0vw 3vw 0vw;
     flex-wrap: wrap;
     max-width: 28%;
@@ -154,7 +163,7 @@ ul a:hover {
     color: rgb(69, 109, 157);
 }
 
-/* Section 5 - Mock Design Color */
+/* Section 5 - Mock Design Colour */
 .section-5 {
     display: flex;
     flex-wrap: wrap;
@@ -162,7 +171,16 @@ ul a:hover {
     justify-content: space-evenly;
 }
 
-.section-5 img {
+.section-5-p2 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0vw 9vw 0vw 9vw;
+}
+
+.section-5-p2 img {
     margin: 5vw 0vw 5vw 0vw;
     max-width: 28%;
 }
@@ -223,7 +241,7 @@ ul a:hover {
 
 .section-7 img {
     max-width: 50%;
-    margin-bottom: 7vw;
+    margin-bottom: 9vw;
 }
 
 /* Section 8 (footer) */
@@ -244,7 +262,6 @@ ul a:hover {
 }
 
 .section8-column2 {
-    grid-column: 1/-1;
     font-size: 20px;
     text-align: center;
 }
@@ -308,6 +325,56 @@ ul a:hover {
 .copyright-wrap {
     padding-top: 15px;
 }
+
+#other-menu-modal {
+    background-color: rgb(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: -100%;
+    opacity: 0;
+}
+
+#other-menu-modal-content {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}
+
+.other-close-btn {
+    background-color: white;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -80px;
+    margin-right: -96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ #close-modal-btn {
+     margin-left: -55px;
+     transform: translateY(30px);
+ }
+ 
+ .other-menu-link a {
+     text-decoration: none;
+     color: white;
+ }
+ 
+ .other-menu-link a:hover {
+     color: rgb(34, 146, 187);
+ }
 
 /* Responsive layout when the screen is greater than 900px wide. */
 @media screen and (min-width: 900px) {
