@@ -28,7 +28,7 @@ $(document).ready(function () {
             if (snap.data().BudgetStore > 0) {
                 document.getElementById("budget_store").innerHTML = "$" + snap.data().BudgetStore;
                 budgetStore = snap.data().BudgetStore;
-            //If budget < 0 in firebase, initialize with 0
+                //If budget < 0 in firebase, initialize with 0
             } else {
                 document.getElementById("budget_store").innerHTML = "$" + 0;
             }
@@ -38,7 +38,7 @@ $(document).ready(function () {
                 document.getElementById("expense_store").innerHTML = "$" + snap.data().ExpenseStore;
                 expenseUpdate = snap.data().ExpenseStore;
                 console.log(expenseUpdate);
-            //If expense < 0 in firebase, initialize with 0
+                //If expense < 0 in firebase, initialize with 0
             } else {
                 document.getElementById("expense_store").innerHTML = "$" + 0;
             }
@@ -50,7 +50,7 @@ $(document).ready(function () {
                     "transform": "translateY(" + snap.data().WaveHeight + "%)"
                 });
 
-            //If the percentage <= 0, initialize with 0
+                //If the percentage <= 0, initialize with 0
             } else {
                 $(".budget_percent_num").html(100 + "%");
                 $(".water").css({
@@ -60,10 +60,10 @@ $(document).ready(function () {
         });
 
         //Append user expense item from firebase
-        
+
         //Determine whether the item is left or right float
         var oldFlag = false;
-        
+
         //Get all user past expense, order by Date from the newest to the oldest
         db.collection("user").doc(user.uid).collection("Expense").orderBy("Date", "desc")
             .get()
@@ -244,7 +244,7 @@ $(document).ready(function () {
     var flag = true;
 
     var expenseControl = $("#expense_store");
-    
+
     //expense array list, hold the expense amount values
     var expenseList = [];
 
@@ -262,11 +262,11 @@ $(document).ready(function () {
             console.log('You forgot fill some fields');
 
             //Return back to enter page
-            $("#invalid-expense-btn").click(function() {
+            $("#invalid-expense-btn").click(function () {
                 $("#invalid-expense-modal").fadeOut();
             });
-        
-        //If the expense is valid
+
+            //If the expense is valid
         } else {
             //push the expense to the array and store the value
             expenseList.push(userExpense.amount);
@@ -283,7 +283,7 @@ $(document).ready(function () {
                 expenseList.shift();
             }
             console.log(expenseList);
-            
+
             //Write the new expenses
             if (expenseTotal > budgetStore) {
                 //Open up the alert modal
@@ -361,25 +361,26 @@ $(document).ready(function () {
                 $("#enter-slide").animate(infoSlideOut, 1000);
                 $("body").css("overflow", "auto");
 
-            }
+                //Write the data to firebase, all the value below are gather from UI
+                function writeExpenseEvent() {
+                    var docData = {
+                        Category: userExpense.category,
+                        Value: userExpense.amount,
+                        Date: userExpense.date,
+                        Description: userExpense.note
+                    };
 
-            //Write the data to firebase, all the value below are gather from UI
-            function writeExpenseEvent() {
-                var docData = {
-                    Category: userExpense.category,
-                    Value: userExpense.amount,
-                    Date: userExpense.date,
-                    Description: userExpense.note
+                    //write to database for user
+                    firebase.auth().onAuthStateChanged(function (user) {
+                        db.collection("user").doc(user.uid).collection("Expense").add(docData);
+                    });
                 };
 
-                //write to database for user
-                firebase.auth().onAuthStateChanged(function (user) {
-                    db.collection("user").doc(user.uid).collection("Expense").add(docData);
-                });
-            };
+                writeExpenseEvent();
+                $('input, textarea').val('');
+            }
 
-            writeExpenseEvent();
-            $('input[type="text"], textarea').val('');
+
         }
     });
 
@@ -394,21 +395,21 @@ $(document).ready(function () {
             $("#budget-zero-modal").fadeIn();
 
             //click return back to budget setting modal
-            $("#zero-budget-btn-expense").click(function() {
+            $("#zero-budget-btn-expense").click(function () {
                 $("#budget-zero-modal").fadeOut();
             });
 
-        //If set the budget less or equal to expense
+            //If set the budget less or equal to expense
         } else if (userInput < expenseUpdate) {
             console.log('The Budget is less than the expense, try it again!');
             $("#budget-less-expense-modal").fadeIn();
-            
+
             //click return back to budget setting modal
-            $("#budget-less-expense-btn").click(function() {
+            $("#budget-less-expense-btn").click(function () {
                 $("#budget-less-expense-modal").fadeOut();
             });
-    
-        //If budget is greater than expense and not 0
+
+            //If budget is greater than expense and not 0
         } else {
             $("#budget_store").html("$" + (userInput / 1));
             $("#setup-budget").fadeOut();
