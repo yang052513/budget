@@ -236,7 +236,7 @@ ul a:hover {
 
 .section8-inner-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
 }
 
 .section8-column1 {
@@ -290,7 +290,7 @@ ul a:hover {
     color: white;
 }
 
-/* Section 9 */
+/* Section 9 - Copyright */
 #section-9 {
     grid-column: 1/-1;
     background-color: rgb(41, 41, 41);
@@ -360,23 +360,22 @@ ul a:hover {
     }
 
     .section8-column1 {
+        display: block;
         font-size: 1vw;
         padding-left: 100px;
         padding-bottom: 20px;
-        /* display: inherit; */
     }
     
     .section8-column2 {
         text-align: center;
         font-size: 3vw;
-        /* display: inherit; */
     }
     
     .section8-column3{ 
+        display: block;
         line-height: 1.5em;
         font-size: 1vw;
         padding: 0px 20px 0px 10px;
-        /* display: inherit; */
     }
     
     .section8-column3-wrap {
