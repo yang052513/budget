@@ -1,8 +1,54 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Raleway", sans-serif;
     margin: 0;
+    padding: 0;
 }
 
+/* Hamburger Menu */
+#mob-navbar {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+#mob-navbar {
+    z-index: 10;
+}
+
+#mob-navbar-modal li{
+    list-style-type: none;
+    padding: 10px 10px;
+    font-size: 10px;
+}
+
+#mob-navbar-modal {
+    position: absolute;
+    top: 0;
+    left: -300px;
+}
+
+#mob-navbar-modal ul {
+    padding-left: 20px;
+}
+
+ul a {
+    text-decoration: none;
+    color: white;
+}
+
+ul a:hover {
+    color: rgb(69, 109, 157);
+}
+
+.nav-bar {
+    display: none;
+}
+
+/* Section 1 */
 .section-1 {
     display: flex;
     align-items: center;
@@ -29,20 +75,20 @@ body {
     color: white;
 }
 
-.nav-bar {
-    justify-content: flex-start;
-    font-size: 1.2vw;
-}
-
 .other-link {
     color: black;
+    text-decoration: none;
 }
 
 .current-link {
     border-bottom: 1px solid rgb(69, 109, 157);
     color: rgb(69, 109, 157);
+    text-decoration: none;
 }
 
+
+
+/* Section 2*/
 .section-2 {
     display: flex;
     flex-wrap: wrap;
@@ -50,20 +96,229 @@ body {
     justify-content: center;
 }
 
-h2 {
+.section-2 p {
+    flex-wrap: wrap;
+    margin: 5vw 12vw 5vw 12vw;
+    line-height: 1.8em;
+}
+
+.section-2 h2 {
     text-align: center;
     font-size: 4vw;
     margin: 8vw 12vw 0vw 12vw;
     color: rgb(69, 109, 157);
 }
 
-p {
+/* Section 3 - Task Flow*/
+.section-3 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-3 img {
+    flex-wrap: wrap;
+    padding-top: 8vw;
+    padding-bottom: 8vw;
+    max-width: 75%;
+}
+
+.section-3 h2 {
+    text-align: center;
+    font-size: 4vw;
+    margin: 8vw 12vw 0vw 12vw;
+    color: rgb(69, 109, 157);
+}
+
+/* Section 4 - Mock Design */
+.section-4 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.section-4 img {
+    margin: 0vw 0vw 3vw 0vw;
+    flex-wrap: wrap;
+    max-width: 28%;
+}
+
+.section-4-header{
+    text-align: center;
+    flex-wrap: nowrap;
+    font-size: 2.8vw;
+    margin: 0vw 12vw 2vw 12vw;
+    color: rgb(69, 109, 157);
+}
+
+/* Section 5 - Mock Design Color */
+.section-5 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.section-5 img {
+    margin: 5vw 0vw 5vw 0vw;
+    max-width: 28%;
+}
+
+.section-5 h2 {
+    text-align: center;
+    font-size: 4vw;
+    margin: 8vw 12vw 0vw 12vw;
+    color: rgb(69, 109, 157);
+}
+
+/* Section 6 - Font Choice */
+.section-6 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-6 p {
     flex-wrap: wrap;
     margin: 5vw 12vw 5vw 12vw;
     line-height: 1.8em;
 }
-/* Responsive layout when the screen is more than 900px wide. */
+
+.section-6 h2 {
+    text-align: center;
+    font-size: 4vw;
+    margin: 8vw 12vw 0vw 12vw;
+    color: rgb(69, 109, 157);
+}
+
+.section-6 img {
+    max-width: 76%;
+    margin-bottom: 6vw;
+}
+
+/* Section 7 - Colour Choice */
+.section-7 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-7 p {
+    flex-wrap: wrap;
+    margin: 5vw 12vw 5vw 12vw;
+    line-height: 1.8em;
+}
+
+.section-7 h2 {
+    text-align: center;
+    font-size: 4vw;
+    margin: 5vw 12vw 0vw 12vw;
+    color: rgb(69, 109, 157);
+}
+
+.section-7 img {
+    max-width: 50%;
+    margin-bottom: 7vw;
+}
+
+/* Section 8 (footer) */
+.section-8 {
+    grid-column: 1/-1;
+    background-color: rgb(69, 109, 157);
+    color: rgb(255, 255, 255);
+    font-family: 'Quicksand', sans-serif ;
+}
+
+.section8-inner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.section8-column1 {
+    display: none;
+}
+
+.section8-column2 {
+    grid-column: 1/-1;
+    font-size: 20px;
+    text-align: center;
+}
+
+.section8-column3 {
+    display: none;
+}
+
+.fa {
+    font-size: 1px;
+    width: 1px;
+    height: 1px;
+    text-align: center;
+    text-decoration: none;
+    margin: 15px 35px 0px 20px;
+}
+
+.socialmedia-icon-wrap {
+    margin-bottom: 15px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
+.fa-reddit {
+    background: #ff5700;
+    color: white;
+}
+
+/* Section 9 */
+#section-9 {
+    grid-column: 1/-1;
+    background-color: rgb(41, 41, 41);
+}
+
+.section9-inner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+    height: 30px;
+}
+
+.copyright-wrap {
+    padding-top: 15px;
+}
+
+/* Responsive layout when the screen is greater than 900px wide. */
 @media screen and (min-width: 900px) {
+    #mob-navbar-modal {
+        display: none;
+    }
+
+    #mob-navbar {
+        display: none;
+    }
+
     .nav-bar {
         display: flex;
         position: absolute;
@@ -78,5 +333,53 @@ p {
         margin-top: 10px;
         padding-bottom: 5px;
         font-size: 1.2vw;
+    }
+
+    .nav-bar li:hover {
+        color: rgb(69, 109, 157);
+        user-select: none;
+        border-bottom: 1px solid rgb(69, 109, 157);
+    }
+
+    .section4 img {
+        max-width: 55%;
+    }
+
+    .fa {
+        font-size: 1px;
+        width: 1px;
+        height: 1px;
+        text-align: center;
+        text-decoration: none;
+        margin: 50px 2vw;
+    }
+
+    .section8-inner-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .section8-column1 {
+        font-size: 1vw;
+        padding-left: 100px;
+        padding-bottom: 20px;
+        /* display: inherit; */
+    }
+    
+    .section8-column2 {
+        text-align: center;
+        font-size: 3vw;
+        /* display: inherit; */
+    }
+    
+    .section8-column3{ 
+        line-height: 1.5em;
+        font-size: 1vw;
+        padding: 0px 20px 0px 10px;
+        /* display: inherit; */
+    }
+    
+    .section8-column3-wrap {
+        margin: 0 auto;
     }
 }
