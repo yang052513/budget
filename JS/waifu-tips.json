@@ -42,6 +42,9 @@
 		"selector": "#user-name",
 		"text": ["Hello ~ ", "Yeah, that's your name", "I know it's you~"]
 	}, {
+		"selector": "#back-to-top-btn",
+		"text": ["Scroll to top~"]
+	}, {
 		"selector": "#food-card",
 		"text": ["Broccoli...?"]
 	}, {

@@ -42,6 +42,7 @@
 	overflow: hidden;
 	position: absolute;
 	animation: shake 50s ease-in-out 5s infinite;
+	font-family: 'Raleway', sans-serif;
 }
 
 #waifu #live2d {

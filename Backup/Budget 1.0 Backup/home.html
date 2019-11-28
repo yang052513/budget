@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="CSS/home.css" />
+    <link rel="stylesheet" href="CSS/foopicker.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    <link rel="icon" href="/resource/setbudget-icon.png">
+    <title>Budget</title>
+</head>
+
+<body>
+    <!-- Budget and expense value store -->
+
+    <div id="header-wrap">
+        <div class="budget-container">
+            <div class="budget-read" id="budget-title">BUDGET</div>
+            <div class="budget-read" id="budget_store">$0</div>
+        </div>
+        <div class="mid-line"></div>
+        <div class="expense-container">
+            <div id="expense-title">EXPENSE</div>
+            <div id="expense_store">$0</div>
+        </div>
+    </div>
+    <!-- Budget and expense value store -->
+
+    <!-- Percentage of budget section  -->
+    <div class="wave-fill">
+        <div class="budget_percent_num">100%</div>
+        <div class="water">
+            <span class="wave"></span>
+            <span class="deep-water"></span>
+        </div>
+    </div>
+    <!-- Percentage of budget section  -->
+
+    <!-- Welcome user name -->
+    <div id="welcome-user">Hi <span id="user-name">Yang</span></div>
+    <!-- Welcome user name -->
+
+
+    <!-- Time line section  -->
+    <div class="timeline-line"></div>
+    <div class="timeline-container">
+
+    </div>
+
+    <!-- Time line section ends -->
+
+    <!-- Mobile Version Nav Bar -->
+    <div class="mob-nav-bar">
+        <div class="mob-grid">
+            <div class="mob-col-1">
+                <img class="mob-nav-icon" id="home-icon" src="resource/setbudget-icon.png" width="35px" height="35px">
+            </div>
+            <div class="mob-col-2">
+                <img class="mob-nav-icon" id="create-icon" src="resource/create2-icon.png" width="35px" height="35px">
+            </div>
+            <div class="mob-col-3">
+                <img class="mob-nav-icon" id="other-icon" src="resource/option.png" width="30px" height="32px">
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Version Nav Bar finish -->
+
+    <!-- Slide in Category  -->
+    <div id="slideShow">
+        <div class="section-title">CATEGORY</div>
+        <div class="category-grid">
+            <div class="category-card" id="food-card">
+                <img class="category-icon" src="resource/Category/food2-icon.png" alt="food" width="50px" height="50px">
+                <p class="category-caption">Food</p>
+            </div>
+
+            <div class="category-card" id="health-card">
+                <img class="category-icon" src="resource/Category/health2-icon.png" alt="health" width="50px"
+                    height="50px">
+                <p class="category-caption">Health</p>
+            </div>
+
+            <div class="category-card" id="auto-card">
+                <img class="category-icon" src="resource/Category/auto2-icon.png" alt="auto" width="50px" height="50px">
+                <p class="category-caption">Autos</p>
+            </div>
+
+            <div class="category-card" id="shopping-card">
+                <img class="category-icon" src="resource/Category/shopping2-icon.png" alt="shopping" width="50px"
+                    height="50px">
+                <p class="category-caption">Clothes</p>
+            </div>
+
+            <div class="category-card" id="sport-card">
+                <img class="category-icon" src="resource/Category/dumbbell-icon.png" alt="sport" width="50px"
+                    height="50px">
+                <p class="category-caption">Sports</p>
+            </div>
+
+            <div class="category-card" id="education-card">
+                <img class="category-icon" src="resource/Category/education2-icon.png" alt="education" width="50px"
+                    height="50px">
+                <p class="category-caption">Education</p>
+            </div>
+
+            <div class="category-card" id="bill-card">
+                <img class="category-icon" src="resource/Category/bill2-icon.png" alt="bills" width="50px"
+                    height="50px">
+                <p class="category-caption">Bills</p>
+            </div>
+
+            <div class="category-card" id="other-card">
+                <img class="category-icon" src="resource/Category/other2-icon.png" alt="other" width="50px"
+                    height="50px">
+                <p class="category-caption">Others</p>
+            </div>
+        </div>
+
+        <div class="category-btn-wrap">
+            <button id="cancel-btn" class="category-btn">Cancel</button>
+        </div>
+    </div>
+    <!-- Category Slide in Ends -->
+
+    <!-- Slide in Details Page -->
+    <div id="enter-slide">
+        <div class="section-title">Enter</div>
+        <div class="enter-wrap">
+            <div class="enter-grid">
+                <label for="datepicker">Date</label>
+                <input type="text" id="datepicker" name="date" required>
+
+                <label for="amount-field">Amount</label>
+                <input type="number" id="amount-field" name="amount" required onfocus="this.value=''">
+
+                <label for="note-field">Notes</label>
+                <input type="text" id="note-field" name="detail" required onfocus="this.value=''">
+            </div>
+
+        </div>
+        <div class="enter-btn-wrap">
+            <button id="back-btn" class="enter-btn">Go back</button>
+            <button id="save-btn" class="enter-btn">Save</button>
+        </div>
+    </div>
+    <!-- Slide in Details Page Ends -->
+
+    <!-- Set the budget number modal -->
+    <div id="setup-budget">
+        <div id="setup-budget-content">
+            <p class="budget-modal-title">Enter your budget</p>
+            <div class="cancel-budget-btn"><img src="resource/cancel2-icon.png" class="budget-cancel" width="50px"
+                    heigh="50px"></div>
+            <input type="number" id="user-budget" name="budget" required onfocus="this.value=''">
+            <div class="setup-btn-wrap">
+                <button id="submit-budget-btn">Save</button>
+                <button id="mob-cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <!-- Set the budget number modal -->
+
+    <!-- Other info pop up menu modal -->
+    <div id="other-menu-modal">
+        <div id="other-menu-modal-content">
+            <div class="other-close-btn"><img id="close-modal-btn" src="resource/close-menu.png" width="40px"
+                    height="40px"></div>
+            <div class="other-menu-link">
+                <h4 id="about-read"><a href="about.html" target="_blank">About Us</a></h4>
+                <h4 id="contact-read"><a href="contact.html" target="_blank">Contact Page</a></h4>
+                <h4 id="project-read"><a href="OurProject.html" target="_blank">Our Project</a></h4>
+            </div>
+        </div>
+    </div>
+    <!-- Other info pop up menu modal -->
+
+    <!-- No Budget Error -->
+    <div id="nobudget-modal">
+        <div id="nobudget-modal-content">
+            <!-- <div id="cancel-nobudget-btn"><img src="resource/close.png" width="30px" heigh="30px"></div> -->
+            <div class="nobudget-wrap">
+                <img src="resource/question-emoji-blue.png" width="80px" height="80px">
+                <p>Running on a debt?</p>
+                <button id="setup-btn-error">set my budget</button>
+            </div>
+        </div>
+    </div>
+    <!-- No Budget Error -->
+
+    <!-- Expense greater than budget error -->
+    <div id="expense-error-modal">
+        <div id="expense-error-content">
+            <div class="expense-error-wrap">
+                <img src="resource/shrug-emoji.png" width="80px" height="80px">
+                <p>Your don't have that much bro</p>
+                <button id="setup-btn-expense" class="modal-btn-style">Return to my expense</button>
+            </div>
+        </div>
+    </div>
+    <!-- Expense greater than budget error -->
+
+    <!-- Enter 0 budget error -->
+    <div id="budget-zero-modal">
+        <div id="budget-zero-content">
+            <div class="budget-zero-wrap">
+                <img src="resource/shrug-emoji.png" width="80px" height="80px">
+                <p>Budget cant be 0 or negative</p>
+                <button id="zero-budget-btn-expense" class="modal-btn-style">Return to my budget</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enter budget smaller than expense error -->
+    <div id="budget-less-expense-modal">
+        <div id="budget-less-expense-content">
+            <div class="budget-less-expense-wrap">
+                <img src="resource/shrug-emoji.png" width="80px" height="80px">
+                <p>Budget cant be less than expense</p>
+                <button id="budget-less-expense-btn" class="modal-btn-style">Return to my budget</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enter expense that is 0 or empty value error -->
+    <div id="invalid-expense-modal">
+        <div id="invalid-expense-content">
+            <div class="invalid-expense-wrap">
+                <img src="resource/shrug-emoji.png" width="80px" height="80px">
+                <p>Expense cant be 0 or empty value!</p>
+                <button id="invalid-expense-btn" class="modal-btn-style">Go Back</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Java script section -->
+
+    <!-- import jQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Main funtcion script -->
+    <script src="JS/home.js"></script>
+    <!-- Date/Calender API -->
+    <script src="JS/foopicker.js"></script>
+    <!-- Live 2D widget API -->
+    <script src="JS/autoload.js"></script>
+    <script src="JS/home_animation.js"></script>
+    <script type="text/javascript">
+        var foopicker = new FooPicker({
+            id: 'datepicker'
+        });
+    </script>
+
+
+    <!-- Firebase import and initialization -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+   https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCNtxFAdwe3ZKlLPgAzdjONa4qvkt0Mv48",
+            authDomain: "comp1930-inclass.firebaseapp.com",
+            databaseURL: "https://comp1930-inclass.firebaseio.com",
+            projectId: "comp1930-inclass",
+            storageBucket: "comp1930-inclass.appspot.com",
+            messagingSenderId: "414200644411",
+            appId: "1:414200644411:web:517d703b463b197451ed1e",
+            measurementId: "G-FDMTKKWKHP"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+</body>
+
+</html>

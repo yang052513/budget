@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="CSS/home.css" />
     <link rel="stylesheet" href="CSS/foopicker.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
-
+    <link rel="icon" href="resource/setbudget-icon.png">
     <title>Budget</title>
 </head>
 
@@ -41,7 +41,6 @@
     </div>
     <!-- Percentage of budget section  -->
 
-
     <!-- Welcome user name -->
     <div id="welcome-user">Hi <span id="user-name">Yang</span></div>
     <!-- Welcome user name -->
@@ -70,16 +69,6 @@
         </div>
     </div>
     <!-- Mobile Version Nav Bar finish -->
-
-
-    <!-- Mobile nav bar hover hint 2D girl instead -->
-    <!-- <div class="mob-navbar-hover">
-        <div id="budget-pop" class="block-hover">Set you budget</div>
-        <div id="expense-pop" class="block-hover">Add a new expense</div>
-        <div id="explore-pop" class="block-hover">Explore</div>
-    </div> -->
-    <!-- Mobile nav bar hover hint finish -->
-
 
     <!-- Slide in Category  -->
     <div id="slideShow">
@@ -144,7 +133,7 @@
         <div class="enter-wrap">
             <div class="enter-grid">
                 <label for="datepicker">Date</label>
-                <input type="text" id="datepicker" name="date" value="28-Jun-2019" required>
+                <input type="text" id="datepicker" name="date" required>
 
                 <label for="amount-field">Amount</label>
                 <input type="number" id="amount-field" name="amount" required onfocus="this.value=''">
@@ -209,24 +198,68 @@
             <div class="expense-error-wrap">
                 <img src="resource/shrug-emoji.png" width="80px" height="80px">
                 <p>Your don't have that much bro</p>
-                <button id="setup-btn-expense">Return to my expense</button>
+                <button id="setup-btn-expense" class="modal-btn-style">Return to my expense</button>
             </div>
         </div>
     </div>
     <!-- Expense greater than budget error -->
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Enter 0 budget error -->
+    <div id="budget-zero-modal">
+        <div id="budget-zero-content">
+            <div class="budget-zero-wrap">
+                <img src="resource/shrug-emoji.png" width="80px" height="80px">
+                <p>Budget cant be 0 or negative</p>
+                <button id="zero-budget-btn-expense" class="modal-btn-style">Return to my budget</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enter budget smaller than expense error -->
+    <div id="budget-less-expense-modal">
+        <div id="budget-less-expense-content">
+            <div class="budget-less-expense-wrap">
+                <img src="resource/shrug-emoji.png" width="80px" height="80px">
+                <p>Budget cant be less than expense</p>
+                <button id="budget-less-expense-btn" class="modal-btn-style">Return to my budget</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enter expense that is 0 or empty value error -->
+    <div id="invalid-expense-modal">
+        <div id="invalid-expense-content">
+            <div class="invalid-expense-wrap">
+                <img src="resource/shrug-emoji.png" width="80px" height="80px">
+                <p>Expense cant be 0 or empty value!</p>
+                <button id="invalid-expense-btn" class="modal-btn-style">Go Back</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to top button -->
+    <a id="back-to-top-btn"></a>
+
+    <!-- Java script section -->
+
+    <!-- import jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Main funtcion script -->
     <script src="JS/home.js"></script>
+    <!-- Date/Calender API -->
     <script src="JS/foopicker.js"></script>
+    <!-- Live 2D widget API -->
     <script src="JS/autoload.js"></script>
-    <script>
+    <!-- Button animation script -->
+    <script src="JS/home-animation.js"></script>
+    <script type="text/javascript">
         var foopicker = new FooPicker({
             id: 'datepicker'
         });
     </script>
 
 
-
+    <!-- Firebase import and initialization -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
     <!-- Add Firebase products that you want to use -->

@@ -15,7 +15,6 @@ body {
     background-color: #e9f0f5;
 }
 
-
 /** Header section */
 #header-wrap {
     display: grid;
@@ -66,33 +65,35 @@ body {
     -webkit-mask-image: url("../resource/test.png");
     -webkit-mask-size: contain;
     position: relative;
-  }
+}
 
 span {
     display: block;
     width: 100%;
-  }
+}
 
-  .wave {
+.wave {
     background: url("../resource/wave-3.png");
     height: 22px;
     background-size: contain;
     animation: wave 10s linear infinite;
-  }
+    border: none;
+}
 
-  .deep-water {
+.deep-water {
     background: #64c6f3;
     height: 200px;
-  }
-  
-  @keyframes wave {
+}
+
+@keyframes wave {
     from {
-      background-position: 0px 0px;
+        background-position: 0px 0px;
     }
+
     to {
-      background-position: 1000px 0px;
+        background-position: 1000px 0px;
     }
-  }
+}
 
 /* Welcome user container */
 #welcome-user {
@@ -176,6 +177,7 @@ span {
     position: relative;
     overflow: hidden;
     margin-bottom: 20px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .timeline-container:before {
@@ -185,7 +187,7 @@ span {
     left: 50%;
     width: 1px;
     height: 100%;
-    background: rgb(34, 146, 187);
+    background: rgb(45, 188, 240);
     margin-top: 60px;
 }
 
@@ -228,8 +230,8 @@ span {
     width: 95%;
     padding: 0 15px;
     color: #666;
-    background-color: rgba(255, 255, 255);
-    filter: drop-shadow(1px 1px 1px #676666);
+    background-color: #ace2ff;
+    /* filter: drop-shadow(1px 1px 1px #676666); */
     border-radius: 20px;
     border: 1px solid rgb(233, 233, 233);
     /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); */
@@ -239,7 +241,8 @@ span {
     margin-top: 5px;
     margin-bottom: 5px;
     font-size: 25px;
-    font-weight: 500
+    font-weight: 500;
+    color: rgb(91, 91, 91);
 }
 
 .amount {
@@ -251,7 +254,7 @@ span {
 
 .date {
     font-size: 15px;
-    color: #a4a4a4;
+    color: #767676;
 }
 
 .description {
@@ -291,7 +294,7 @@ span {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 25px;
-    text-align: center; 
+    text-align: center;
 }
 
 .cancel-budget-btn {
@@ -325,7 +328,7 @@ span {
 }
 
 #submit-budget-btn:hover {
-    color:white;
+    color: white;
     background-color: rgb(34, 146, 187);
 }
 
@@ -341,7 +344,7 @@ span {
 }
 
 #mob-cancel-btn:hover {
-    color:white;
+    color: white;
     background-color: rgb(34, 146, 187);
 }
 
@@ -373,7 +376,7 @@ span {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 25px;
-    text-align: center; 
+    text-align: center;
 }
 
 .nobudget-wrap {
@@ -393,7 +396,7 @@ span {
 }
 
 #setup-btn-error:hover {
-    color:white;
+    color: white;
     background-color: rgb(34, 146, 187);
 }
 
@@ -535,13 +538,13 @@ label {
 
 #back-btn:hover {
     color: rgb(255, 255, 255);
-    background-color: rgb(34, 146, 187);  
+    background-color: rgb(34, 146, 187);
 }
 
 #save-btn:hover {
-   background-color: white;
-   border: 1px solid rgb(34, 146, 187);
-   color: rgb(34, 146, 187);
+    background-color: white;
+    border: 1px solid rgb(34, 146, 187);
+    color: rgb(34, 146, 187);
 }
 
 #save-btn {
@@ -584,18 +587,18 @@ label {
 }
 
 .other-close-btn {
-   background-color: white;
-   border-radius: 50%;
-   width: 200px;
-   height: 200px;
-   position: absolute;
-   top: 0;
-   right: 0;
-   margin-top: -80px;
-   margin-right: -96px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+    background-color: white;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -80px;
+    margin-right: -96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #close-modal-btn {
@@ -632,7 +635,7 @@ label {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 25px;
-    text-align: center; 
+    text-align: center;
 }
 
 .expense-error-wrap {
@@ -642,7 +645,7 @@ label {
     transform: translate(-50%, -50%);
 }
 
-#setup-btn-expense{
+.modal-btn-style {
     border-radius: 30px;
     width: 200px;
     height: 40px;
@@ -651,9 +654,144 @@ label {
     border: 1px solid rgb(34, 146, 187);
 }
 
-#setup-btn-expense:hover {
-    color:white;
+.modal-btn-style:hover {
+    color: white;
     background-color: rgb(34, 146, 187);
+}
+
+/* Enter a zero budget and pop up modal */
+#budget-zero-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 6;
+    display: none;
+}
+
+#budget-zero-content {
+    background-color: white;
+    width: 400px;
+    height: 250px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    text-align: center;
+}
+
+.budget-zero-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Enter a budget that less than expense */
+#budget-less-expense-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 6;
+    display: none;
+}
+
+#budget-less-expense-content {
+    background-color: white;
+    width: 400px;
+    height: 250px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    text-align: center;
+}
+
+.budget-less-expense-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Enter a expense that is 0 or empty value */
+#invalid-expense-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 6;
+    display: none;
+}
+
+#invalid-expense-content {
+    background-color: white;
+    width: 400px;
+    height: 250px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    text-align: center;
+}
+
+.invalid-expense-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Scroll up to top button */
+#back-to-top-btn {
+    display: inline-block;
+    background-color: rgb(34, 146, 187);
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 60px;
+    left: 30px;
+    transition: background-color .3s,
+        opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+#back-to-top-btn::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+}
+
+#back-to-top-btn:hover {
+    cursor: pointer;
+    background-color: #333;
+}
+
+#back-to-top-btn:active {
+    background-color: #555;
+}
+
+#back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 @media screen and (max-width: 950px) {
@@ -773,6 +911,12 @@ label {
         transform: translate(-50%, -50%);
     }
 
+    #back-to-top-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 60px;
+        left: 10px;
+    }
 }
 
 /* Adjust the category page to fit smaller width */
@@ -782,9 +926,10 @@ label {
         row-gap: 20px;
         column-gap: 10px;
         margin-top: -30px;
-        justify-content: center;;
+        justify-content: center;
+        ;
     }
-    
+
     .section-title {
         font-size: 25px;
     }
@@ -793,21 +938,21 @@ label {
         width: 80px;
         height: 110px;
     }
-    
+
     .category-icon {
         margin: 20px 0 0 15px;
         width: 50px;
         height: 45px;
     }
-    
+
     .category-caption {
         font-size: 10px;
     }
-    
+
     .category-btn {
         margin-top: -30px;
         border-radius: 30px;
-        width:90px;
+        width: 90px;
         height: 30px;
         font-size: 15px;
         font-family: 'Quicksand', sans-serif;
