@@ -24,7 +24,7 @@
 
         <div id="mob-navbar-modal">
             <ul>
-                <li><a href="home.html">HOME</a></li>
+                <li><a href="index.html">HOME</a></li>
                 <li><a href="OurProject.html">OUR PROJECT</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
             </ul>
@@ -32,7 +32,7 @@
 
         <div class="nav-bar">
             <ul>
-                <li class="other-link"><a href="home.html">HOME</a></li>
+                <li class="other-link"><a href="index.html">HOME</a></li>
                 <li class="current-link">ABOUT US</li>
                 <li class="other-link"><a href="OurProject.html">OUR PROJECT</a></li>
                 <li class="other-link"><a href="contact.html">CONTACT</a></li>
@@ -52,7 +52,7 @@
             <h3>Welcome</h3>
         </a>
         <p class="text-content">Hey! We are BCIT CST 2019 Fall Term 1 students. The budget web app is built by Team 22:
-            Yang Li and Jonny. After learning Basic Web Development principles and Database store, we decided to create
+            Yang and Jonny. After learning Basic Web Development principles and Database store, we decided to create
             our first project: Budget. We like web design and hopefully this web app can actually help you to some
             extent. Jonny is our team designer who designed the layout of our website. Yang is the coder for the project
             coded the front and back end. However, our roles are not exclusive. Sometimes we will collaborate and work
@@ -61,12 +61,11 @@
 
     <div id="section-2-team">
         <h3>Our Team</h3>
-        <p class="text-content"></p>
         <div class="teaminfo-wrap">
             <div class="profile-wrap">
                 <img id="yang" class="profile-pic" src="resource/profile-yang.png">
-                <h4>Yang Li</h4>
-                <p>Coder</p>
+                <h4 class="profile-name">Yang Li</h4>
+                <p class="profile-job">Coder</p>
                 <div class="user-socialmedia">
                     <a href="https://www.instagram.com/yang05_li/" target="_blank"><img class="socialmedia-icon"
                             src="resource/ins-color.png"></a>
@@ -80,8 +79,8 @@
 
             <div class="profile-wrap">
                 <img id="jonny" class="profile-pic" src="resource/profile-jonny.png">
-                <h4>Jonny Lu</h4>
-                <p>Designer</p>
+                <h4 class="profile-name">Jonny Lu</h4>
+                <p class="profile-job">Designer</p>
                 <div class="user-socialmedia">
                     <a href="https://www.instagram.com/lynnoj/" target="_blank"><img class="socialmedia-icon"
                             src="resource/ins-color.png"></a>
@@ -119,10 +118,10 @@
             <div class="section4-column2-wrap">
                 <div class="section4-column2">
                     <div class="socialmedia-icon-wrap">
-                        <a href="http://www.facebook.ca" class="fa fa-facebook"></a>
-                        <a href="http://www.twitter.ca" class="fa fa-twitter"></a>
-                        <a href="http://www.instagram.ca" class="fa fa-instagram"></a>
-                        <a href="http://www.reddit.ca" class="fa fa-reddit"></a>
+                        <a href="http://www.facebook.ca" target="_blank" class="fa fa-facebook"></a>
+                        <a href="http://www.twitter.ca" target="_blank" class="fa fa-twitter"></a>
+                        <a href="http://www.instagram.ca" target="_blank" class="fa fa-instagram"></a>
+                        <a href="http://www.reddit.ca" target="_blank" class="fa fa-reddit"></a>
                     </div>
                 </div>
             </div>
@@ -158,7 +157,7 @@
             <div class="other-close-btn"><img id="close-modal-btn" src="resource/close-menu.png" width="40px"
                     height="40px"></div>
             <div class="other-menu-link">
-                <h4 id="about-read"><a href="home.html" target="_blank">Home</a></h4>
+                <h4 id="about-read"><a href="index.html" target="_blank">Home</a></h4>
                 <h4 id="contact-read"><a href="contact.html" target="_blank">Contact Us</a></h4>
                 <h4 id="project-read"><a href="OurProject.html" target="_blank">Our Project</a></h4>
             </div>
@@ -170,12 +169,22 @@
     <div id="yang-modal-wrap" class="team-modal-wrap">
         <div id="yang-modal" class="team-modal">
             <div id="yang-modal-content" class="team-modal-content">
-                <img class="team-profile" src="resource/profile-yang.png" width="auto" height="100px">
-                <p class="team-name">Yang Li</p>
-                <p class="team-intro">The guy who only wears attack on titan t-shirts during the workout.</p>
-                <p class="team-content">Email: liyang0525@hotmail.com</p>
-                <p class="team-content">Phone: 604-781-0561</p>
-                <p class="team-name">Skills</p>
+                <div class="team-bg-color">
+                    <img class="team-profile" src="resource/profile-yang.png" width="auto" height="100px">
+                    <p class="team-name">Yang Li</p>
+                    <p class="team-intro">The guy who only wears attack on titan shirt while working-out.</p>
+                </div>
+
+                <div class="email-wrap">
+                    <img class="team-contact-icon" src="resource/email-info.png" width="auto" height="25px">
+                    <p class="team-content"><span class="team-content-title">Email:</span> liyang0525@hotmail.com</p>
+                </div>
+
+                <div class="phone-wrap">
+                    <img class="team-contact-icon" src="resource/phone-info.png" width="auto" height="25px">
+                    <p class="team-content"><span class="team-content-title">Phone:</span> 604-781-0561</p>
+                </div>
+                <p class="skill-name">SKILLS</p>
                 <img class="team-skill-box" src="resource/after-effects.png" width="auto" height="50px">
                 <img class="team-skill-box" src="resource/premiere.png" width="auto" height="50px">
             </div>
@@ -186,12 +195,22 @@
     <div id="jonny-modal-wrap" class="team-modal-wrap">
         <div id="jonny-modal" class="team-modal">
             <div id="jonny-modal-content" class="team-modal-content">
-                <img class="team-profile" src="resource/profile-jonny.png" width="auto" height="100px">
-                <p class="team-name">Jonny Lu</p>
-                <p class="team-intro">The guy who always wears the adidas hat.</p>
-                <p class="team-content">Email: jonnylu@live.ca</p>
-                <p class="team-content">Phone: 778-879-8261</p>
-                <p class="team-name">Skills</p>
+                <div class="team-bg-color">
+                    <img class="team-profile" src="resource/profile-jonny.png" width="auto" height="100px">
+                    <p class="team-name">Jonny Lu</p>
+                    <p class="team-intro">The guy who always wears the adidas hat.</p>
+                </div>
+
+                <div class="email-wrap">
+                    <img class="team-contact-icon" src="resource/email-info.png" width="auto" height="25px">
+                    <p class="team-content"><span class="team-content-title">Email:</span> jonnylu@live.ca</p>
+                </div>
+
+                <div class="phone-wrap">
+                    <img class="team-contact-icon" src="resource/phone-info.png" width="auto" height="25px">
+                    <p class="team-content"><span class="team-content-title">Phone:</span> 778-879-8261</p>
+                </div>
+                <p class="skill-name">SKILLS</p>
                 <img class="team-skill-box" src="resource/Adobe-Photoshop-and-Lightroom-Icon-Logos.jpg" width="auto"
                     height="50px">
                 <!-- <img class="team-skill-box" src="resource/illustrator.png" width="auto" height="50px"> -->

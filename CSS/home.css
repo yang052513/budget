@@ -13,6 +13,7 @@ body {
     -o-background-size: cover;
     background-size: cover; */
     background-color: #e9f0f5;
+    font-family: 'Raleway', sans-serif;
 }
 
 /** Header section */
@@ -295,6 +296,7 @@ span {
     transform: translate(-50%, -50%);
     border-radius: 25px;
     text-align: center;
+    border: 1px solid rgb(34, 146, 187);
 }
 
 .cancel-budget-btn {
@@ -352,7 +354,6 @@ span {
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
-
 }
 
 /** No budget error modal */
@@ -424,8 +425,9 @@ span {
     font-family: 'Quicksand', sans-serif;
     font-size: 40px;
     text-align: center;
-    padding-top: 30px;
-    color: rgb(48, 124, 152);
+    padding: 20px 0;
+    color: rgb(255, 255, 255);
+    background-color: #09C;
 }
 
 .category-grid {
@@ -444,6 +446,7 @@ span {
     height: 220px;
     border-radius: 15px;
     color: #09C;
+    border: 1px solid #09C;
 }
 
 .category-card:hover {
@@ -462,6 +465,7 @@ span {
     padding: 15px;
     font-family: 'Quicksand', sans-serif;
     font-size: 25px;
+    /* margin: 0; */
 }
 
 .category-btn {
@@ -480,6 +484,7 @@ span {
 #cancel-btn {
     color: rgb(34, 146, 187);
     border: 1px solid rgb(34, 146, 187);
+    /* height: 35px; */
 }
 
 .category-btn-wrap {
@@ -601,6 +606,10 @@ label {
     align-items: center;
 }
 
+.other-close-btn:hover {
+    background-color: rgb(34, 146, 187);
+}
+
 #close-modal-btn {
     margin-left: -55px;
     transform: translateY(30px);
@@ -681,6 +690,7 @@ label {
     transform: translate(-50%, -50%);
     border-radius: 25px;
     text-align: center;
+    border: 1px solid rgb(34, 146, 187);
 }
 
 .budget-zero-wrap {
@@ -712,6 +722,7 @@ label {
     transform: translate(-50%, -50%);
     border-radius: 25px;
     text-align: center;
+    border: 1px solid rgb(34, 146, 187);
 }
 
 .budget-less-expense-wrap {
@@ -743,6 +754,7 @@ label {
     transform: translate(-50%, -50%);
     border-radius: 25px;
     text-align: center;
+    border: 1px solid rgb(34, 146, 187);
 }
 
 .invalid-expense-wrap {
@@ -767,7 +779,7 @@ label {
         opacity .5s, visibility .5s;
     opacity: 0;
     visibility: hidden;
-    z-index: 1000;
+    z-index: 1;
 }
 
 #back-to-top-btn::after {
@@ -794,12 +806,23 @@ label {
     visibility: visible;
 }
 
+@media screen and (max-width: 1024px) {
+    #setup-budget-content {
+        height: 350px;
+        padding: 20px 0 20px 0;
+    }
+
+    #submit-budget-btn {
+        margin-top: 40px;
+    }
+
+}
+
 @media screen and (max-width: 950px) {
     .mob-grid {
         padding-left: 0px;
         padding-right: 0px;
     }
-
 }
 
 @media screen and (max-width: 768px) {
@@ -878,6 +901,10 @@ label {
         float: none;
         direction: ltr;
     }
+
+    #submit-budget-btn {
+        margin-top: 10px;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -911,12 +938,90 @@ label {
         transform: translate(-50%, -50%);
     }
 
+    .category {
+        font-size: 15px;
+    }
+
+    .amount {
+        font-size: 15px;
+    }
+
+    .date {
+        font-size: 12px;
+    }
+
+    .description{
+        font-size: 10px;
+    }
+
+    /* Scroll to top btn */
     #back-to-top-btn {
         width: 50px;
         height: 50px;
         bottom: 60px;
         left: 10px;
     }
+
+    /* Set up budget number modal */
+    #setup-budget-content {
+        width: 70%;
+    }
+
+    #setup-budget-content {
+        padding-top: 30px;
+    }
+
+    #submit-budget-btn {
+        width: 80px;
+        height: 30px;
+        font-size: 15px;
+        margin-top: 20px;
+    }
+
+    #mob-cancel-btn {
+        width: 80px;
+        height: 30px;
+        font-size: 15px;
+    }
+
+    .setup-btn-wrap {
+        margin-top: 0px;
+    }
+
+    #setup-budget-content {
+        height: 250px;
+    }
+
+    .budget-modal-title {
+        margin-top: 5px;
+        font-size: 20px;
+    }
+
+    #user-budget {
+        height: 30px;
+    }
+
+    .enter-wrap {
+        padding: 0 35px 0 15px;
+    }
+
+    #invalid-expense-content {
+        width: 80%;
+    }
+
+    #invalid-expense-btn {
+        width: 100px;
+    }
+
+    #budget-zero-content {
+        width: 80%;
+    }
+
+    #budget-less-expense-content {
+        width: 80%;
+    }
+
+
 }
 
 /* Adjust the category page to fit smaller width */
@@ -927,7 +1032,6 @@ label {
         column-gap: 10px;
         margin-top: -30px;
         justify-content: center;
-        ;
     }
 
     .section-title {
@@ -956,5 +1060,15 @@ label {
         height: 30px;
         font-size: 15px;
         font-family: 'Quicksand', sans-serif;
+    }
+
+    #cancel-btn {
+        height: 35px;
+        margin-top: -15px;
+    }
+
+    .category-caption {
+
+        margin: 0;
     }
 }
