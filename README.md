@@ -18,8 +18,8 @@ Jonny Lu (lynnoj)
 
 ### API Reference:
 
-- [foopicker] (github.com/yogasaikrishna/foopicker)
-- [live2d-widget] (github.com/stevenjoezhang/live2d-widget)
+- [foopicker](github.com/yogasaikrishna/foopicker)
+- [live2d-widget](github.com/stevenjoezhang/live2d-widget)
 
 ### How to use the app?
 We are hosting the web at [here](https://comp1930-inclass.firebaseapp.com)
