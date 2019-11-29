@@ -83,7 +83,7 @@ ul a:hover {
 
 .main-content {
     margin-top: 15px;
-    font-size: 1vw;
+    font-size: 15px;
 }
 
 .read-more-btn {
@@ -505,8 +505,8 @@ iframe {
         margin-bottom: 5px;
     }
 
-    .team-content {
+    /* .team-content {
         font-size: 10px;
-    }
+    } */
 
 }

@@ -1,4 +1,3 @@
-/* On screens that are 400px or less */
 * {
 	padding: 0;
 	margin: 0;
@@ -17,6 +16,7 @@ body {
 }
 
 
+
 /* Login card with glass effect DISABLED */
 /* .mdl-card {
     background: inherit;
@@ -33,7 +33,12 @@ body {
 	display: grid;
 	align-items: center;
 	justify-content: center;
+	grid-template-columns: 1fr;
 	
+}
+
+form {
+	border: 1px solid #3B7294;
 }
 
 .mdl-button--raised.mdl-button--colored {
