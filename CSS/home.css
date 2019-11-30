@@ -116,8 +116,9 @@ span {
     width: 100%;
     left: 0;
     bottom: 0;
-    border-top: 1px solid black;
+    /* border-top: 1px solid black; */
     z-index: 2;
+    filter: drop-shadow(5px 5px 5px #676666);
 }
 
 .mob-grid {
@@ -764,6 +765,38 @@ label {
     transform: translate(-50%, -50%);
 }
 
+/* Large budget enter modal */
+#large-budget-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 6;
+    display: none;
+}
+
+#large-budget-content {
+    background-color: white;
+    width: 400px;
+    height: 250px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    text-align: center;
+    border: 1px solid rgb(34, 146, 187);
+}
+
+.large-budget-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* Scroll up to top button */
 #back-to-top-btn {
     display: inline-block;
@@ -913,8 +946,8 @@ label {
     }
 
     .wave-fill {
-        width: 130px;
-        height: 130px;
+        width: 150px;
+        height: 150px;
         position: relative;
     }
 
@@ -1018,6 +1051,14 @@ label {
     }
 
     #budget-less-expense-content {
+        width: 80%;
+    }
+
+    #large-budget-content {
+        width: 80%;
+    }
+
+    #nobudget-modal-content {
         width: 80%;
     }
 

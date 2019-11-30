@@ -310,7 +310,7 @@ $(document).ready(function () {
 
                 //Create new Timeline details
                 var newTimeLineTitle = $("<h3 class=category></h3>");
-                newTimeLineTitle.append(userExpense.category, userExpense.amount);
+                newTimeLineTitle.append(userExpense.category, parseFloat(userExpense.amount).toFixed(2));
 
                 var newTimeLineDate = $("<span class=date></span>");
                 newTimeLineDate.append(userExpense.date);
@@ -365,7 +365,7 @@ $(document).ready(function () {
                 function writeExpenseEvent() {
                     var docData = {
                         Category: userExpense.category,
-                        Value: userExpense.amount,
+                        Value: parseFloat(userExpense.amount).toFixed(2),
                         Date: userExpense.date,
                         Description: userExpense.note
                     };
@@ -399,7 +399,18 @@ $(document).ready(function () {
                 $("#budget-zero-modal").fadeOut();
             });
 
-            //If set the budget less or equal to expense
+        //If budget number is too large
+        } else if (userInput > 10000) {
+            //pop up the too rich modal 
+            console.log('You are too rich!');
+            $("#large-budget-modal").fadeIn();
+
+            //click return back to budget setting modal
+            $("#large-budget-btn").click(function () {
+                $("#large-budget-modal").fadeOut();
+            });
+
+        //If set the budget less or equal to expense
         } else if (userInput < expenseUpdate) {
             console.log('The Budget is less than the expense, try it again!');
             $("#budget-less-expense-modal").fadeIn();
@@ -409,7 +420,7 @@ $(document).ready(function () {
                 $("#budget-less-expense-modal").fadeOut();
             });
 
-            //If budget is greater than expense and not 0
+        //If budget is greater than expense and not 0
         } else {
             $("#budget_store").html("$" + (userInput / 1));
             $("#setup-budget").fadeOut();
