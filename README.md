@@ -12,18 +12,34 @@ Our idea originated from a discussion of how we would survive the semester at BC
 
 ## Team Member: 
 
-Yang Li (yang052513) <br>
-Jonny Lu (lynnoj)
+[Yang Li](https://github.com/yang052513)  <br>
+[Jonny Lu](https://github.com/lynnoj)
 
 ## API Reference:
 
-- [foopicker](github.com/yogasaikrishna/foopicker)
-- [live2d-widget](live2d.com)
+- [foopicker](https://github.com/yogasaikrishna/foopicker)
+- [live2d-widget](https://live2d.com)
 
 ## How to use the app?
 We are hosting the web at [here](https://comp1930-inclass.firebaseapp.com)
 
 ## Change Log
+
+### v0.0.2 (2019/11/30 18:50)
+- Limit user to input fraction unit while setting budget
+- Fix expense number up to 2 decimal places
+- Set a max number for budget input, with pop up modal to notify user
+- Style home page nav bar
+- Add read-more button on index, about us, contact us, our project page
+- Change index, about us, our project page show case image to make sure consistency
+- Add text indicator under the nav bar icon on home page
+- Redesign index page layout CSS
+#### **New Feature:**
+  - Dark mode / Light mode
+  - The color of nav bar will change with different level of balance
+  - Balance added to the header, which shows how much left
+  - Reset button: reset all the budget, expense, and balance to 0
+
 ### v0.0.1 (2019/11/28 20:15)
 - First time release
 - User set budget, create expense
