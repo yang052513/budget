@@ -87,24 +87,7 @@ ul a:hover {
 }
 
 .read-more-btn {
-    width: 150px;
-    height: 50px;
-    font-size: 20px;
-    color: rgb(18, 115, 160);
-    font-family: 'Quicksand', sans-serif;
-    border: 1px solid rgb(18, 115, 160);
-    border-radius: 25px;
-    margin-top: 50px;
-}
-
-.read-more-btn a {
-    text-decoration: none;
-}
-
-.read-more-btn:hover {
-    background-color: rgb(23, 109, 148);
-    color: white;
-    border: 1px solid white;
+    visibility: hidden;
 }
 
 h3 {
@@ -406,6 +389,28 @@ iframe {
         -o-background-size: cover;
         background-size: cover;
         height: 55vw;
+    }
+
+    .read-more-btn {
+        width: 150px;
+        height: 50px;
+        font-size: 20px;
+        color: rgb(18, 115, 160);
+        font-family: 'Quicksand', sans-serif;
+        border: 1px solid rgb(18, 115, 160);
+        border-radius: 25px;
+        margin-top: 50px;
+        visibility: visible;
+    }
+    
+    .read-more-btn a {
+        text-decoration: none;
+    }
+    
+    .read-more-btn:hover {
+        background-color: rgb(23, 109, 148);
+        color: white;
+        border: 1px solid white;
     }
 
     .nav-bar {

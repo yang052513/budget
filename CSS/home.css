@@ -18,12 +18,21 @@ body {
 
 /** Header section */
 #header-wrap {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    margin-top: 25px;
+    /* display: grid;
+    grid-template-columns: repeat(5, 1fr); */
+    display: flex;
+    justify-content: space-evenly;
+    /* margin-top: 25px; */
+    padding: 15px 0;
     font-family: 'Quicksand', sans-serif;
-    font-size: 45px;
-    color: rgb(6, 82, 109);
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    background-color:rgba(0, 153, 204, 1);
+}
+
+.header-text {
+    font-size: 13px;
+    margin-top: 5px;
 }
 
 .budget-container {
@@ -31,19 +40,26 @@ body {
     text-align: center;
 }
 
+.balance-container {
+    text-align: center;
+}
+
 .mid-line {
     border-left: 1px solid rgb(34, 146, 187);
-    height: 120px;
+    height: 100px;
     z-index: -1;
     position: absolute;
     top: 1;
     left: 50%;
 }
 
+.wave-sec-wrap {
+    margin-bottom: 45px;
+}
+
 .expense-container {
     grid-column: 4 / 5;
     text-align: center;
-    padding-left: 25px;
 }
 
 /** Percentage Section Animation*/
@@ -51,7 +67,7 @@ body {
     position: absolute;
     line-height: 200px;
     font-size: 50px;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -62,10 +78,11 @@ body {
     margin: 0 auto;
     height: 200px;
     width: 200px;
-    background: rgb(255, 255, 255, 0.1);
+    background: rgb(255, 255, 255, 1);
     -webkit-mask-image: url("../resource/test.png");
     -webkit-mask-size: contain;
     position: relative;
+    transform: translateY(35px);
 }
 
 span {
@@ -101,7 +118,7 @@ span {
     text-align: center;
     font-family: 'Quicksand', sans-serif;
     margin-top: 20px;
-    font-size: 35px;
+    font-size: 30px;
 }
 
 #user-name {
@@ -110,7 +127,7 @@ span {
 
 /** Mobile nav bar stying */
 .mob-nav-bar {
-    height: 50px;
+    height: 55px;
     background-color: rgb(255, 255, 255);
     position: fixed;
     width: 100%;
@@ -128,6 +145,20 @@ span {
     padding-top: 5px;
     padding-left: 350px;
     padding-right: 350px;
+}
+
+.mob-nav-icon {
+    margin-bottom: 6px;
+}
+
+.mob-col {
+    margin-top: 0px;
+}
+
+.mob-nav-text {
+    margin-top: -9px;
+    font-size: 10px;
+    color: rgb(109, 109, 109);
 }
 
 .block-hover {
@@ -242,7 +273,7 @@ span {
 .category {
     margin-top: 5px;
     margin-bottom: 5px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 500;
     color: rgb(91, 91, 91);
 }
@@ -250,7 +281,7 @@ span {
 .amount {
     margin-top: 5px;
     margin-bottom: 5px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 500
 }
 
@@ -260,7 +291,7 @@ span {
 }
 
 .description {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.5em;
     word-spacing: 1px;
     color: #888;
@@ -839,6 +870,70 @@ label {
     visibility: visible;
 }
 
+#dark-mode-btn {
+    border-radius: 30px;
+    width: 80px;
+    height: 30px;
+    font-size: 10px;
+    font-family: 'Quicksand', sans-serif;
+    border: 1px solid rgb(0, 0, 0);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-left: 15px;
+    margin-bottom: 120px;
+    z-index: 5;
+}
+
+#dark-mode-btn:hover {
+    color: white;
+    background-color: rgb(0, 0, 0);
+}
+
+/* 工具箱 */
+#tool-box-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 6;
+    display: none;
+}
+
+#tool-box-content {
+    background-color: white;
+    width: 300px;
+    height: 450px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    text-align: center;
+    border: 1px solid rgb(34, 146, 187);
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(130px, 1fr) );
+    justify-items: center;
+    padding: 10px 15px;
+}
+
+.tool-box {
+    width: 130px;
+    padding: 0 5px;
+}
+
+.tool-box-title {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+.tool-box-content {
+    font-size: 10px;
+    margin-top: 5px;
+}
+
 @media screen and (max-width: 1024px) {
     #setup-budget-content {
         height: 350px;
@@ -942,7 +1037,7 @@ label {
 
 @media screen and (max-width: 500px) {
     #header-wrap {
-        font-size: 25px;
+        font-size: 18px;
     }
 
     .wave-fill {

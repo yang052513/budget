@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -43,6 +47,27 @@ input:focus {
     left:55vw;
     padding-right: 20px;
     font-size: 1.5vw;
+}
+
+.read-more-btn {
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    color: rgb(18, 115, 160);
+    font-family: 'Quicksand', sans-serif;
+    border: 1px solid rgb(18, 115, 160);
+    border-radius: 25px;
+    position: absolute;;
+    right:35vw;
+    top: 35vw;
+    display: block;
+
+}
+
+.read-more-btn:hover {
+    background-color: rgb(23, 109, 148);
+    color: white;
+    border: 1px solid white;
 }
 
 .nav-bar-grid {
@@ -422,6 +447,10 @@ input[type=submit]:hover {
     
     #mob-navbar-modal ul {
         padding-left: 20px;
+    }
+    
+    .read-more-btn {
+        display: none;
     }
     
     ul a {

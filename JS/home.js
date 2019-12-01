@@ -5,6 +5,7 @@ $(document).ready(function () {
     //Initialize budget and expense number
     var budgetStore = 0;
     var expenseUpdate = 0;
+    var balanceUpdate = 0;
 
     //Merge user name and email to firebase
     firebase.auth().onAuthStateChanged(function (user) {
@@ -28,6 +29,7 @@ $(document).ready(function () {
             if (snap.data().BudgetStore > 0) {
                 document.getElementById("budget_store").innerHTML = "$" + snap.data().BudgetStore;
                 budgetStore = snap.data().BudgetStore;
+                console.log("我有多少钱" + budgetStore);
                 //If budget < 0 in firebase, initialize with 0
             } else {
                 document.getElementById("budget_store").innerHTML = "$" + 0;
@@ -37,10 +39,20 @@ $(document).ready(function () {
             if (snap.data().ExpenseStore > 0) {
                 document.getElementById("expense_store").innerHTML = "$" + snap.data().ExpenseStore;
                 expenseUpdate = snap.data().ExpenseStore;
-                console.log(expenseUpdate);
+                console.log("我花了多少钱" + expenseUpdate);
                 //If expense < 0 in firebase, initialize with 0
             } else {
                 document.getElementById("expense_store").innerHTML = "$" + 0;
+            }
+
+            //When balance > 0 which has previous data, read previous data
+            if (snap.data().BalanceStore > 0) {
+                document.getElementById("balance_store").innerHTML = "$" + snap.data().BalanceStore;
+                balanceUpdate = snap.data().BalanceStore;
+                console.log("我还剩多少钱" + balanceUpdate);
+                //If balance < 0 in firebase, initialize with 0
+            } else {
+                document.getElementById("balance_store").innerHTML = "$" + 0;
             }
 
             //If the percentage > 0, read previous data from firebase
@@ -331,6 +343,8 @@ $(document).ready(function () {
 
                 var budgetController = budgetStore;
                 budgetController -= expenseTotal;
+                console.log('我还剩多少钱：' + budgetController);
+                $("#balance_store").html("$" + (budgetController));
 
                 //Update the water animation effect
                 var water = $(".water");
@@ -351,6 +365,7 @@ $(document).ready(function () {
                             "PercentStore": parseInt(updatePercent),
                             "WaveHeight": parseInt(waveHeight),
                             "ExpenseStore": parseInt(expenseTotal),
+                            "BalanceStore": parseInt(budgetController),
                         }, {
                             merge: true
                         });
@@ -399,7 +414,7 @@ $(document).ready(function () {
                 $("#budget-zero-modal").fadeOut();
             });
 
-        //If budget number is too large
+            //If budget number is too large
         } else if (userInput > 10000) {
             //pop up the too rich modal 
             console.log('You are too rich!');
@@ -410,7 +425,7 @@ $(document).ready(function () {
                 $("#large-budget-modal").fadeOut();
             });
 
-        //If set the budget less or equal to expense
+            //If set the budget less or equal to expense
         } else if (userInput < expenseUpdate) {
             console.log('The Budget is less than the expense, try it again!');
             $("#budget-less-expense-modal").fadeIn();
@@ -420,7 +435,7 @@ $(document).ready(function () {
                 $("#budget-less-expense-modal").fadeOut();
             });
 
-        //If budget is greater than expense and not 0
+            //If budget is greater than expense and not 0
         } else {
             $("#budget_store").html("$" + (userInput / 1));
             $("#setup-budget").fadeOut();
@@ -430,11 +445,19 @@ $(document).ready(function () {
                 db.collection("user").doc(user.uid).onSnapshot(function (snap) {
                     var expenseRefresh = snap.data().ExpenseStore;
                     var budgetRefresh = snap.data().BudgetStore;
+                    var balanceRefresh = snap.data().BalanceStore;
+
+                    var newBalance = budgetRefresh - expenseRefresh;
+
                     //Refresh the percentage
                     var newPercent = (1 - (expenseRefresh / budgetRefresh)) * 100;
 
                     if (expenseRefresh > 0) {
                         $(".budget_percent_num").html(newPercent.toFixed(1) + "%");
+                    }
+
+                    if (balanceRefresh > 0) {
+                        $("#balance_store").html("$" + newBalance);
                     }
 
                     var newHeight = (newPercent * (-1)) + 88;
@@ -478,29 +501,29 @@ $(document).ready(function () {
     });
 
     //Open the other menu widndow: about us, contact page, our project
-    var otherSlideIn = {
-        "margin-top": "0",
-        "easing": "swing",
-        "opacity": "1"
-    };
+    // var otherSlideIn = {
+    //     "margin-top": "0",
+    //     "easing": "swing",
+    //     "opacity": "1"
+    // };
 
-    var otherSlideOut = {
-        "margin-top": "-100%",
-        "easing": "swing",
-        "opacity": "0"
-    };
+    // var otherSlideOut = {
+    //     "margin-top": "-100%",
+    //     "easing": "swing",
+    //     "opacity": "0"
+    // };
 
     $("#other-icon").click(function () {
-        $("#other-menu-modal").animate(otherSlideIn, 1000);
+        // $("#other-menu-modal").animate(otherSlideIn, 1000);
+        $("#tool-box-modal").fadeIn();
     });
 
-    $("#close-modal-btn").click(function () {
-        $("#other-menu-modal").animate(otherSlideOut, 1000);
+    $("#return-tool").click(function () {
+        $("#tool-box-modal").fadeOut();
     });
 
     //Expense Details Slide in: open category page
     $("#create-icon").click(function () {
-
         //if budget is 0 and trying to create new expense: throw error
         if (budgetStore == 0) {
             $("#nobudget-modal").fadeIn();
@@ -509,4 +532,57 @@ $(document).ready(function () {
             $("body").css("overflow", "hidden");
         }
     });
+
+    //Reset all the budget, expense, and balance
+    $("#reset-tool").click(function () {
+        firebase.auth().onAuthStateChanged(function (user) {
+
+            var resetWaveHeight = 100 * (-1) + 88;
+
+            $(".water").css({
+                "transform": "translateY(" + resetWaveHeight + "%)"
+            });
+
+            $(".budget_percent_num").html(100 + "%");
+
+            db.collection("user")
+                .doc(user.uid)
+                .set({
+                    "PercentStore": 100,
+                    "WaveHeight": parseInt(resetWaveHeight),
+                    "BudgetStore": 0,
+                    "ExpenseStore": 0,
+                    "BalanceStore": 0,
+                }, {
+                    merge: true
+                });
+
+                // db.collection("user").doc(user.uid).delete();
+                // $(".timeline-content, .marker").remove();
+                location.reload();
+        });
+
+       
+    });
+
+    //Different nav bar color for warning
+    firebase.auth().onAuthStateChanged(function (user) {
+        db.collection("user").doc(user.uid).onSnapshot(function (snap) {
+            console.log(snap.data().PercentStore);
+            // 75% - 100%
+            if (snap.data().PercentStore <=100 && snap.data().PercentStore >= 75) {
+                $("#header-wrap").css("background-color", "rgb(0, 153, 204)");
+            // 50% - 75%
+            } else if (snap.data().PercentStore >= 50 && snap.data().PercentStore < 75) {
+                $("#header-wrap").css("background-color", "rgb(0, 190, 204)");
+            // 25% - 50%
+            } else if (snap.data().PercentStore < 50 && snap.data().PercentStore >= 25) {
+                $("#header-wrap").css("background-color", "rgb(240, 218, 91)");
+            // < 25%
+            } else if (snap.data().PercentStore < 25) {
+                $("#header-wrap").css("background-color", "rgb(204, 14, 0)");
+            }
+        });
+    });
+
 });

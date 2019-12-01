@@ -20,30 +20,41 @@
     <!-- Budget and expense value store -->
 
     <div id="header-wrap">
-        <div class="budget-container">
-            <div class="budget-read" id="budget-title">BUDGET</div>
-            <div class="budget-read" id="budget_store">$0</div>
+        <div class="balance-container">
+            <div class="balance-read" id="balance_store">$0</div>
+            <div class="header-text" id="balance-title">BALANCE</div>
         </div>
-        <div class="mid-line"></div>
+
+        <div class="budget-container">
+            <div class="budget-read" id="budget_store">$0</div>
+            <div class="header-text" id="budget-title">BUDGET</div>
+        </div>
+
+
         <div class="expense-container">
-            <div id="expense-title">EXPENSE</div>
             <div id="expense_store">$0</div>
+            <div class="header-text" id="expense-title">EXPENSE</div>
         </div>
     </div>
     <!-- Budget and expense value store -->
 
-    <!-- Percentage of budget section  -->
-    <div class="wave-fill">
-        <div class="budget_percent_num">100%</div>
-        <div class="water">
-            <span class="wave"></span>
-            <span class="deep-water"></span>
+    <!-- Wave animation section -->
+    <div class="wave-sec-wrap">
+        <div class="mid-line"></div>
+
+        <!-- Percentage of budget section  -->
+        <div class="wave-fill">
+            <div class="budget_percent_num">100%</div>
+            <div class="water">
+                <span class="wave"></span>
+                <span class="deep-water"></span>
+            </div>
         </div>
     </div>
     <!-- Percentage of budget section  -->
 
     <!-- Welcome user name -->
-    <div id="welcome-user">Hi <span id="user-name">Yang</span></div>
+    <div id="welcome-user">Hi! <span id="user-name">Yang</span></div>
     <!-- Welcome user name -->
 
 
@@ -58,14 +69,17 @@
     <!-- Mobile Version Nav Bar -->
     <div class="mob-nav-bar">
         <div class="mob-grid">
-            <div class="mob-col-1">
+            <div class="mob-col">
                 <img class="mob-nav-icon" id="home-icon" src="resource/setbudget-icon.png" width="35px" height="35px">
+                <p class="mob-nav-text">Budget</p>
             </div>
-            <div class="mob-col-2">
+            <div class="mob-col">
                 <img class="mob-nav-icon" id="create-icon" src="resource/create2-icon.png" width="35px" height="35px">
+                <p class="mob-nav-text">Create</p>
             </div>
-            <div class="mob-col-3">
-                <img class="mob-nav-icon" id="other-icon" src="resource/option.png" width="30px" height="32px">
+            <div class="mob-col">
+                <img class="mob-nav-icon" id="other-icon" src="resource/settings.png" width="30px" height="32px">
+                <p class="mob-nav-text">Tools</p>
             </div>
         </div>
     </div>
@@ -249,11 +263,56 @@
         </div>
     </div>
 
+    <!-- Tool panel -->
+    <div id="tool-box-modal">
+        <div id="tool-box-content">
+            
+            <div class="tool-box" id="reset-tool">
+                <img src="resource/reset-tool.png" width="auto" height="40px">
+                <p class="tool-box-title">RESET</p>
+                <p class="tool-box-content">Reset all your budget, expense, and balance</p>
+            </div>
+
+            <div class="tool-box" id="dark-tool">
+                <img id="dark-mode-icon" src="resource/dark-mode-tool.png" width="auto" height="40px">
+                <p class="tool-box-title" id="mode-content">DARK MODE</p>
+                <p class="tool-box-content" id="mode-content-sub">Enable the dark mode on your screen</p>
+            </div>
+
+            <div class="tool-box">
+                <img id="home-tool" src="resource/home-icon.png" width="auto" height="40px">
+                <p class="tool-box-title">HOME</p>
+                <p class="tool-box-content">Enable the dark mode on your screen</p>
+            </div>
+
+            <div class="tool-box">
+                <img id="contact-tool" src="resource/contact-tool.png" width="auto" height="40px">
+                <p class="tool-box-title">CONTACT</p>
+                <p class="tool-box-content">Enable the dark mode on your screen</p>
+            </div>
+
+            <div class="tool-box">
+                <img id="project-tool" src="resource/project-tool.png" width="auto" height="40px">
+                <p class="tool-box-title">PROJECT</p>
+                <p class="tool-box-content">Enable the dark mode on your screen</p>
+            </div>
+
+            <div class="tool-box">
+                    <img id="return-tool" src="resource/return-tool.png" width="auto" height="40px">
+                    <p class="tool-box-title">RETURN</p>
+                    <p class="tool-box-content">Return to budget</p>
+            </div>
+
+        </div>
+    </div>
+
     <!-- Back to top button -->
     <a id="back-to-top-btn"></a>
 
-    <!-- Java script section -->
+    <!-- Dark mode button -->
+    <!-- <button id="dark-mode-btn">Dark Mode</button> -->
 
+    <!-- Java script section -->
     <!-- import jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Main funtcion script -->
@@ -264,6 +323,8 @@
     <script src="JS/autoload.js"></script>
     <!-- Button animation script -->
     <script src="JS/home-animation.js"></script>
+    <!-- Darkmode script -->
+    <script src="JS/darkmode.js"></script>
     <script type="text/javascript">
         var foopicker = new FooPicker({
             id: 'datepicker'

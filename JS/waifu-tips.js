@@ -215,7 +215,7 @@ function loadWidget(waifuPath, apiPath) {
 function initWidget(waifuPath = "/waifu-tips.json", apiPath = "") {
 	if (screen.width <= 768) return;
 	$("body").append(`<div id="waifu-toggle" style="margin-left: -100px;">
-			<span>看板娘</span>
+			<span>I am here~</span>
 		</div>`);
 	$("#waifu-toggle").hover(() => {
 		$("#waifu-toggle").animate({ "margin-left": -30 }, 500);
