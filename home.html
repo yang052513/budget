@@ -22,7 +22,7 @@
     <div id="header-wrap">
         <div class="balance-container">
             <div class="balance-read" id="balance_store">$0</div>
-            <div class="header-text" id="balance-title">BALANCE</div>
+            <div class="header-text" id="balance-title">AVAILABLE</div>
         </div>
 
         <div class="budget-container">
@@ -54,7 +54,7 @@
     <!-- Percentage of budget section  -->
 
     <!-- Welcome user name -->
-    <div id="welcome-user">Hi! <span id="user-name">Yang</span></div>
+    <div id="welcome-user"><span id="time-welcome">Hi!</span><span id="user-name">Yang</span></div>
     <!-- Welcome user name -->
 
 
@@ -182,7 +182,7 @@
 
     <!-- Other info pop up menu modal -->
     <div id="other-menu-modal">
-        <div id="other-menu-modal-content">
+        <div id="other-menu-modal-content" class="warning-modal">
             <div class="other-close-btn"><img id="close-modal-btn" src="resource/close-menu.png" width="40px"
                     height="40px"></div>
             <div class="other-menu-link">
@@ -196,11 +196,11 @@
 
     <!-- No Budget Error -->
     <div id="nobudget-modal">
-        <div id="nobudget-modal-content">
+        <div id="nobudget-modal-content" class="warning-modal">
             <!-- <div id="cancel-nobudget-btn"><img src="resource/close.png" width="30px" heigh="30px"></div> -->
             <div class="nobudget-wrap">
-                <img src="resource/question-emoji-blue.png" width="80px" height="80px">
-                <p>Running on a debt?</p>
+                <img src="resource/Emoji/emoji-9.png" width="auto" height="100px">
+                <p class="warning-modal-text">Running on a debt?</p>
                 <button id="setup-btn-error">set my budget</button>
             </div>
         </div>
@@ -209,10 +209,10 @@
 
     <!-- Expense greater than budget error -->
     <div id="expense-error-modal">
-        <div id="expense-error-content">
+        <div id="expense-error-content" class="warning-modal">
             <div class="expense-error-wrap">
-                <img src="resource/shrug-emoji.png" width="80px" height="80px">
-                <p>Your don't have that much bro</p>
+                <img src="resource/Emoji/emoji-2.png" width="auto" height="100px">
+                <p class="warning-modal-text">Your don't have that much bro</p>
                 <button id="setup-btn-expense" class="modal-btn-style">Return to my expense</button>
             </div>
         </div>
@@ -221,10 +221,10 @@
 
     <!-- Enter 0 budget error -->
     <div id="budget-zero-modal">
-        <div id="budget-zero-content">
+        <div id="budget-zero-content" class="warning-modal">
             <div class="budget-zero-wrap">
-                <img src="resource/shrug-emoji.png" width="80px" height="80px">
-                <p>Budget cant be 0 or negative</p>
+                <img src="resource/Emoji/emoji-3.png" width="auto" height="100px">
+                <p class="warning-modal-text">Budget cant be 0 or negative</p>
                 <button id="zero-budget-btn-expense" class="modal-btn-style">Return to my budget</button>
             </div>
         </div>
@@ -232,10 +232,10 @@
 
     <!-- Enter budget smaller than expense error -->
     <div id="budget-less-expense-modal">
-        <div id="budget-less-expense-content">
+        <div id="budget-less-expense-content" class="warning-modal">
             <div class="budget-less-expense-wrap">
-                <img src="resource/shrug-emoji.png" width="80px" height="80px">
-                <p>Budget cant be less than expense</p>
+                <img src="resource/Emoji/emoji-4.png" width="auto" height="100px">
+                <p class="warning-modal-text">Budget cant be less than expense</p>
                 <button id="budget-less-expense-btn" class="modal-btn-style">Return to my budget</button>
             </div>
         </div>
@@ -243,10 +243,10 @@
 
     <!-- Enter expense that is 0 or empty value error -->
     <div id="invalid-expense-modal">
-        <div id="invalid-expense-content">
+        <div id="invalid-expense-content" class="warning-modal">
             <div class="invalid-expense-wrap">
-                <img src="resource/shrug-emoji.png" width="80px" height="80px">
-                <p>Expense cant be 0 or empty value!</p>
+                <img src="resource/Emoji/emoji-4.png" width="auto" height="100px">
+                <p class="warning-modal-text">Expense cant be 0 or empty value!</p>
                 <button id="invalid-expense-btn" class="modal-btn-style">Go Back</button>
             </div>
         </div>
@@ -254,11 +254,44 @@
 
     <!-- User enter a too large budget number -->
     <div id="large-budget-modal">
-        <div id="large-budget-content">
+        <div id="large-budget-content" class="warning-modal">
             <div class="large-budget-wrap">
-                <img src="resource/shrug-emoji.png" width="80px" height="80px">
-                <p>Why are you using this...?</p>
+                <img src="resource/Emoji/emoji-7.png" width="auto" height="100px">
+                <p class="warning-modal-text">Why are you using this...?</p>
                 <button id="large-budget-btn" class="modal-btn-style">Go Back</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- User enter a too large budget number -->
+    <div id="zero-amount-modal">
+        <div id="zero-amount-content" class="warning-modal">
+            <div class="zero-amount-wrap">
+                <img src="resource/Emoji/emoji-11.png" width="auto" height="100px">
+                <p class="warning-modal-text">You got that free...?</p>
+                <button id="zero-amount-btn" class="modal-btn-style">Go Back</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- No item name or note modal -->
+    <div id="no-note-modal">
+        <div id="no-note-content" class="warning-modal">
+            <div class="no-note-wrap">
+                <img src="resource/Emoji/emoji-9.png" width="auto" height="100px">
+                <p class="warning-modal-text">What did you buy...?</p>
+                <button id="no-note-btn" class="modal-btn-style">Go Back</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- No date input modal -->
+    <div id="no-date-modal">
+        <div id="no-date-content" class="warning-modal">
+            <div class="no-date-wrap">
+                <img src="resource/Emoji/emoji-5.png" width="auto" height="100px">
+                <p class="warning-modal-text">Just in case you forgot when you bought it.</p>
+                <button id="no-date-btn" class="modal-btn-style">Go Back</button>
             </div>
         </div>
     </div>
@@ -266,7 +299,7 @@
     <!-- Tool panel -->
     <div id="tool-box-modal">
         <div id="tool-box-content">
-            
+
             <div class="tool-box" id="reset-tool">
                 <img src="resource/reset-tool.png" width="auto" height="40px">
                 <p class="tool-box-title">RESET</p>
@@ -280,27 +313,27 @@
             </div>
 
             <div class="tool-box">
-                <img id="home-tool" src="resource/home-icon.png" width="auto" height="40px">
-                <p class="tool-box-title">HOME</p>
-                <p class="tool-box-content">Enable the dark mode on your screen</p>
+                <img id="home-tool" src="resource/about.png" width="auto" height="40px">
+                <p class="tool-box-title">ABOUT US</p>
+                <p class="tool-box-content">Know more about us</p>
             </div>
 
             <div class="tool-box">
                 <img id="contact-tool" src="resource/contact-tool.png" width="auto" height="40px">
                 <p class="tool-box-title">CONTACT</p>
-                <p class="tool-box-content">Enable the dark mode on your screen</p>
+                <p class="tool-box-content">We would like to hear feedback</p>
             </div>
 
             <div class="tool-box">
                 <img id="project-tool" src="resource/project-tool.png" width="auto" height="40px">
                 <p class="tool-box-title">PROJECT</p>
-                <p class="tool-box-content">Enable the dark mode on your screen</p>
+                <p class="tool-box-content">The journey of Budget</p>
             </div>
 
             <div class="tool-box">
-                    <img id="return-tool" src="resource/return-tool.png" width="auto" height="40px">
-                    <p class="tool-box-title">RETURN</p>
-                    <p class="tool-box-content">Return to budget</p>
+                <img id="return-tool" src="resource/return-tool.png" width="auto" height="40px">
+                <p class="tool-box-title">RETURN</p>
+                <p class="tool-box-content">Return to budget</p>
             </div>
 
         </div>

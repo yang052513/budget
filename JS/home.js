@@ -7,6 +7,26 @@ $(document).ready(function () {
     var expenseUpdate = 0;
     var balanceUpdate = 0;
 
+    //Current time with 24 hour format
+    var today = new Date();
+    var time = today.getHours()
+    console.log("几点了？？？" + time);
+
+    //Show different welcome message regarding current time
+    if (time > 5 && time <= 11) {
+        $("#time-welcome").html("Good morning!");
+    } else if (time > 11 && time <=15) {
+        $("#time-welcome").html("Good afternoon!");
+    } else if (time > 15 && time <= 18) {
+        $("#time-welcome").html("How's your day?");
+    } else if (time > 18 && time <= 21) {
+        $("#time-welcome").html("Good evening!");
+    } else if (time > 21 && time <= 23) {
+        $("#time-welcome").html("Good night~");
+    } else {
+        $("#time-welcome").html("Sleep is important!");
+    }
+
     //Merge user name and email to firebase
     firebase.auth().onAuthStateChanged(function (user) {
         db.collection("user")
@@ -14,6 +34,7 @@ $(document).ready(function () {
             .set({
                 "name": user.displayName,
                 "email": user.email,
+                "darkMode": false,
             }, {
                 merge: true
             });
@@ -268,8 +289,7 @@ $(document).ready(function () {
         userExpense.note = document.getElementById('note-field').value;
 
         //If the expense entered is less than 0 or empty value
-        //之后有时间可以换成别的modal
-        if (userExpense.amount < 0 || userExpense.amount == '' || userExpense.date == '' || userExpense.note == '') {
+        if (userExpense.amount < 0) {
             $("#invalid-expense-modal").fadeIn();
             console.log('You forgot fill some fields');
 
@@ -279,6 +299,33 @@ $(document).ready(function () {
             });
 
             //If the expense is valid
+        } else if (userExpense.amount == '' || userExpense.amount == 0) {
+            $("#zero-amount-modal").fadeIn();
+            console.log('Nothing is free');
+
+            //Return back to enter page
+            $("#zero-amount-btn").click(function () {
+                $("#zero-amount-modal").fadeOut();
+            });
+
+        } else if (userExpense.note == '') {
+            $("#no-note-modal").fadeIn();
+            console.log('What did you buy');
+
+            //Return back to enter page
+            $("#no-note-btn").click(function () {
+                $("#no-note-modal").fadeOut();
+            });
+
+        } else if (userExpense.date == '') {
+            $("#no-date-modal").fadeIn();
+            console.log('When tho');
+
+            //Return back to enter page
+            $("#no-date-btn").click(function () {
+                $("#no-date-modal").fadeOut();
+            });
+
         } else {
             //push the expense to the array and store the value
             expenseList.push(userExpense.amount);
@@ -317,6 +364,7 @@ $(document).ready(function () {
                     $(newTimeLineBlock).addClass("timeline-block timeline-block-right");
                 }
 
+
                 var newMarker = $("<div class=marker></div>");
                 var newTimeLineContent = $("<div class=timeline-content></div>");
 
@@ -334,6 +382,23 @@ $(document).ready(function () {
                 newTimeLineBlock.append(newMarker, newTimeLineContent);
 
                 $(".timeline-container").prepend(newTimeLineBlock);
+
+                //If dark mode is true, style the new appended block
+                firebase.auth().onAuthStateChanged(function (user) {
+                    db.collection("user").doc(user.uid).onSnapshot(function (snap) {
+                        if (snap.data().darkMode == true) {
+                            $(newTimeLineTitle).css("color", "rgb(34, 146, 187)");
+                            $(newTimeLineContent).css("background-color", "#393838");
+                            $(newTimeLineContent).css("color", "rgba(255, 255, 255, 0.8");
+                            $(newMarker).css("background", "#393838");
+                        } else {
+                            $(newTimeLineTitle).css("color", "rgb(91, 91, 91)");
+                            $(newTimeLineContent).css("background-color", "#ace2ff");
+                            $(newTimeLineContent).css("color", "#666");
+                            $(newMarker).css("background", "rgb(34, 146, 187)");
+                        }
+                    });
+                });
 
                 //write the new expense
                 $(expenseControl).html("$" + (expenseTotal));
@@ -397,6 +462,7 @@ $(document).ready(function () {
 
 
         }
+
     });
 
     //Set the budget number
@@ -448,6 +514,10 @@ $(document).ready(function () {
                     var balanceRefresh = snap.data().BalanceStore;
 
                     var newBalance = budgetRefresh - expenseRefresh;
+
+                    db.collection("user").doc(user.uid).update({
+                        "BalanceStore": parseInt(newBalance)
+                    });
 
                     //Refresh the percentage
                     var newPercent = (1 - (expenseRefresh / budgetRefresh)) * 100;
@@ -557,32 +627,71 @@ $(document).ready(function () {
                     merge: true
                 });
 
-                // db.collection("user").doc(user.uid).delete();
-                // $(".timeline-content, .marker").remove();
-                location.reload();
+            // db.collection("user").doc(user.uid).delete();
+            // $(".timeline-content, .marker").remove();
+            location.reload();
         });
 
-       
+
     });
 
     //Different nav bar color for warning
     firebase.auth().onAuthStateChanged(function (user) {
         db.collection("user").doc(user.uid).onSnapshot(function (snap) {
             console.log(snap.data().PercentStore);
+
+            if (snap.data().darkMode == true) {
+                $("#header-wrap").css("background-color", "#393838");
+                $("#header-wrap").css("color", "rgb(34, 146, 187)");
+                $(".budget_percent_num").css("color", "#121212");
+            } else {
             // 75% - 100%
-            if (snap.data().PercentStore <=100 && snap.data().PercentStore >= 75) {
-                $("#header-wrap").css("background-color", "rgb(0, 153, 204)");
-            // 50% - 75%
+            if (snap.data().PercentStore <= 100 && snap.data().PercentStore >= 75) {
+                $("#header-wrap").css("background-color", "rgb(0, 204, 78)");
+                $(".budget_percent_num").css("color", "rgb(0, 110, 24)");
+                // 50% - 75%
             } else if (snap.data().PercentStore >= 50 && snap.data().PercentStore < 75) {
-                $("#header-wrap").css("background-color", "rgb(0, 190, 204)");
-            // 25% - 50%
+                $("#header-wrap").css("background-color", "rgb(0, 153, 204)");
+                $(".budget_percent_num").css("color", "rgb(3, 110, 145)");
+                // 25% - 50%
             } else if (snap.data().PercentStore < 50 && snap.data().PercentStore >= 25) {
                 $("#header-wrap").css("background-color", "rgb(240, 218, 91)");
-            // < 25%
+                $(".budget_percent_num").css("color", "rgb(240, 218, 91)");
+                // < 25%
             } else if (snap.data().PercentStore < 25) {
                 $("#header-wrap").css("background-color", "rgb(204, 14, 0)");
+                $(".budget_percent_num").css("color", "rgb(204, 14, 0)");
+            }
+        }
+        });
+    });
+    
+    //Dark Mode settings to firebase
+    var darkMode = false;
+    $("#dark-mode-icon").click(function () {
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (!darkMode) {
+                db.collection("user")
+                    .doc(user.uid)
+                    .set({
+                        "darkMode": true,
+                    }, {
+                        merge: true
+                    });
+                darkMode = true;
+            } else {
+                db.collection("user")
+                    .doc(user.uid)
+                    .set({
+                        "darkMode": false,
+                    }, {
+                        merge: true
+                    });
+                darkMode = false;
             }
         });
     });
 
+
+//Ends
 });

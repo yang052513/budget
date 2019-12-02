@@ -1,7 +1,7 @@
 {
 	"mouseover": [{
 		"selector": "#waifu #live2d",
-		"text": ["How you doing today?", "Do you like Haikyuu?", "I am a 2D girl obviously.", "Hello Hello ~~ ？", "(ノ≧∇≦)ノ", "Do you know happy Keith?", "Seems like you are boring right now", "Hey boys"]
+		"text": ["How you doing today?", "Dont be a nerd", "CST is tough", "Do you like Haikyuu?", "I am a 2D girl obviously.", "Hello Hello ~~ ？", "(ノ≧∇≦)ノ", "Hey guys"]
 	}, {
 		"selector": "#waifu-tool .fa-comment",
 		"text": ["Guess what I'm gonna say？", "I learn a lot of life lessons from Keith.", "Nandini is insane - by Yang"]
@@ -10,13 +10,13 @@
 		"text": ["You dont like me anymore...", "Wanna see my friend？", "Wait, are u cheating on me？", "U wanna see someone else？"]
 	}, {
 		"selector": "#waifu-tool .fa-street-view",
-		"text": ["You dont like my outfit?", "Which one should I change", "Dress Up!!！", "Let's see what gonna happen！"]
+		"text": ["You dont like my outfit?", "Which one should I change", "Dress Up!!！", "Let's see what gonna happen"]
 	}, {
 		"selector": "#waifu-tool .fa-camera-retro",
 		"text": ["You wanna take a picture for me？", "ONE TWO THREE ～CHEESE～", "Let's take a photo！", "Keep smile～"]
 	}, {
 		"selector": "#waifu-tool .fa-info-circle",
-		"text": ["Want to know more about me？", "There has all the fork history。", "Where am I from？"]
+		"text": ["Want to know more about me？", "My hometwon...", "Where am I from？"]
 	}, {
 		"selector": "#waifu-tool .fa-times",
 		"text": ["Time to say goodbye？", "OK QAQ See u next time……", "Dont leave me alone……", "Will we, will we, ever see each other again...", "You will regret！"]
@@ -28,10 +28,13 @@
 		"text": ["Create a new expense~~", "What did you spend on？", "Log your new expense~"]
 	}, {
 		"selector": "#other-icon",
-		"text": ["Wanna know more about authors? ", "Do you know Yang and Jonny?", "The journey of Budget "]
+		"text": ["Some useful tools here", "All the stuff you need"]
 	}, {
 		"selector": ".budget-container",
 		"text": ["That's your current budget~", "Remember to not go beyond your expense~", "That's all you have~"]
+	}, {
+		"selector": ".balance-container",
+		"text": ["That's all you have~", "Yeah, that's all you left"]
 	}, {
 		"selector": ".expense-container",
 		"text": ["That's your total expense so far", "Watch your expense frequently~", "Don't let that go too high"]
@@ -46,31 +49,31 @@
 		"text": ["Scroll to top~"]
 	}, {
 		"selector": "#food-card",
-		"text": ["Broccoli...?"]
+		"text": ["Broccoli...?", "You know, chicken and broooccoli"]
 	}, {
 		"selector": "#health-card",
-		"text": ["Did you get sick?", "Take care of yourself!"]
+		"text": ["Did you get sick?", "Take care of yourself~"]
 	}, {
 		"selector": "#auto-card",
-		"text": ["Gas is so expensive rn", "Skytrain? Bus?"]
+		"text": ["Gas is so expensive rn", "Skytrain? Bus?", "Pls dont strike"]
 	}, {
 		"selector": "#shopping-card",
 		"text": ["Emmmmmmm", "On sale?"]
 	}, {
 		"selector": "#sport-card",
-		"text": ["Yeah GYM", "Stay fit"]
+		"text": ["Yeah GYM", "Stay fit", "Leg day bro", "Monday international chestday!", "Arm day all day bro", "You know the 8 hour arm workout?"]
 	}, {
 		"selector": "#education-card",
-		"text": ["Good investment", "Nerd??！"]
+		"text": ["Good investment", "Nerd??！", "Come on"]
 	}, {
 		"selector": "#bill-card",
-		"text": ["Every month it comes"]
+		"text": ["Every month it comes", "Yeah, I know you dont like it"]
 	}, {
 		"selector": "#other-card",
 		"text": ["Yeah you can create your own", "What do you mean by others"]
 	}, {
 		"selector": "#datepicker",
-		"text": ["The day my money disappear"]
+		"text": ["The day my money was gone"]
 	}, {
 		"selector": "#amount-field",
 		"text": ["Number only~", "How much you spend?"]
@@ -78,17 +81,26 @@
 		"selector": "#note-field",
 		"text": ["Anything else you wanna say?"]
 	}, {
-		"selector": "#about-read",
-		"text": ["Learn more about Yang and Jonny", "Wanna know who created me?"]
+		"selector": "#home-tool",
+		"text": ["Learn more about Yang and Jonny", "Wanna know who created me?", "Wanna know more about the author?"]
 	}, {
-		"selector": "#contact-read",
-		"text": ["Contact us!", "We have some tea here"]
+		"selector": "#reset-tool",
+		"text": ["Restart!!", "Reset all your budget~"]
+	},{
+		"selector": "#dark-tool",
+		"text": ["Good for your eyes~", "Yeahhh, Dark mode"]
+	},{
+		"selector": "#return-tool",
+		"text": ["Back to budget~"]
+	},{
+		"selector": "#contact-tool",
+		"text": ["Contact us!", "We have some tea here", "Judge away"]
 	}, {
-		"selector": "#project-read",
-		"text": ["The origin of budget", "The process~"]
+		"selector": "#project-tool",
+		"text": ["The journey of budget", "The whole process for the project", "How we started from scratch", "Documentation"]
 	}],
 	"click": [{
 		"selector": "#waifu #live2d",
-		"text": ["Yeah, it's me", "Why are you touching me", "???????", "emmmm What's wrong with you", "911? There is a hentai", "STOP", "I can bite you", "Hey hentai!"]
+		"text": ["Yeah, it's me", "Why are you touching me", "???????", "emmmm What's wrong with you", "911? There is a hentai", "STOP", "I can bite you", "Hey hentai!", "DONT BNULLY ME"]
 	}]
 }

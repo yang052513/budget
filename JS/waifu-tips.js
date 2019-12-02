@@ -3,6 +3,9 @@
  * https://www.fghrsh.net/post/123.html
  */
 
+
+// change character disable rn <span class="fa fa-lg fa-user-circle"></span>
+
 function loadWidget(waifuPath, apiPath) {
 	localStorage.removeItem("waifu-display");
 	sessionStorage.removeItem("waifu-text");
@@ -12,7 +15,7 @@ function loadWidget(waifuPath, apiPath) {
 			<canvas id="live2d" width="300" height="300"></canvas>
 			<div id="waifu-tool">
 				<span class="fa fa-lg fa-comment"></span>
-				<span class="fa fa-lg fa-user-circle"></span>
+		
 				<span class="fa fa-lg fa-street-view"></span>
 				<span class="fa fa-lg fa-camera-retro"></span>
 				<span class="fa fa-lg fa-info-circle"></span>
@@ -88,7 +91,7 @@ function loadWidget(waifuPath, apiPath) {
 	var userAction = false,
 		hitokotoTimer = null,
 		messageTimer = null,
-		messageArray = ["Are you still there?", "Do you like budget or me? ～", "Hey~", "Why I cant seat...", "Keith's laugh...", "What are you working on?", "Do you know Nandini?", "0 and 1, you know what I am talking about", "John is soft", "Jeff the type of guy who flex while writing", "Jonny the guy with adidas hat", "Eric the backend god", "Colin the guy who love nandini so much", "Eddy is funny"];
+		messageArray = ["Are you still there?", "Keith: make sure you open up your checkstyle ～", "Hey~", "Paul: Mom, I learned a new thing today!", "Keith's laugh...", "What are you working on?", "Do you know Nandini?", "0 and 1, you know what I am talking about", "John is soft", "Jeff the type of guy who flex while writing", "Jonny the guy with adidas hat", "Eric the backend god", "Colin the guy who love nandini so much", "Eddy is funny", "Improve your writing skills - Nandini", "I can understand the question - Nandini", "Thorsten: IFEE!!!", "Arron: mobile first!!!", "I am hearing Keith's laugh...", "Haikyuu S4 is coming~", "Mikasa prprprpr"];
 	if ($(".fa-share-alt").is(":hidden")) messageArray.push("Remember to add me on white list~");
 	$(document).mousemove(() => {
 		userAction = true;
