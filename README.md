@@ -8,8 +8,10 @@ Our idea originated from a discussion of how we would survive the semester at BC
 
 - Add expenses to your account with simple click
 - Water stimulate wave effect represents the left budget
+- Multiple guid modal to help you use the app
 - Live 2D animation widget chat box guide you to use the app
 - Dark mode based on user preference
+- Reset option to restart all your journey
 - Dynamic nav bar and percentage number to notify users their current budget
 
 
@@ -31,6 +33,14 @@ Our idea originated from a discussion of how we would survive the semester at BC
 We are hosting the web at [here](https://comp1930-inclass.firebaseapp.com)
 
 ## Change Log
+
+### v0.0.4 (2019/12/03 09:33)
+- Add the reset button so that user could reset their budget and history expenses
+- Add logout options
+- Add link modal in the tool kit panel
+- Connect home logo to the landing page
+- Fix set budget and enter category animation bugs
+- Styling login page, add loop animated wave background aniimation
 
 ### v0.0.3 (2019/12/01 21:52)
 - Fix 2D live extension hover text message (include all)
