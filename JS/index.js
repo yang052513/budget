@@ -38,11 +38,16 @@ $(document).ready(function () {
         };
     
         $("#mob-navbar-icon").click(function () {
-            $("#other-menu-modal").animate(otherSlideIn, 1000);
+            $("#other-menu-modal-wrap").fadeIn();
         });
     
         $("#close-modal-btn").click(function () {
-            $("#other-menu-modal").animate(otherSlideOut, 1000);
+            $("#other-menu-modal-wrap").fadeOut();
+        });
+
+        //Click the logo will jump back to landing page
+        $("#logo-icon").click(function() {
+            window.location.replace("index.html");
         });
 
 });

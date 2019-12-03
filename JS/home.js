@@ -15,7 +15,7 @@ $(document).ready(function () {
     //Show different welcome message regarding current time
     if (time > 5 && time <= 11) {
         $("#time-welcome").html("Good morning!");
-    } else if (time > 11 && time <=15) {
+    } else if (time > 11 && time <= 15) {
         $("#time-welcome").html("Good afternoon!");
     } else if (time > 15 && time <= 18) {
         $("#time-welcome").html("How's your day?");
@@ -459,10 +459,7 @@ $(document).ready(function () {
                 writeExpenseEvent();
                 $('input, textarea').val('');
             }
-
-
         }
-
     });
 
     //Set the budget number
@@ -592,15 +589,30 @@ $(document).ready(function () {
         $("#tool-box-modal").fadeOut();
     });
 
+    $("#other-tool").click(function() {
+        $("#other-box-modal").fadeIn();
+        $("#tool-box-modal").fadeOut();
+    });
+
+    $("#return-tool2").click(function () {
+        $("#other-box-modal").fadeOut();
+        $("#tool-box-modal").fadeIn();
+    });
+
     //Expense Details Slide in: open category page
     $("#create-icon").click(function () {
-        //if budget is 0 and trying to create new expense: throw error
-        if (budgetStore == 0) {
-            $("#nobudget-modal").fadeIn();
-        } else {
-            $("#slideShow").animate(slideIn, 1000);
-            $("body").css("overflow", "hidden");
-        }
+        firebase.auth().onAuthStateChanged(function (user) {
+            db.collection("user").doc(user.uid).get().then(function(doc) {
+                //if budget is 0 and trying to create new expense: throw error
+                if (doc.data().BudgetStore > 0) {
+                    $("#slideShow").animate(slideIn, 1000);
+                    $("body").css("overflow", "hidden");
+
+                } else {
+                    $("#nobudget-modal").fadeIn();
+                }
+            });
+        });
     });
 
     //Reset all the budget, expense, and balance
@@ -627,12 +639,22 @@ $(document).ready(function () {
                     merge: true
                 });
 
-            // db.collection("user").doc(user.uid).delete();
-            // $(".timeline-content, .marker").remove();
-            location.reload();
+            //Delete all the current container
+            $(".timeline-content, .marker").remove();
+
+            //Delete all the expense docs 我最喜欢的部分哈哈哈
+            db.collection("user").doc(user.uid).collection("Expense").get().then(function (querySnapshot) {
+                querySnapshot.forEach(function (doc) {
+                    doc.ref.delete().then(function () {
+                        console.log("成啊！！!");
+                    }).catch(function (error) {
+                        console.error("错误！ ", error);
+                    });
+                })
+            })
+
+            // location.reload();
         });
-
-
     });
 
     //Different nav bar color for warning
@@ -643,29 +665,29 @@ $(document).ready(function () {
             if (snap.data().darkMode == true) {
                 $("#header-wrap").css("background-color", "#393838");
                 $("#header-wrap").css("color", "rgb(34, 146, 187)");
-                $(".budget_percent_num").css("color", "#121212");
+                $(".budget_percent_num").css("color", "grey");
             } else {
-            // 75% - 100%
-            if (snap.data().PercentStore <= 100 && snap.data().PercentStore >= 75) {
-                $("#header-wrap").css("background-color", "rgb(0, 204, 78)");
-                $(".budget_percent_num").css("color", "rgb(0, 110, 24)");
-                // 50% - 75%
-            } else if (snap.data().PercentStore >= 50 && snap.data().PercentStore < 75) {
-                $("#header-wrap").css("background-color", "rgb(0, 153, 204)");
-                $(".budget_percent_num").css("color", "rgb(3, 110, 145)");
-                // 25% - 50%
-            } else if (snap.data().PercentStore < 50 && snap.data().PercentStore >= 25) {
-                $("#header-wrap").css("background-color", "rgb(240, 218, 91)");
-                $(".budget_percent_num").css("color", "rgb(240, 218, 91)");
-                // < 25%
-            } else if (snap.data().PercentStore < 25) {
-                $("#header-wrap").css("background-color", "rgb(204, 14, 0)");
-                $(".budget_percent_num").css("color", "rgb(204, 14, 0)");
+                // 75% - 100%
+                if (snap.data().PercentStore <= 100 && snap.data().PercentStore >= 75) {
+                    $("#header-wrap").css("background-color", "rgb(0, 204, 78)");
+                    $(".budget_percent_num").css("color", "rgb(0, 110, 24)");
+                    // 50% - 75%
+                } else if (snap.data().PercentStore >= 50 && snap.data().PercentStore < 75) {
+                    $("#header-wrap").css("background-color", "rgb(0, 153, 204)");
+                    $(".budget_percent_num").css("color", "rgb(3, 110, 145)");
+                    // 25% - 50%
+                } else if (snap.data().PercentStore < 50 && snap.data().PercentStore >= 25) {
+                    $("#header-wrap").css("background-color", "rgb(240, 218, 91)");
+                    $(".budget_percent_num").css("color", "rgb(240, 218, 91)");
+                    // < 25%
+                } else if (snap.data().PercentStore < 25) {
+                    $("#header-wrap").css("background-color", "rgb(204, 14, 0)");
+                    $(".budget_percent_num").css("color", "rgb(204, 14, 0)");
+                }
             }
-        }
         });
     });
-    
+
     //Dark Mode settings to firebase
     var darkMode = false;
     $("#dark-mode-icon").click(function () {
@@ -692,6 +714,18 @@ $(document).ready(function () {
         });
     });
 
+    //Sign out the user from firebase
+    $("#home-tool").click(function () {
+        firebase.auth().onAuthStateChanged(function (user) {
+            firebase.auth().signOut().then(function () {
+                // Sign-out successful.
+                window.location.replace("login.html");
 
-//Ends
+            }).catch(function (error) {
+                console.log("错误！！！");
+            });
+        });
+    });
+
+    //Ends
 });

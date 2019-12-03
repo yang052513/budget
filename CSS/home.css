@@ -1005,7 +1005,7 @@ label {
     display: none;
 }
 
-#tool-box-content {
+.tool-box-content-style {
     background-color: white;
     width: 300px;
     height: 450px;
@@ -1036,6 +1036,18 @@ label {
 .tool-box-content {
     font-size: 10px;
     margin-top: 5px;
+}
+
+/* Second page of tool pane */
+#other-box-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 6;
+    display: none;
 }
 
 @media screen and (max-width: 1024px) {

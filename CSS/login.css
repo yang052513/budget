@@ -1,40 +1,141 @@
 * {
 	padding: 0;
 	margin: 0;
+	overflow-y: hidden;
 }
 
 html { 
-  background: url("../resource/loginBG.jpg") no-repeat center center fixed; 
+  /* background: url("../resource/loginBG.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover; */
+  background-image: linear-gradient(to top, rgb(55, 97, 134) 20%, #27273c 80%);
 }
 
 body {
-	background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    overflow-x: none;
+    font-family: 'Raleway', sans-serif;
+    width: auto;
+    overflow-x: hidden;
 }
 
-
-
-/* Login card with glass effect DISABLED */
-/* .mdl-card {
-    background: inherit;
+ul a {
+    text-decoration: none;
+    color: rgb(58, 58, 58);
 }
 
-.mdl-card: before {
-    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
-	filter: blur(10px);
-	background: inherit;
-} */
+ul a:hover {
+    color: rgb(69, 109, 157);
+}
+
+.nav-bar-grid {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+}
+
+.nav-bar {
+	display: flex;
+	justify-content: space-evenly;
+	/* grid-column: 1 / -1; */
+	background-color: rgb(255, 255, 255);
+}
+
+.nav-bar-list ul {
+	padding-left: 0;
+}
+
+.nav-bar-logo p {
+	border: 1px solid #3B7294;
+	color: #3B7294;
+	padding: 5px;
+	font-family: 'Raleway', sans-serif;
+	letter-spacing: 3px;
+}
+
+.nav-bar-logo img {
+	padding-top: 12px;
+}
+
+#nav-bar-sign-btn {
+	font-size: 15px;
+	background-color: white;
+	width: 90px;
+	height: 35px;
+	border-radius: 20px;
+	border: 1px solid #3B7294;
+	font-family: 'Raleway', sans-serif;
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+
+#nav-bar-sign-btn a {
+	text-decoration: none;
+	color: #3B7294;
+}
+
+button:focus {
+	outline: none;
+}
+
+#mob-navbar-modal {
+	display: none;
+}
+
+#mob-navbar {
+	display: none;
+}
+
+.nav-bar li {
+	color: rgb(255, 255, 255);
+	list-style-type: none;
+	display: inline-block;
+	margin-top: 24px;
+	margin-left: 25px;
+	margin-right: 25px;
+	font-size: 13px;
+	font-weight: bold;
+	border-bottom: 3px solid transparent;
+	padding-bottom: 5px;
+}
+
+.nav-bar li:hover {
+	color: rgb(69, 109, 157);
+	user-select: none;
+	border-bottom: 1px solid rgb(69, 109, 157);
+}
+
+.feature-list {
+	text-align: left;
+}
+
+ul {
+	text-align: left;
+}
+
+.mob-nav-bar {
+	display: none;
+}
+
+.login-title {
+	color: white;
+	font-size: 40px;
+	position: absolute;
+	text-align: center;
+	top: 150px;
+
+	width: 100%;
+}
 
 #firebaseui-auth-container {
 	height: 100%;
 	display: grid;
 	align-items: center;
 	justify-content: center;
-	grid-template-columns: 1fr;
-	
+	grid-template-columns: 1fr;	
+	transform: translateY(-30px);
 }
 
 form {
@@ -49,26 +150,175 @@ form {
 	background: #42a5f5;
 }
 
-/* On screens that are 420px or less */
+#other-menu-modal-wrap {
+	display: none;
+}
+
+#other-menu-modal {
+    background-color: rgb(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    /* margin-top: -100%;
+    opacity: 0; */
+}
+
+#other-menu-modal-content {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}
+
+.other-close-btn {
+    background-color: white;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -80px;
+    margin-right: -96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.other-close-btn:hover {
+    background-color: rgb(34, 146, 187);
+}
+
+#close-modal-btn {
+    margin-left: -55px;
+    transform: translateY(30px);
+}
+
+.other-menu-link a {
+    text-decoration: none;
+	color: white;
+	line-height: 1.7em;
+}
+
+.other-menu-link a:hover {
+    color: rgb(34, 146, 187);
+}
+
+/* Background animation */
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+.waveWrapper {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    height: 20%;
+}
+
+.waveWrapperInner {
+	z-index: -1;
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+    height: 20%;
+    bottom: 0px;
+    /* background-image: linear-gradient(to top, #86377b 20%, #27273c 80%); */
+}
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
+}
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
+}
+.bgBottom {
+    z-index: 5;
+}
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+.waveTop {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveTop {
+  animation: move-wave 3s;
+   -webkit-animation: move-wave 3s;
+   -webkit-animation-delay: 1s;
+   animation-delay: 1s;
+}
+.waveMiddle {
+    background-size: 50% 120px;
+}
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+.waveBottom {
+    background-size: 50% 100px;
+}
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
+
+/* On screens that are 800px or less */
 @media screen and (max-width: 800px) {
 * {
   padding: 0;
   margin: 0;
 }
+  .nav-bar-list, .nav-bar-sign-up {
+	  display: none;
+  }
 
-html { 
-	background: url("../resource/loginIMG.jpg") no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+  #mob-navbar {
+	  display: block;
+	  position: absolute;
+	  top: 20;
+	  left: 20;
+  }
+
+  .nav-bar {
+	  height: 67px;
+	  width: auto;
+  }
+
+  .login-title {
+	  font-size: 25px;
+	  top: 180px;
   }
 
   #firebaseui-auth-container {
-	margin: 0 40px 0 40px;
-	
+	margin: 0 40px 0 40px;	
 }
 
+}
+
+@media screen and (max-width: 450px) {
+	.login-title {
+		font-size: 20px;
+		top: 100px;
+	}
 }
 
 

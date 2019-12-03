@@ -20,11 +20,11 @@ $(document).ready(function () {
                 $(".section-title").css("color", "rgba(255, 255, 255, 0.7");
                 $("label").css("color", "white");
                 $("#back-to-top-btn").css("background-color", "rgb(50, 50, 50)");
-                $("#tool-box-content").css("background-color", "#121212");
+                $(".tool-box-content-style").css("background-color", "#121212");
                 $(".tool-box-content").css("color", "white");
                 $("#setup-budget-content").css("background-color", "#121212");
                 $(".warning-modal").css("background-color", "#121212");
-                $(".warning-modal-text").css("color", "white");
+                $(".warning-modal-text").css("color", "rgb(34, 146, 187)");
 
                 $(".timeline-content").css("background-color", "#393838");
                 $(".timeline-content").css("color", "rgba(255, 255, 255, 0.8");
@@ -59,7 +59,7 @@ $(document).ready(function () {
                 $(".section-title").css("color", "white");
                 $("label").css("color", "#09C");
                 $("#back-to-top-btn").css("background-color", "rgb(34, 146, 187)");
-                $("#tool-box-content").css("background-color", "white");
+                $(".tool-box-content-style").css("background-color", "white");
                 $(".tool-box-content").css("color", "black");
                 $("#setup-budget-content").css("background-color", "white");
                 $(".warning-modal").css("background-color", "white");
@@ -84,7 +84,11 @@ $(document).ready(function () {
             }
         });
 
-        $("#home-tool").click(function () {
+        $("#landing-tool").click(function () {
+            window.open("index.html");
+        });
+
+        $("#about-tool").click(function () {
             window.open("about.html");
         });
 

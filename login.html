@@ -17,6 +17,7 @@
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
     <script>
         // Your web app's Firebase configuration
@@ -34,61 +35,125 @@
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
         var db = firebase.firestore();
-
     </script>
     <link rel="stylesheet" href="CSS/login.css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <div id="section-1">
+        <div id="mob-navbar">
+            <img id="mob-navbar-icon" src="resource/menu-icon-black.png" width="30px" height="30px">
+        </div>
+
+        <div class="nav-bar">
+            <div class="nav-bar-logo">
+                <!-- <p>BUDGET</p> -->
+                <img id="logo-icon" src="resource/budget-logo.png" width="auto" height="40px">
+            </div>
+            <div class="nav-bar-list">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li><a href="OurProject.html">OUR PROJECT</a></li>
+                    <li><a href="contact.html">CONTACTS</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-bar-sign-up">
+                <button id="nav-bar-sign-btn"><a href="login.html">Sign Up</a></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-title-wrap">
+        <p class="login-title">Welcome to Budget!</p>
+    </div>
+
     <!--			Login Part-->
     <div id="container">
-        
+
         <div id="firebaseui-auth-container">
         </div>
         <div id="loader">Loading...</div>
     </div>
-        <script>
-            // Initialize the FirebaseUI Widget using Firebase.
-            var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-            var uiConfig = {
-                callbacks: {
-                    signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-                        // User successfully signed in.
-                        // Return type determines whether we continue the redirect automatically
-                        // or whether we leave that to developer to handle.
-                        return true;
-                    },
-                    uiShown: function () {
-                        // The widget is rendered.
-                        // Hide the loader.
-                        document.getElementById('loader').style.display = 'none';
-                    }
+    <!-- Other info pop up menu modal -->
+    <div id="other-menu-modal-wrap">
+        <div id="other-menu-modal">
+            <div id="other-menu-modal-content">
+                <div class="other-close-btn"><img id="close-modal-btn" src="resource/close-menu.png" width="40px"
+                        height="40px"></div>
+                <div class="other-menu-link">
+                    <h4 id="about-read"><a href="index.html" target="_blank">Home</a></h4>
+                    <h4 id="about-read"><a href="about.html" target="_blank">About Us</a></h4>
+                    <h4 id="contact-read"><a href="contact.html" target="_blank">Contact</a></h4>
+                    <h4 id="project-read"><a href="OurProject.html" target="_blank">Our Project</a></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Other info pop up menu modal -->
+
+    <div class="waveWrapper waveAnimation">
+        <div class="waveWrapperInner bgTop">
+            <div class="wave waveTop"
+                style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+        </div>
+        <div class="waveWrapperInner bgMiddle">
+            <div class="wave waveMiddle"
+                style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+        </div>
+        <div class="waveWrapperInner bgBottom">
+            <div class="wave waveBottom"
+                style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+        var uiConfig = {
+            callbacks: {
+                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                    // User successfully signed in.
+                    // Return type determines whether we continue the redirect automatically
+                    // or whether we leave that to developer to handle.
+                    return true;
                 },
-                // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-                signInFlow: 'popup',
-                signInSuccessUrl: 'home.html',
-                signInOptions: [
-                    // Leave the lines as is for the providers you want to offer your users.
-                    // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                    // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                    // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-                    // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-                    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                    // firebase.auth.PhoneAuthProvider.PROVIDER_ID
-                ],
-                // Terms of service url.
-                tosUrl: 'home.html',
-                // Privacy policy url.
-                privacyPolicyUrl: 'home.html'
-            };
+                uiShown: function () {
+                    // The widget is rendered.
+                    // Hide the loader.
+                    document.getElementById('loader').style.display = 'none';
+                }
+            },
+            'credentialHelper': firebaseui.auth.CredentialHelper.NONE,
+            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+            signInFlow: 'popup',
+            signInSuccessUrl: 'home.html',
+            signInOptions: [
+                // Leave the lines as is for the providers you want to offer your users.
+                // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+                // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+                // firebase.auth.GithubAuthProvider.PROVIDER_ID,
+                firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                // firebase.auth.PhoneAuthProvider.PROVIDER_ID
+            ],
+            // Terms of service url.
+            tosUrl: 'home.html',
+            // Privacy policy url.
+            privacyPolicyUrl: 'home.html'
+        };
 
-            // The start method will wait until the DOM is loaded.
+        // The start method will wait until the DOM is loaded.
 
-            ui.start('#firebaseui-auth-container', uiConfig);
-        </script>
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
 
+    <script src="JS/index.js"></script>
 
 </body>
+
 </html>
