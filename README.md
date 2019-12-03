@@ -6,9 +6,12 @@ Our idea originated from a discussion of how we would survive the semester at BC
 
 ## Feature
 
-- Add expenses to your account within limited budget
+- Add expenses to your account with simple click
 - Water stimulate wave effect represents the left budget
 - Live 2D animation widget chat box guide you to use the app
+- Dark mode based on user preference
+- Dynamic nav bar and percentage number to notify users their current budget
+
 
 ## Team Member: 
 
@@ -20,10 +23,24 @@ Our idea originated from a discussion of how we would survive the semester at BC
 - [foopicker](https://github.com/yogasaikrishna/foopicker)
 - [live2d-widget](https://live2d.com)
 
+## Other File Reference
+
+- [Menhera-chan Emoji](https://www.pixiv.net/member.php?id=2302136)
+
 ## How to use the app?
 We are hosting the web at [here](https://comp1930-inclass.firebaseapp.com)
 
 ## Change Log
+
+### v0.0.3 (2019/12/01 21:52)
+- Fix 2D live extension hover text message (include all)
+- Fix 2D live extension tips box gap
+- Design dark mode color scheme
+- Fix the balance number doesnt update after set new budget
+- Fix the percentage number color corresponding to the nav bar
+- Fix the new expense doesnt change color in dark mode
+- Add welcome text message depending on the user computer currernt time
+- Add Menhera-chan Emoji set for all modals
 
 ### v0.0.2 (2019/11/30 18:50)
 - Limit user to input fraction unit while setting budget
