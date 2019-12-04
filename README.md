@@ -20,19 +20,39 @@ Our idea originated from a discussion of how we would survive the semester at BC
 [Yang Li](https://github.com/yang052513)  <br>
 [Jonny Lu](https://github.com/lynnoj)
 
-## API Reference:
+## API//Source Code Reference:
 
 - [foopicker](https://github.com/yogasaikrishna/foopicker)
 - [live2d-widget](https://live2d.com)
 
-## Other File Reference
+## General Reference
 
 - [Menhera-chan Emoji](https://www.pixiv.net/member.php?id=2302136)
 
 ## How to use the app?
 We are hosting the web at [here](https://comp1930-inclass.firebaseapp.com)
 
+## Common FAQ
+### What is the largest number I can input?
+The default budget limit is 10,000. As we consider the purpose of the app is for people who dont have a income source, and just want to track a limited budget for a period of time. So we think 10,000 is a good number to start. In future we might add user settings which you can actually change the max limit.
+
+### How can I submit bugs/suggestion/.. ?
+We have a spearate contact page which you can find on the nav bar of every page. In home page click tools > link > contact. 
+The form will be sent to our backend page only, and we would like to hear your thoughts about Budget!
+
+### I accidently disable the 2D animation girl, how could I make it display again?
+After you dispaly the 2D animation girl, there will be a little blue box on the bottom left of the page. If you click it, the 2D animation girl will pop up again.
+
+### Can I set a budget in a time frame?
+The current version doesnt support time constraints. If you want to restart your track journey, you can click reset in the tool panel which will delete all the past expense history.
+
+### What are some future features will be provided?
+We are currently working on delete option which you could delete the expense that you clicked. We are also thinking to add a time frame to track the budget. If you have any other suggestions, please contacts us by sbumitting the form on contact page
+
 ## Change Log
+
+### v0.0.5 (2019/12/03 21:05)
+- Created feedback page for admin use only
 
 ### v0.0.4 (2019/12/03 09:33)
 - Add the reset button so that user could reset their budget and history expenses
