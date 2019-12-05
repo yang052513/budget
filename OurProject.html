@@ -17,6 +17,24 @@
 
 <body>
 
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <div class="nav-bar-logo">
+            <img src="resource/budget-logo.png" width="auto" height="40px">
+        </div>
+        <div class="nav-bar-list">
+            <ul>
+                <li><a class="other-link" href="index.html">HOME</a></li>
+                <li><a class="other-link" href="about.html">ABOUT US</a></li>
+                <li class="current-link">OUR PROJECT</li>
+                <li><a class="other-link" href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+        <div class="nav-bar-sign-up">
+            <button id="nav-bar-sign-btn"><a href="login.html">Sign Up</a></button>
+        </div>
+    </div>
+
     <!-- Intro part-->
     <div class="section-1">
 
@@ -26,24 +44,16 @@
 
         <div id="mob-navbar-modal">
             <ul>
-                <li><a href="home.html">HOME</a></li>
+                <li><a href="index.html">HOME</a></li>
                 <li><a href="OurProject.html">OUR PROJECT</a></li>
                 <li><a href="contact.html">CONTACT</a></li>
             </ul>
         </div>
 
-        <div class="nav-bar">
-            <ul>
-                <li><a class="other-link" href="home.html">HOME</a></li>
-                <li><a class="other-link" href="about.html">ABOUT US</a></li>
-                <li class="current-link">OUR PROJECT</li>
-                <li><a class="other-link" href="contact.html">CONTACT</a></li>
-            </ul>
-        </div>
-
         <div class="container-1">
             <h1>OUR PROJECT</h1>
-            <p>How our project started</p>
+            <p>How our budget application began</p>
+            <a href="#scroll"><button class="read-more-btn">Read More</button></a>
         </div>
 
     </div>
@@ -51,15 +61,21 @@
     <!-- Project Ideas -->
     <div class="section-2">
 
-        <h2>Project Ideas</h2>
-        <p>Our idea originated from a discussion of how we would survive the semester at BCIT. We talked about how we
-            would balance our courses, social life, and finances. Then we had to do a project for our COMP 1930 class,
-            so we decided to create something that could actually help us during out time with BCIT. At first we thought
-            of making a to-do list for our project. It would be simple, yet effective. However, we realized that we
-            simply
-            used other means of tracking our tasks, so we decided to go with "Budget", our budget and expense tracking
-            app.
-        </p>
+        <div id="scroll">
+            <h2>Project Ideas</h2>
+            <p>Our idea originated from a discussion of how we would survive the semester at BCIT. We talked about how
+                we
+                would balance our courses, social life, and finances. Then we had to do a project for our COMP 1930
+                class,
+                so we decided to create something that could actually help us during out time with BCIT. At first we
+                thought
+                of making a to-do list for our project. It would be simple, yet effective. However, we realized that we
+                simply
+                used other means of tracking our tasks, so we decided to go with "Budget", our budget and expense
+                tracking
+                app.
+            </p>
+        </div>
 
     </div>
 
@@ -67,7 +83,7 @@
     <div class="section-3">
 
         <h2>Task Flow</h2>
-        <img src="resource/taskflow.png" alt="Task Flow">
+        <img src="resource/taskflow2.png" alt="Task Flow">
 
     </div>
 
@@ -80,12 +96,16 @@
 
     </div>
 
-    <div class="section-4-p2">
+    <div class="slideshow">
 
-        <img src="resource/mock1.png" alt="Home Page">
-        <img src="resource/mock2.png" alt="Categories">
-        <img src="resource/mock3.png" alt="Enter Information">
-
+        <div id="slider">
+            <ul class="slides">
+                <li class="slide"><img src="resource/mock1.png" alt="Home Page"></li>
+                <li class="slide"><img src="resource/mock2.png" alt="Categories"></li>
+                <li class="slide"><img src="resource/mock3.png" alt="Enter Information"></li>
+                <li class="slide"><img src="resource/mock1.png" alt="Home Page"></li>
+            </ul>
+        </div>
     </div>
 
     <!-- Coloured Mock Up Design -->
@@ -121,6 +141,11 @@
     <div class="section-6">
 
         <img src="resource/raleway.png" alt="Raleway Font">
+
+    </div>
+
+    <div class="section-6">
+
         <img src="resource/quicksand.png" alt="Quicksand Font">
 
     </div>
@@ -207,6 +232,7 @@
     </div>
 
     <script src="JS/index.js"></script>
+    <script src="JS/OurProject.js"></script>
 
 </body>
 
