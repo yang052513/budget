@@ -47,6 +47,7 @@ ul a {
 ul a:hover {
     color: rgb(69, 109, 157);
 }
+
 .nav-bar {
     display: none;
 }
@@ -100,11 +101,11 @@ ul a:hover {
     text-decoration: none;
 }
 
-.read-more-btn a{
+.read-more-btn a {
     text-decoration: none;
 }
 
-.read-more-btn:hover{
+.read-more-btn:hover {
     background-color: rgb(23, 109, 148);
     color: white;
     border: 1px solid white;
@@ -165,110 +166,50 @@ ul a:hover {
 .section-4 {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-}
-
-.section-4-p2 {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 0vw 9vw 0vw 9vw;
-}
-
-.section-4-p2 img {
-    margin: 0vw 0vw 3vw 0vw;
-    flex-wrap: wrap;
-    max-width: 28%;
-}
-
-.section-4-header {
     text-align: center;
-    flex-wrap: nowrap;
-    font-size: 2.8vw;
-    margin: 0vw 12vw 2vw 12vw;
+    margin: 0 12vw 4vw 12vw;
     color: rgb(69, 109, 157);
 }
 
-/* Slideshow */
-#slider {
-    overflow: hidden;
-    width: 460px;
-    height: 815px;
+.section-4 h2 {
+    font-size: 4vw;
 }
 
-#slider .slides {
-    display: block;
-    width: 6000px;
-    height: 815px;
-    margin: 0;
-    padding: 0;
-}
-
-#slider .slide {
-    float: left;
-    list-style-type: none;
-    width: 460px;
-    height: 815px;
-}
-
-@keyframes slider {
-    0% {
-        left: 0;
-    }
-    28% {
-        left: 0;
-    }
-    33% {
-        left: -100%;
-    }
-    61% {
-        left: -100%;
-    }
-    66% {
-        left: -200%;
-    }
-    100% {
-        left: -300%;
-    }
+#myCarousel {
+    width: 28vw;
+    left: auto;
 }
 
 /* Section 5 - Mock Design Colour */
 .section-5 {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-}
-
-.section-5-p2 {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 0vw 9vw 0vw 9vw;
-}
-
-.section-5-p2 img {
-    margin: 5vw 0vw 5vw 0vw;
-    max-width: 28%;
+    margin: 0 12vw 5vw 12vw;
 }
 
 .section-5 h2 {
     text-align: center;
     font-size: 4vw;
-    margin: 8vw 12vw 0vw 12vw;
+    margin: 8vw 12vw 0 12vw;
     color: rgb(69, 109, 157);
+}
+
+#myCarousel2 {
+    width: 28vw;
+    left: auto;
 }
 
 /* Section 6 - Font Choice */
 .section-6 {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -282,7 +223,7 @@ ul a:hover {
 .section-6 h2 {
     text-align: center;
     font-size: 4vw;
-    margin: 8vw 12vw 0vw 12vw;
+    margin: 7vw 0 0 0;
     color: rgb(69, 109, 157);
 }
 
@@ -295,6 +236,7 @@ ul a:hover {
 .section-7 {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -308,7 +250,7 @@ ul a:hover {
 .section-7 h2 {
     text-align: center;
     font-size: 4vw;
-    margin: 5vw 12vw 0vw 12vw;
+    margin: 2vw 12vw 0 12vw;
     color: rgb(69, 109, 157);
 }
 
@@ -572,5 +514,18 @@ ul a:hover {
 
     .section8-column3-wrap {
         margin: 0 auto;
+    }
+
+}
+
+@media screen and (min-width: 767px) {
+    #myCarousel {
+        width: 28vw;
+        left: 33%;
+    }
+
+    #myCarousel2 {
+        width: 28vw;
+        left: 33%;
     }
 }
