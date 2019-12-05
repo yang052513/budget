@@ -54,7 +54,14 @@
     <!-- Percentage of budget section  -->
 
     <!-- Welcome user name -->
-    <div id="welcome-user"><span id="time-welcome">Hi!</span><span id="user-name">Yang</span></div>
+    <div id="welcome-user">
+        <div id="user-hello">
+        <span id="time-welcome">Hi!</span><span id="user-name">Yang</span>
+    </div>
+        <div id="user-notify">
+        <span id="date-left"></span><span id="motivation"></span>
+    </div>
+    </div>
     <!-- Welcome user name -->
 
 
@@ -148,7 +155,7 @@
         <div class="enter-wrap">
             <div class="enter-grid">
                 <label for="datepicker">Date</label>
-                <input type="text" id="datepicker" name="date" required>
+                <input type="date" id="datepicker" name="date" required>
 
                 <label for="amount-field">Amount</label>
                 <input type="number" id="amount-field" name="amount" required onfocus="this.value=''">
@@ -168,10 +175,13 @@
     <!-- Set the budget number modal -->
     <div id="setup-budget">
         <div id="setup-budget-content">
-            <p class="budget-modal-title">Enter your budget</p>
+           
             <div class="cancel-budget-btn"><img src="resource/cancel2-icon.png" class="budget-cancel" width="50px"
                     heigh="50px"></div>
-            <input type="number" id="user-budget" name="budget" required onfocus="this.value=''">
+            <p class="budget-modal-title">Enter your budget</p>
+            <input type="number" class="budget-input-style" id="user-budget" name="budget" required onfocus="this.value=''" placeholder="E.g. 50">
+            <p class="budget-modal-title">How long for the budget?</p>
+            <input type="number" class="budget-input-style" id="budget-duration" name="duration" required onfocus="this.value=''" placeholder="E.g. 20 for 20 days">
             <div class="setup-btn-wrap">
                 <button id="submit-budget-btn">Save</button>
                 <button id="mob-cancel-btn">Cancel</button>

@@ -9,8 +9,9 @@ $(document).ready(function () {
 
     //Current time with 24 hour format
     var today = new Date();
-    var time = today.getHours()
-    console.log("几点了？？？" + time);
+    var time = today.getHours();
+    var date = today.getDate();
+    console.log("几点了？？？" + date);
 
     //Show different welcome message regarding current time
     if (time > 5 && time <= 11) {
@@ -38,6 +39,7 @@ $(document).ready(function () {
             }, {
                 merge: true
             });
+
 
         //Display user name on the home pgae
         db.collection("user").doc(user.uid).onSnapshot(function (snap) {
@@ -76,6 +78,20 @@ $(document).ready(function () {
                 document.getElementById("balance_store").innerHTML = "$" + 0;
             }
 
+            //Total days minus current date = how many days left
+            var daysOut = snap.data().TotalDays - date;
+            if (daysOut > 0) {
+                //How many days out for the budget
+                document.getElementById("date-left").innerHTML = daysOut + " days ";
+
+                console.log("我还剩多少穷日子" + snap.data().Duration);
+                console.log("我目标的天数" + snap.data().TotalDays);
+            
+                //If days left < 0 in firebase, initialize with 0之后换成modal 百分比相对应的文字提示
+            } else {
+                // document.getElementById("date-left").innerHTML = 0;
+            }
+
             //If the percentage > 0, read previous data from firebase
             if (snap.data().PercentStore > 0) {
                 $(".budget_percent_num").html(snap.data().PercentStore + "%");
@@ -89,6 +105,7 @@ $(document).ready(function () {
                 $(".water").css({
                     "transform": "translateY(" + snap.data().WaveHeight + "%)"
                 });
+
             }
         });
 
@@ -187,14 +204,14 @@ $(document).ready(function () {
     //Create new expense item object
     let userExpense = new Expense();
 
-    //Category slide in animation
+    //Category slide in animation variable
     var slideIn = {
         "margin-top": "0px",
         "easing": "swing",
         "opacity": "1"
     };
 
-    //Category slide out animation
+    //Category slide out animation variable
     var slideOut = {
         "margin-top": "-1500px",
         "easing": "swing",
@@ -326,7 +343,9 @@ $(document).ready(function () {
                 $("#no-date-modal").fadeOut();
             });
 
+            //If input: (date, amount, note) are valid and not empty
         } else {
+
             //push the expense to the array and store the value
             expenseList.push(userExpense.amount);
 
@@ -337,6 +356,7 @@ $(document).ready(function () {
                 expenseTotal = 0;
             }
             var expenseTotal = expenseUpdate;
+
             for (var i in expenseList) {
                 expenseTotal += (1 * expenseList[i]);
                 expenseList.shift();
@@ -345,12 +365,13 @@ $(document).ready(function () {
 
             //Write the new expenses
             if (expenseTotal > budgetStore) {
-                //Open up the alert modal
+                //Open up the expense > budget modal: "you dont have that much money bro"
                 $("#expense-error-modal").css("display", "flex");
                 $("#setup-btn-expense").click(function () {
                     $("#expense-error-modal").css("display", "none");
                 });
-                expenseList.pop(); //remove the last value
+                expenseList.pop(); //remove the last invalid value from array list
+
             } else {
 
                 //Create new Time line Block
@@ -363,7 +384,6 @@ $(document).ready(function () {
                     flag = false;
                     $(newTimeLineBlock).addClass("timeline-block timeline-block-right");
                 }
-
 
                 var newMarker = $("<div class=marker></div>");
                 var newTimeLineContent = $("<div class=timeline-content></div>");
@@ -466,6 +486,8 @@ $(document).ready(function () {
     $("#submit-budget-btn").click(function () {
 
         var userInput = document.getElementById('user-budget').value;
+        var userDays = document.getElementById('budget-duration').value;
+
         //If set the budget less or equal to 0
         if (userInput <= 0) {
             //pop up the warning modal
@@ -498,9 +520,16 @@ $(document).ready(function () {
                 $("#budget-less-expense-modal").fadeOut();
             });
 
-            //If budget is greater than expense and not 0
+        //If the duration of days is empty
+        } else if (userDays == ''){
+            alert('wft give me a date!');
+        //If budget is greater than expense and not 0
         } else {
             $("#budget_store").html("$" + (userInput / 1));
+            //Write days to the html
+            $("#date-left").html((userDays / 1) + " days ");
+            
+
             $("#setup-budget").fadeOut();
             budgetStore = userInput;
 
@@ -525,6 +554,9 @@ $(document).ready(function () {
 
                     if (balanceRefresh > 0) {
                         $("#balance_store").html("$" + newBalance);
+                    } else {
+                        balanceRefresh = budgetRefresh;
+                        $("#balance_store").html("$" + balanceRefresh);
                     }
 
                     var newHeight = (newPercent * (-1)) + 88;
@@ -545,6 +577,8 @@ $(document).ready(function () {
                     .doc(user.uid)
                     .set({
                         "BudgetStore": parseInt(userInput),
+                        "Duration": parseInt(userDays),
+                        "TotalDays": parseInt(userDays) + parseInt(date),
                     }, {
                         merge: true
                     });
@@ -567,19 +601,6 @@ $(document).ready(function () {
         $("#setup-budget").fadeOut();
     });
 
-    //Open the other menu widndow: about us, contact page, our project
-    // var otherSlideIn = {
-    //     "margin-top": "0",
-    //     "easing": "swing",
-    //     "opacity": "1"
-    // };
-
-    // var otherSlideOut = {
-    //     "margin-top": "-100%",
-    //     "easing": "swing",
-    //     "opacity": "0"
-    // };
-
     $("#other-icon").click(function () {
         // $("#other-menu-modal").animate(otherSlideIn, 1000);
         $("#tool-box-modal").fadeIn();
@@ -589,7 +610,7 @@ $(document).ready(function () {
         $("#tool-box-modal").fadeOut();
     });
 
-    $("#other-tool").click(function() {
+    $("#other-tool").click(function () {
         $("#other-box-modal").fadeIn();
         $("#tool-box-modal").fadeOut();
     });
@@ -602,7 +623,7 @@ $(document).ready(function () {
     //Expense Details Slide in: open category page
     $("#create-icon").click(function () {
         firebase.auth().onAuthStateChanged(function (user) {
-            db.collection("user").doc(user.uid).get().then(function(doc) {
+            db.collection("user").doc(user.uid).get().then(function (doc) {
                 //if budget is 0 and trying to create new expense: throw error
                 if (doc.data().BudgetStore > 0) {
                     $("#slideShow").animate(slideIn, 1000);
@@ -627,6 +648,8 @@ $(document).ready(function () {
 
             $(".budget_percent_num").html(100 + "%");
 
+            // document.getElementById("date-left").innerHTML = 0 + " days ";
+
             db.collection("user")
                 .doc(user.uid)
                 .set({
@@ -635,6 +658,8 @@ $(document).ready(function () {
                     "BudgetStore": 0,
                     "ExpenseStore": 0,
                     "BalanceStore": 0,
+                    "Duration": 0,
+                    "TotalDays": 0,
                 }, {
                     merge: true
                 });
@@ -647,13 +672,12 @@ $(document).ready(function () {
                 querySnapshot.forEach(function (doc) {
                     doc.ref.delete().then(function () {
                         console.log("成啊！！!");
+                        location.reload();
                     }).catch(function (error) {
                         console.error("错误！ ", error);
                     });
                 })
             })
-
-            // location.reload();
         });
     });
 
@@ -669,12 +693,12 @@ $(document).ready(function () {
             } else {
                 // 75% - 100%
                 if (snap.data().PercentStore <= 100 && snap.data().PercentStore >= 75) {
-                    $("#header-wrap").css("background-color", "rgb(0, 204, 78)");
-                    $(".budget_percent_num").css("color", "rgb(0, 110, 24)");
-                    // 50% - 75%
-                } else if (snap.data().PercentStore >= 50 && snap.data().PercentStore < 75) {
                     $("#header-wrap").css("background-color", "rgb(0, 153, 204)");
                     $(".budget_percent_num").css("color", "rgb(3, 110, 145)");
+                    // 50% - 75%
+                } else if (snap.data().PercentStore >= 50 && snap.data().PercentStore < 75) {
+                    $("#header-wrap").css("background-color", "rgb(245, 132, 66)");
+                    $(".budget_percent_num").css("color", "rgb(245, 132, 66)");
                     // 25% - 50%
                 } else if (snap.data().PercentStore < 50 && snap.data().PercentStore >= 25) {
                     $("#header-wrap").css("background-color", "rgb(240, 218, 91)");
@@ -726,6 +750,5 @@ $(document).ready(function () {
             });
         });
     });
-
     //Ends
 });

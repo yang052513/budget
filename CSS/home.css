@@ -119,11 +119,25 @@ span {
     font-family: 'Raleway', sans-serif;
     margin-top: 20px;
     font-size: 30px;
+    color: rgb(69, 69, 69);
 }
 
 #user-name {
     display: inline;
-    color: rgb(69, 69, 69);
+}
+
+#user-notify {
+    font-size: 18px;
+    padding-top: 15px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#motivation {
+    display: inline;
+}
+
+#date-left {
+    display: inline;
 }
 
 #time-welcome {
@@ -317,7 +331,7 @@ span {
     display: none;
 }
 
-#user-budget {
+.budget-input-style {
     height: 35px;
     width: 50%;
     border: 1px solid #237D9A;
@@ -328,7 +342,7 @@ span {
 #setup-budget-content {
     background-color: rgb(255, 255, 255);
     width: 50%;
-    height: 45%;
+    height: 350px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -347,12 +361,12 @@ span {
 }
 
 .budget-cancel {
-    width: 3vw;
-    height: 3vw;
+    width: 30px;
+    height: 30px;
 }
 
 .budget-modal-title {
-    font-size: 4vw;
+    font-size: 25px;
     font-weight: bold;
     color: rgb(18, 132, 181);
     font-family: 'Quicksand', sans-serif;
@@ -380,7 +394,7 @@ span {
     font-size: 20px;
     font-family: 'Quicksand', sans-serif;
     border: 1px solid rgb(34, 146, 187);
-    margin-top: 20px;
+    margin-top: 10px;
     visibility: hidden;
 }
 
@@ -1057,7 +1071,7 @@ label {
     }
 
     #submit-budget-btn {
-        margin-top: 40px;
+        margin-top: 20px;
     }
 
 }
@@ -1070,6 +1084,19 @@ label {
 }
 
 @media screen and (max-width: 768px) {
+    .setup-btn-wrap {
+        display: grid;
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+        margin-top: 25px;
+
+    }
+
+    #setup-budget-content {
+        padding-top: 30px;
+    }
+
     #mob-cancel-btn {
         visibility: visible;
 
@@ -1078,14 +1105,35 @@ label {
     .budget-cancel {
         display: none;
     }
+    
+    #submit-budget-btn {
+        width: 80px;
+        height: 30px;
+        font-size: 15px;
+        margin-top: 20px;
+    }
+
+    #mob-cancel-btn {
+        width: 80px;
+        height: 30px;
+        font-size: 15px;
+    }
 
     .setup-btn-wrap {
-        display: grid;
-        grid-template-columns: 1fr;
-        text-align: center;
-        justify-items: center;
-        margin-top: 25px;
+        margin-top: 0px;
+    }
 
+    #setup-budget-content {
+        height: 320px;
+    }
+
+    .budget-modal-title {
+        margin-top: 15px;
+        font-size: 20px;
+    }
+
+    .budget-input-style {
+        height: 30px;
     }
 
     .category-grid {
@@ -1146,9 +1194,6 @@ label {
         direction: ltr;
     }
 
-    #submit-budget-btn {
-        margin-top: 10px;
-    }
 }
 
 @media screen and (max-width: 500px) {
@@ -1206,43 +1251,8 @@ label {
         left: 10px;
     }
 
-    /* Set up budget number modal */
     #setup-budget-content {
-        width: 70%;
-    }
-
-    #setup-budget-content {
-        padding-top: 30px;
-    }
-
-    #submit-budget-btn {
-        width: 80px;
-        height: 30px;
-        font-size: 15px;
-        margin-top: 20px;
-    }
-
-    #mob-cancel-btn {
-        width: 80px;
-        height: 30px;
-        font-size: 15px;
-    }
-
-    .setup-btn-wrap {
-        margin-top: 0px;
-    }
-
-    #setup-budget-content {
-        height: 250px;
-    }
-
-    .budget-modal-title {
-        margin-top: 5px;
-        font-size: 20px;
-    }
-
-    #user-budget {
-        height: 30px;
+        width: 300px;
     }
 
     .enter-wrap {
