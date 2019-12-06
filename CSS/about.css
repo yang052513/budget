@@ -241,6 +241,10 @@ iframe {
     padding-top: 15px;
 }
 
+#other-menu-modal-wrap {
+    display: none;
+}
+
 #other-menu-modal {
     background-color: rgb(0, 0, 0, 0.8);
     width: 100%;
@@ -253,8 +257,7 @@ iframe {
     justify-content: center;
     align-items: center;
     color: white;
-    margin-top: -100%;
-    opacity: 0;
+    margin-top: 0;
 }
 
 #other-menu-modal-content {
@@ -275,6 +278,10 @@ iframe {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.other-close-btn:hover {
+    background-color: rgb(34, 146, 187);
 }
 
 #close-modal-btn {
@@ -395,11 +402,11 @@ iframe {
         width: 10vw;
         height: 3.3vw;
         font-size: 1.3vw;
-        color: white;
+        color: rgb(34, 146, 187);
         font-family: 'Quicksand', sans-serif;
-        border: 1px solid white;
+        border: 1px solid rgb(34, 146, 187);
         border-radius: 5vw;
-        background-color: rgba(0, 0, 0, .5);
+        background-color: white;
         margin-top: 1.5vw;
         visibility: visible;
     }

@@ -126,7 +126,8 @@ ul li a {
 ul li a:hover{
     color: rgb(69, 109, 157);
     user-select: none;
-    border-bottom: 2px solid rgb(69, 109, 157);
+    border-bottom: 1px solid rgb(69, 109, 157);
+    padding-bottom: 5px;
 }
 
 .section1 {
@@ -194,8 +195,9 @@ ul li a:hover{
 }
 
 .current-link {
-    border-bottom: 2px solid rgb(69, 109, 157);
+    border-bottom: 1px solid rgb(69, 109, 157);
     color: rgb(69, 109, 157);
+    padding-bottom: 5px;
 }
 
 .section2 {
@@ -348,6 +350,11 @@ input[type=submit]:hover {
 
 .copyright-wrap {
     padding-top: 15px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#other-menu-modal-wrap {
+    display: none;
 }
 
 #other-menu-modal {
@@ -362,8 +369,7 @@ input[type=submit]:hover {
     justify-content: center;
     align-items: center;
     color: white;
-    margin-top: -100%;
-    opacity: 0;
+    margin-top: 0;
 }
 
 #other-menu-modal-content {

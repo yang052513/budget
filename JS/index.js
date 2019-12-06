@@ -23,7 +23,7 @@ $(document).ready(function () {
     //         showMenu = true;
     //     }
     // }); 
-
+console.log("测试");
         //Open the other menu widndow: about us, contact page, our project
         var otherSlideIn = {
             "margin-top": "0",

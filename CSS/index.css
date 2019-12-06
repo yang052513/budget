@@ -350,6 +350,10 @@ ul {
     font-family: 'Quicksand', sans-serif;
 }
 
+#other-menu-modal-wrap {
+    display: none;
+}
+
 #other-menu-modal {
     background-color: rgb(0, 0, 0, 0.8);
     width: 100%;
@@ -362,8 +366,7 @@ ul {
     justify-content: center;
     align-items: center;
     color: white;
-    margin-top: -100%;
-    opacity: 0;
+    margin-top: 0;
 }
 
 #other-menu-modal-content {
