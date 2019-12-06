@@ -13,6 +13,7 @@ Our idea originated from a discussion of how we would survive the semester at BC
 - Dark mode based on user preference
 - Reset option to restart all your journey
 - Dynamic nav bar and percentage number to notify users their current budget
+- Add the duration for your budget tracking
 
 
 ## Team Member: 
@@ -50,6 +51,9 @@ The current version doesnt support time constraints. If you want to restart your
 We are currently working on delete option which you could delete the expense that you clicked. We are also thinking to add a time frame to track the budget. If you have any other suggestions, please contacts us by sbumitting the form on contact page
 
 ## Change Log
+### v0.0.6 (2019/12/05 16:32)
+- Add a new feature: track length of your budget as you go
+- Fix modal pop up mobile size 
 
 ### v0.0.5 (2019/12/03 21:05)
 - Created feedback page for admin use only
