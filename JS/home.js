@@ -40,7 +40,6 @@ $(document).ready(function () {
                 merge: true
             });
 
-
         //Display user name on the home pgae
         db.collection("user").doc(user.uid).onSnapshot(function (snap) {
             document.getElementById("user-name").innerHTML = snap.data().name;
@@ -53,6 +52,7 @@ $(document).ready(function () {
                 document.getElementById("budget_store").innerHTML = "$" + snap.data().BudgetStore;
                 budgetStore = snap.data().BudgetStore;
                 console.log("我有多少钱" + budgetStore);
+
                 //If budget < 0 in firebase, initialize with 0
             } else {
                 document.getElementById("budget_store").innerHTML = "$" + 0;
@@ -63,13 +63,14 @@ $(document).ready(function () {
                 document.getElementById("expense_store").innerHTML = "$" + snap.data().ExpenseStore;
                 expenseUpdate = snap.data().ExpenseStore;
                 console.log("我花了多少钱" + expenseUpdate);
+
                 //If expense < 0 in firebase, initialize with 0
             } else {
                 document.getElementById("expense_store").innerHTML = "$" + 0;
             }
 
             //When balance > 0 which has previous data, read previous data
-            if (snap.data().BalanceStore > 0) {
+            if (snap.data().BalanceStore > 0 && snap.data().BudgetStore > 0) {
                 document.getElementById("balance_store").innerHTML = "$" + snap.data().BalanceStore;
                 balanceUpdate = snap.data().BalanceStore;
                 console.log("我还剩多少钱" + balanceUpdate);
@@ -80,20 +81,33 @@ $(document).ready(function () {
 
             //Total days minus current date = how many days left
             var daysOut = snap.data().TotalDays - date;
+            // var daysPercent = daysOut / snap.data().TotalDays;
+
             if (daysOut > 0) {
                 //How many days out for the budget
-                document.getElementById("date-left").innerHTML = daysOut + " days ";
-
+                $("#date-left").html(daysOut + " days left, ");
+                $("#motivation").html("Keep it up!");
                 console.log("我还剩多少穷日子" + snap.data().Duration);
                 console.log("我目标的天数" + snap.data().TotalDays);
-            
-                //If days left < 0 in firebase, initialize with 0之后换成modal 百分比相对应的文字提示
+
+            //If days left < 0 in firebase, initialize with 0之后换成modal 百分比相对应的文字提示
             } else {
                 // document.getElementById("date-left").innerHTML = 0;
             }
 
+            //days meet deadline, have some budget store value, and expense is valid
+            if (daysOut == 0 && snap.data().BudgetStore >= 0 && snap.data().ExpenseStore >= 0) {
+                document.getElementById("motivation").innerHTML = "Congratulation! You achieve your goal!";
+            } 
+
+            //budget store > 0, expense > 0, but spend all the money
+            if (snap.data().BudgetStore > 0 && snap.data().ExpenseStore > 0 && snap.data().PercentStore == 0) {
+                $("#date-left").html('');
+                document.getElementById("motivation").innerHTML = "Maybe save a bit more next time!";
+            } 
+
             //If the percentage > 0, read previous data from firebase
-            if (snap.data().PercentStore > 0) {
+            if (snap.data().PercentStore >= 0) {
                 $(".budget_percent_num").html(snap.data().PercentStore + "%");
                 $(".water").css({
                     "transform": "translateY(" + snap.data().WaveHeight + "%)"
@@ -105,7 +119,6 @@ $(document).ready(function () {
                 $(".water").css({
                     "transform": "translateY(" + snap.data().WaveHeight + "%)"
                 });
-
             }
         });
 
@@ -220,7 +233,21 @@ $(document).ready(function () {
 
     //Open up the budget setup modal
     $("#home-icon").click(function () {
-        $("#setup-budget").fadeIn();
+        firebase.auth().onAuthStateChanged(function (user) {
+            db.collection("user").doc(user.uid).get().then(function (doc) {
+                if (doc.data().BalanceStore == 0 && doc.data().ExpenseStore > 0 && doc.data().BudgetStore > 0) {
+                    $("#reset-journey-modal").fadeIn();
+                    //Reset budget
+                    $("#reset-journey-btn").click(function () {
+                        resetBudget();
+                    });
+
+                } else {
+                    $("#setup-budget").fadeIn();
+                }
+            });
+        });
+
     });
 
     //Expense Details Slide out: return to home page
@@ -461,6 +488,20 @@ $(document).ready(function () {
                 $("#enter-slide").animate(infoSlideOut, 1000);
                 $("body").css("overflow", "auto");
 
+                firebase.auth().onAuthStateChanged(function (user) {
+                    db.collection("user").doc(user.uid).onSnapshot(function (snap) {
+                        var daysleft = snap.data().TotalDays - date;
+                        if (daysleft > 0 && snap.data().BalanceStore == 0 && snap.data().ExpenseStore > 0) {
+                            // alert('You spend all your budget!! 你没钱了！！');
+                            $("#zero-balance-modal").fadeIn();
+
+                            $("#zero-balance-btn").click(function () {
+                                $("#zero-balance-modal").fadeOut();
+                            });
+                        }
+                    });
+                });
+
                 //Write the data to firebase, all the value below are gather from UI
                 function writeExpenseEvent() {
                     var docData = {
@@ -520,15 +561,18 @@ $(document).ready(function () {
                 $("#budget-less-expense-modal").fadeOut();
             });
 
-        //If the duration of days is empty
-        } else if (userDays == ''){
-            alert('wft give me a date!');
+            //If the duration of days is empty
+        } else if (userDays == '') {
+            $("#no-duration-modal").fadeIn();
+            $("#no-duration-btn").click(function() {
+                $("#no-duration-modal").fadeOut();
+            });
         //If budget is greater than expense and not 0
         } else {
             $("#budget_store").html("$" + (userInput / 1));
             //Write days to the html
             $("#date-left").html((userDays / 1) + " days ");
-            
+
 
             $("#setup-budget").fadeOut();
             budgetStore = userInput;
@@ -541,9 +585,9 @@ $(document).ready(function () {
 
                     var newBalance = budgetRefresh - expenseRefresh;
 
-                    db.collection("user").doc(user.uid).update({
-                        "BalanceStore": parseInt(newBalance)
-                    });
+                    // db.collection("user").doc(user.uid).update({
+                    //     "BalanceStore": parseInt(newBalance)
+                    // });
 
                     //Refresh the percentage
                     var newPercent = (1 - (expenseRefresh / budgetRefresh)) * 100;
@@ -552,9 +596,16 @@ $(document).ready(function () {
                         $(".budget_percent_num").html(newPercent.toFixed(1) + "%");
                     }
 
-                    if (balanceRefresh > 0) {
+                    if (budgetRefresh > 0 && expenseRefresh > 0) {
+                        db.collection("user").doc(user.uid).update({
+                            "BalanceStore": parseInt(newBalance)
+                        });
+
                         $("#balance_store").html("$" + newBalance);
                     } else {
+                        db.collection("user").doc(user.uid).update({
+                            "BalanceStore": budgetStore
+                        });
                         balanceRefresh = budgetRefresh;
                         $("#balance_store").html("$" + balanceRefresh);
                     }
@@ -625,10 +676,17 @@ $(document).ready(function () {
         firebase.auth().onAuthStateChanged(function (user) {
             db.collection("user").doc(user.uid).get().then(function (doc) {
                 //if budget is 0 and trying to create new expense: throw error
-                if (doc.data().BudgetStore > 0) {
+                if (doc.data().BudgetStore > 0 && doc.data().BalanceStore > 0) {
                     $("#slideShow").animate(slideIn, 1000);
                     $("body").css("overflow", "hidden");
 
+                } else if (doc.data().ExpenseStore > 0 && doc.data().BalanceStore == 0) {
+                    $("#reset-journey-modal").fadeIn();
+
+                    //Reset budget
+                    $("#reset-journey-btn").click(function () {
+                        resetBudget();
+                    });
                 } else {
                     $("#nobudget-modal").fadeIn();
                 }
@@ -636,8 +694,19 @@ $(document).ready(function () {
         });
     });
 
+    //Back to home page
+    $("#reset-budget-cancel").click(function () {
+        $("#reset-journey-modal").fadeOut();
+        console.log('ddfdfdfdff');
+
+    });
+
     //Reset all the budget, expense, and balance
     $("#reset-tool").click(function () {
+        resetBudget();
+    });
+
+    function resetBudget() {
         firebase.auth().onAuthStateChanged(function (user) {
 
             var resetWaveHeight = 100 * (-1) + 88;
@@ -666,6 +735,8 @@ $(document).ready(function () {
 
             //Delete all the current container
             $(".timeline-content, .marker").remove();
+            $("#date-left").html('');
+            $("#motivation").html('');
 
             //Delete all the expense docs 我最喜欢的部分哈哈哈
             db.collection("user").doc(user.uid).collection("Expense").get().then(function (querySnapshot) {
@@ -679,7 +750,7 @@ $(document).ready(function () {
                 })
             })
         });
-    });
+    }
 
     //Different nav bar color for warning
     firebase.auth().onAuthStateChanged(function (user) {

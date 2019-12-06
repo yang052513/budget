@@ -56,11 +56,11 @@
     <!-- Welcome user name -->
     <div id="welcome-user">
         <div id="user-hello">
-        <span id="time-welcome">Hi!</span><span id="user-name">Yang</span>
-    </div>
+            <span id="time-welcome">Hi!</span><span id="user-name">Yang</span>
+        </div>
         <div id="user-notify">
-        <span id="date-left"></span><span id="motivation"></span>
-    </div>
+            <span id="date-left"></span><span id="motivation"></span>
+        </div>
     </div>
     <!-- Welcome user name -->
 
@@ -175,13 +175,15 @@
     <!-- Set the budget number modal -->
     <div id="setup-budget">
         <div id="setup-budget-content">
-           
+
             <div class="cancel-budget-btn"><img src="resource/cancel2-icon.png" class="budget-cancel" width="50px"
                     heigh="50px"></div>
             <p class="budget-modal-title">Enter your budget</p>
-            <input type="number" class="budget-input-style" id="user-budget" name="budget" required onfocus="this.value=''" placeholder="E.g. 50">
+            <input type="number" class="budget-input-style" id="user-budget" name="budget" required
+                onfocus="this.value=''" placeholder="E.g. 50">
             <p class="budget-modal-title">How long for the budget?</p>
-            <input type="number" class="budget-input-style" id="budget-duration" name="duration" required onfocus="this.value=''" placeholder="E.g. 20 for 20 days">
+            <input type="number" class="budget-input-style" id="budget-duration" name="duration" required
+                onfocus="this.value=''" placeholder="E.g. 20 for 20 days">
             <div class="setup-btn-wrap">
                 <button id="submit-budget-btn">Save</button>
                 <button id="mob-cancel-btn">Cancel</button>
@@ -302,6 +304,52 @@
                 <img src="resource/Emoji/emoji-5.png" width="auto" height="100px">
                 <p class="warning-modal-text">Just in case you forgot when you bought it.</p>
                 <button id="no-date-btn" class="modal-btn-style">Go Back</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spend all the money but left days > 0 -->
+    <div id="zero-balance-modal">
+        <div id="zero-balance-content" class="warning-modal">
+            <div class="zero-balance-wrap">
+                <img src="resource/Emoji/emoji-13.png" width="auto" height="100px">
+                <p class="warning-modal-text">You spent all your budget...</p>
+                <button id="zero-balance-btn" class="modal-btn-style">Go Back</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Goals achieved daysleft = 0 and budgetbalance >= 0 and expensestore > 0 -->
+    <!-- <div id="zero-days-modal">
+        <div id="zero-days-content" class="warning-modal">
+            <div class="zero-days-wrap">
+                <img src="resource/Emoji/emoji-12.png" width="auto" height="100px">
+                <p class="warning-modal-text">Congratulation! You achieved your goal!</p>
+                <button id="zero-days-btn" class="modal-btn-style">Go Back</button>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Reset the budget: when availabe > 0 and expense > 0 -->
+    <div id="reset-journey-modal">
+        <div id="reset-journey-content" class="warning-modal">
+            <div class="cancel-budget-btn"><img id="reset-budget-cancel" src="resource/cancel2-icon.png" width="30px"
+                    heigh="30px"></div>
+            <div class="reset-journey-wrap">
+                <img src="resource/Emoji/emoji-7.png" width="auto" height="100px">
+                <p class="reset-journey-text">Why not reset your budget first?</p>
+                <button id="reset-journey-btn" class="modal-btn-style">Reset my budget</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- No track duration input modal during budget set up -->
+    <div id="no-duration-modal">
+        <div id="no-duration-content" class="warning-modal">
+            <div class="no-durationwrap">
+                <img src="resource/Emoji/emoji-7.png" width="auto" height="100px">
+                <p class="no-duration-text">How long is for the budget?</p>
+                <button id="no-duration-btn" class="modal-btn-style">Go Back</button>
             </div>
         </div>
     </div>
