@@ -1,8 +1,10 @@
 $(document).ready(function () {
+    //Initialize firebase database
     var db = firebase.firestore();
 
     //Submit the form
     $("form").submit(function (e) {
+        //Retrieve feedback value
         var firstName = $("#fname").val();
         var lastName = $("#lname").val();
         var emailAddress = $("#email").val();
@@ -23,14 +25,12 @@ $(document).ready(function () {
             db.collection("feedback").add(docData);
         };
 
-        //Test in console
-        // console.log(firstName + lastName + emailAddress + category + subject);
-
         $("#form-modal-wrap").show();
         e.preventDefault();
         writeFeedback();
     });
 
+    //Return back to contact page, clear all the input value
     $("#return-contact-btn").click(function () {
         $("#form-modal-wrap").fadeOut();
         $('input[type="text"], textarea').val('');

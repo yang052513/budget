@@ -7,11 +7,11 @@ $(document).ready(function () {
     var expenseUpdate = 0;
     var balanceUpdate = 0;
 
-    //Current time with 24 hour format
+    //Generate time obeject with 24 hour format
     var today = new Date();
     var time = today.getHours();
     var date = today.getDate();
-    console.log("几点了？？？" + date);
+    console.log("What day is today?" + date);
 
     //Show different welcome message regarding current time
     if (time > 5 && time <= 11) {
@@ -51,7 +51,7 @@ $(document).ready(function () {
             if (snap.data().BudgetStore > 0) {
                 document.getElementById("budget_store").innerHTML = "$" + snap.data().BudgetStore;
                 budgetStore = snap.data().BudgetStore;
-                console.log("我有多少钱" + budgetStore);
+                console.log("My goal budget: " + budgetStore);
 
                 //If budget < 0 in firebase, initialize with 0
             } else {
@@ -62,7 +62,7 @@ $(document).ready(function () {
             if (snap.data().ExpenseStore > 0) {
                 document.getElementById("expense_store").innerHTML = "$" + snap.data().ExpenseStore;
                 expenseUpdate = snap.data().ExpenseStore;
-                console.log("我花了多少钱" + expenseUpdate);
+                console.log("How much I spent" + expenseUpdate);
 
                 //If expense < 0 in firebase, initialize with 0
             } else {
@@ -73,38 +73,41 @@ $(document).ready(function () {
             if (snap.data().BalanceStore > 0 && snap.data().BudgetStore > 0) {
                 document.getElementById("balance_store").innerHTML = "$" + snap.data().BalanceStore;
                 balanceUpdate = snap.data().BalanceStore;
-                console.log("我还剩多少钱" + balanceUpdate);
-                //If balance < 0 in firebase, initialize with 0
+                console.log("How much is available?" + balanceUpdate);
+
+                //If balance < 0 in firebase, initialize available with 0
             } else {
                 document.getElementById("balance_store").innerHTML = "$" + 0;
             }
 
             //Total days minus current date = how many days left
             var daysOut = snap.data().TotalDays - date;
-            // var daysPercent = daysOut / snap.data().TotalDays;
 
+            //If days left greater than 0, write the data to html
             if (daysOut > 0) {
                 //How many days out for the budget
                 $("#date-left").html(daysOut + " days left, ");
                 $("#motivation").html("Keep it up!");
+
                 console.log("我还剩多少穷日子" + snap.data().Duration);
                 console.log("我目标的天数" + snap.data().TotalDays);
 
-            //If days left < 0 in firebase, initialize with 0之后换成modal 百分比相对应的文字提示
+                //If days left < 0 in firebase, initialize with 0之后换成modal 百分比相对应的文字提示
             } else {
                 // document.getElementById("date-left").innerHTML = 0;
+                //Do nothing
             }
 
             //days meet deadline, have some budget store value, and expense is valid
             if (daysOut == 0 && snap.data().BudgetStore >= 0 && snap.data().ExpenseStore >= 0) {
                 document.getElementById("motivation").innerHTML = "Congratulation! You achieve your goal!";
-            } 
+            }
 
             //budget store > 0, expense > 0, but spend all the money
             if (snap.data().BudgetStore > 0 && snap.data().ExpenseStore > 0 && snap.data().PercentStore == 0) {
                 $("#date-left").html('');
                 document.getElementById("motivation").innerHTML = "Maybe save a bit more next time!";
-            } 
+            }
 
             //If the percentage > 0, read previous data from firebase
             if (snap.data().PercentStore >= 0) {
@@ -122,8 +125,7 @@ $(document).ready(function () {
             }
         });
 
-        //Append user expense item from firebase
-
+        ///////Append user old expense item data to firebase///////////
         //Determine whether the item is left or right float
         var oldFlag = false;
 
@@ -137,7 +139,7 @@ $(document).ready(function () {
                     var oldValue = doc.data().Value;
                     var oldNote = doc.data().Description;
 
-                    //Read the old time line Block
+                    //Read the old time line Block & create element
                     var oldTimeLineBlock = $("<div></div>");
 
                     if (!oldFlag) {
@@ -181,6 +183,7 @@ $(document).ready(function () {
             this.newNote = note;
         }
 
+        //Setter and getter of expense class
         set category(category) {
             this.newCategory = category;
         }
@@ -231,23 +234,25 @@ $(document).ready(function () {
         "opacity": "0"
     };
 
-    //Open up the budget setup modal
+    //Click the setup budget icon: open up the budget setup modal
     $("#home-icon").click(function () {
         firebase.auth().onAuthStateChanged(function (user) {
             db.collection("user").doc(user.uid).get().then(function (doc) {
+                //If available = 0, expense, and budget > 0 in firebse: no money left
                 if (doc.data().BalanceStore == 0 && doc.data().ExpenseStore > 0 && doc.data().BudgetStore > 0) {
+                    //Open the reset modal
                     $("#reset-journey-modal").fadeIn();
-                    //Reset budget
+                    //Reset budget button
                     $("#reset-journey-btn").click(function () {
+                        //Call the reset function
                         resetBudget();
                     });
-
+                    //Open up the setup budget number modal
                 } else {
                     $("#setup-budget").fadeIn();
                 }
             });
         });
-
     });
 
     //Expense Details Slide out: return to home page
@@ -276,48 +281,55 @@ $(document).ready(function () {
         $("body").css("overflow", "hidden");
     });
 
-    //Depends on which category being choosed
+    //When user choose food category: category = food
     $("#food-card").click(function () {
         userExpense.category = "Food: $";
     });
 
+    //When user choose food category: category = health
     $("#health-card").click(function () {
         userExpense.category = "Health: $";
     });
 
+    //When user choose food category: category = auto
     $("#auto-card").click(function () {
         userExpense.category = "Autos: $";
     });
 
+    //When user choose food category: category = clothes
     $("#shopping-card").click(function () {
         userExpense.category = "Clothes: $";
     });
 
+    //When user choose food category: category = sports
     $("#sport-card").click(function () {
         userExpense.category = "Sports: $";
     });
 
+    //When user choose food category: category = eudcation
     $("#education-card").click(function () {
         userExpense.category = "Education: $";
     });
 
+    //When user choose food category: category = bills
     $("#bill-card").click(function () {
         userExpense.category = "Bill: $";
     });
 
+    //When user choose food category: category = other
     $("#other-card").click(function () {
         userExpense.category = "Other: $";
     });
 
-    //go back to category page
+    //Click the back button: go back to category page
     $("#back-btn").click(function () {
         $("#enter-slide").animate(infoSlideOut, 1000);
     });
 
-
-    ///////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////// 
+    /////////Save the expense function section////////////////
     //save the new expense function: return to home page
+
+    //Decide the expense item whether left or right
     var flag = true;
 
     var expenseControl = $("#expense_store");
@@ -342,7 +354,7 @@ $(document).ready(function () {
                 $("#invalid-expense-modal").fadeOut();
             });
 
-            //If the expense is valid
+            //If the expense input is empty value or equal to 0
         } else if (userExpense.amount == '' || userExpense.amount == 0) {
             $("#zero-amount-modal").fadeIn();
             console.log('Nothing is free');
@@ -352,6 +364,7 @@ $(document).ready(function () {
                 $("#zero-amount-modal").fadeOut();
             });
 
+            //If the expense note section is empty value
         } else if (userExpense.note == '') {
             $("#no-note-modal").fadeIn();
             console.log('What did you buy');
@@ -361,6 +374,7 @@ $(document).ready(function () {
                 $("#no-note-modal").fadeOut();
             });
 
+            //If the expense date section is empty value
         } else if (userExpense.date == '') {
             $("#no-date-modal").fadeIn();
             console.log('When tho');
@@ -370,9 +384,8 @@ $(document).ready(function () {
                 $("#no-date-modal").fadeOut();
             });
 
-            //If input: (date, amount, note) are valid and not empty
+            //If input: (date, amount, note) are valid and not empty >>>> Create the expense
         } else {
-
             //push the expense to the array and store the value
             expenseList.push(userExpense.amount);
 
@@ -382,28 +395,37 @@ $(document).ready(function () {
             } else {
                 expenseTotal = 0;
             }
+            //Total expense number
             var expenseTotal = expenseUpdate;
 
+            //For all the valid expense in the array, add to the expense total
             for (var i in expenseList) {
                 expenseTotal += (1 * expenseList[i]);
                 expenseList.shift();
             }
+            //Test the expense list
             console.log(expenseList);
 
-            //Write the new expenses
+            ///////////Write the new expenses//////////////
+            //If expense greater than budget: pop up not enough money modal
             if (expenseTotal > budgetStore) {
                 //Open up the expense > budget modal: "you dont have that much money bro"
                 $("#expense-error-modal").css("display", "flex");
+                //Go back to create expense slide
                 $("#setup-btn-expense").click(function () {
                     $("#expense-error-modal").css("display", "none");
                 });
-                expenseList.pop(); //remove the last invalid value from array list
 
+                //remove the last invalid value from array list
+                expenseList.pop();
+
+                //If expense total < budget, store and write the value
             } else {
 
                 //Create new Time line Block
                 var newTimeLineBlock = $("<div></div>");
 
+                //If last expense is left, next will be right
                 if (!flag) {
                     flag = true;
                     $(newTimeLineBlock).addClass("timeline-block timeline-block-left");
@@ -412,6 +434,7 @@ $(document).ready(function () {
                     $(newTimeLineBlock).addClass("timeline-block timeline-block-right");
                 }
 
+                //Create html elemnt for the expense content, add class name to it
                 var newMarker = $("<div class=marker></div>");
                 var newTimeLineContent = $("<div class=timeline-content></div>");
 
@@ -428,6 +451,7 @@ $(document).ready(function () {
                 newTimeLineContent.append(newTimeLineTitle, newTimeLineDate, newTimeLineNote);
                 newTimeLineBlock.append(newMarker, newTimeLineContent);
 
+                //Add the expense item to the html to the top
                 $(".timeline-container").prepend(newTimeLineBlock);
 
                 //If dark mode is true, style the new appended block
@@ -447,7 +471,7 @@ $(document).ready(function () {
                     });
                 });
 
-                //write the new expense
+                //Write the new expense number
                 $(expenseControl).html("$" + (expenseTotal));
 
                 //Update the percentage
@@ -469,7 +493,7 @@ $(document).ready(function () {
 
                 $(".budget_percent_num").html(updatePercent.toFixed(1) + "%");
 
-                //Write total expense to firebase
+                //Write total expense and wave animation data to firebase
                 firebase.auth().onAuthStateChanged(function (user) {
                     db.collection("user")
                         .doc(user.uid)
@@ -483,11 +507,12 @@ $(document).ready(function () {
                         });
                 });
 
-                //Exit enter slide animation
+                //Exit enter slide animation， finish the create expense part
                 $("#slideShow").animate(slideOut, 1000);
                 $("#enter-slide").animate(infoSlideOut, 1000);
                 $("body").css("overflow", "auto");
 
+                //If after create expense and has no money left
                 firebase.auth().onAuthStateChanged(function (user) {
                     db.collection("user").doc(user.uid).onSnapshot(function (snap) {
                         var daysleft = snap.data().TotalDays - date;
@@ -518,14 +543,19 @@ $(document).ready(function () {
                 };
 
                 writeExpenseEvent();
+
+                //Clear the input value
                 $('input, textarea').val('');
             }
         }
     });
+    /////////////Save the expense function section ends////////////////
 
-    //Set the budget number
+
+    //Set the budget number or create a budget
     $("#submit-budget-btn").click(function () {
 
+        //Store user budget input and days duration value
         var userInput = document.getElementById('user-budget').value;
         var userDays = document.getElementById('budget-duration').value;
 
@@ -564,19 +594,23 @@ $(document).ready(function () {
             //If the duration of days is empty
         } else if (userDays == '') {
             $("#no-duration-modal").fadeIn();
-            $("#no-duration-btn").click(function() {
+            $("#no-duration-btn").click(function () {
                 $("#no-duration-modal").fadeOut();
             });
-        //If budget is greater than expense and not 0
+
+            //If budget is greater than expense and not 0
         } else {
+            //Write data to html
             $("#budget_store").html("$" + (userInput / 1));
             //Write days to the html
             $("#date-left").html((userDays / 1) + " days ");
 
-
+            //Return to home page
             $("#setup-budget").fadeOut();
+
             budgetStore = userInput;
 
+            //Real time refresh all the data after change the budget and time
             firebase.auth().onAuthStateChanged(function (user) {
                 db.collection("user").doc(user.uid).onSnapshot(function (snap) {
                     var expenseRefresh = snap.data().ExpenseStore;
@@ -585,10 +619,6 @@ $(document).ready(function () {
 
                     var newBalance = budgetRefresh - expenseRefresh;
 
-                    // db.collection("user").doc(user.uid).update({
-                    //     "BalanceStore": parseInt(newBalance)
-                    // });
-
                     //Refresh the percentage
                     var newPercent = (1 - (expenseRefresh / budgetRefresh)) * 100;
 
@@ -596,6 +626,7 @@ $(document).ready(function () {
                         $(".budget_percent_num").html(newPercent.toFixed(1) + "%");
                     }
 
+                    //Refresh the available number
                     if (budgetRefresh > 0 && expenseRefresh > 0) {
                         db.collection("user").doc(user.uid).update({
                             "BalanceStore": parseInt(newBalance)
@@ -610,6 +641,7 @@ $(document).ready(function () {
                         $("#balance_store").html("$" + balanceRefresh);
                     }
 
+                    //Refresh the wave animation height 
                     var newHeight = (newPercent * (-1)) + 88;
                     $(".water").css({
                         "transform": "translateY(" + newHeight + "%)"
@@ -624,6 +656,7 @@ $(document).ready(function () {
                     });
                 });
 
+                //Set the new data to the firebase 
                 db.collection("user")
                     .doc(user.uid)
                     .set({
@@ -648,30 +681,34 @@ $(document).ready(function () {
         $("#setup-budget").fadeOut();
     });
 
+    //Mobile version button to close the set up budget modal
     $("#mob-cancel-btn").click(function () {
         $("#setup-budget").fadeOut();
     });
 
+    //Open up the tool kit panel
     $("#other-icon").click(function () {
-        // $("#other-menu-modal").animate(otherSlideIn, 1000);
         $("#tool-box-modal").fadeIn();
     });
 
+    //Exist the tool kit panel
     $("#return-tool").click(function () {
         $("#tool-box-modal").fadeOut();
     });
 
+    //page 2
     $("#other-tool").click(function () {
         $("#other-box-modal").fadeIn();
         $("#tool-box-modal").fadeOut();
     });
 
+    //page 2 tool kit return
     $("#return-tool2").click(function () {
         $("#other-box-modal").fadeOut();
         $("#tool-box-modal").fadeIn();
     });
 
-    //Expense Details Slide in: open category page
+    //Cretea a new expense: Expense Details Slide in: open category page
     $("#create-icon").click(function () {
         firebase.auth().onAuthStateChanged(function (user) {
             db.collection("user").doc(user.uid).get().then(function (doc) {
@@ -680,10 +717,12 @@ $(document).ready(function () {
                     $("#slideShow").animate(slideIn, 1000);
                     $("body").css("overflow", "hidden");
 
+                    //If expense is valid, but no money left
                 } else if (doc.data().ExpenseStore > 0 && doc.data().BalanceStore == 0) {
+                    //Pop up the reset budget modal
                     $("#reset-journey-modal").fadeIn();
 
-                    //Reset budget
+                    //Reset budget: recall the reset function
                     $("#reset-journey-btn").click(function () {
                         resetBudget();
                     });
@@ -697,8 +736,6 @@ $(document).ready(function () {
     //Back to home page
     $("#reset-budget-cancel").click(function () {
         $("#reset-journey-modal").fadeOut();
-        console.log('ddfdfdfdff');
-
     });
 
     //Reset all the budget, expense, and balance
@@ -706,9 +743,11 @@ $(document).ready(function () {
         resetBudget();
     });
 
+    //Rest all the budget, balance, expense, water, and days from firebase
     function resetBudget() {
         firebase.auth().onAuthStateChanged(function (user) {
 
+            //Reset wave height to full
             var resetWaveHeight = 100 * (-1) + 88;
 
             $(".water").css({
@@ -717,8 +756,7 @@ $(document).ready(function () {
 
             $(".budget_percent_num").html(100 + "%");
 
-            // document.getElementById("date-left").innerHTML = 0 + " days ";
-
+            //Reset all the value to 0
             db.collection("user")
                 .doc(user.uid)
                 .set({
@@ -752,7 +790,7 @@ $(document).ready(function () {
         });
     }
 
-    //Different nav bar color for warning
+    //Change the nav bar color regarding different balance level
     firebase.auth().onAuthStateChanged(function (user) {
         db.collection("user").doc(user.uid).onSnapshot(function (snap) {
             console.log(snap.data().PercentStore);
@@ -762,19 +800,19 @@ $(document).ready(function () {
                 $("#header-wrap").css("color", "rgb(34, 146, 187)");
                 $(".budget_percent_num").css("color", "grey");
             } else {
-                // 75% - 100%
+                // 75% - 100% balance: blue theme nav bar
                 if (snap.data().PercentStore <= 100 && snap.data().PercentStore >= 75) {
                     $("#header-wrap").css("background-color", "rgb(0, 153, 204)");
                     $(".budget_percent_num").css("color", "rgb(3, 110, 145)");
-                    // 50% - 75%
+                    // 50% - 75% balance: organge theme nav bar
                 } else if (snap.data().PercentStore >= 50 && snap.data().PercentStore < 75) {
                     $("#header-wrap").css("background-color", "rgb(245, 132, 66)");
                     $(".budget_percent_num").css("color", "rgb(245, 132, 66)");
-                    // 25% - 50%
+                    // 25% - 50% balance: yellow theme nav bar
                 } else if (snap.data().PercentStore < 50 && snap.data().PercentStore >= 25) {
                     $("#header-wrap").css("background-color", "rgb(240, 218, 91)");
                     $(".budget_percent_num").css("color", "rgb(240, 218, 91)");
-                    // < 25%
+                    // < 25% balance: red theme nav bar
                 } else if (snap.data().PercentStore < 25) {
                     $("#header-wrap").css("background-color", "rgb(204, 14, 0)");
                     $(".budget_percent_num").css("color", "rgb(204, 14, 0)");
@@ -783,7 +821,7 @@ $(document).ready(function () {
         });
     });
 
-    //Dark Mode settings to firebase
+    //Update Dark Mode settings to firebase
     var darkMode = false;
     $("#dark-mode-icon").click(function () {
         firebase.auth().onAuthStateChanged(function (user) {
@@ -813,13 +851,14 @@ $(document).ready(function () {
     $("#home-tool").click(function () {
         firebase.auth().onAuthStateChanged(function (user) {
             firebase.auth().signOut().then(function () {
-                // Sign-out successful.
+                // Sign-out successful. Open up the login page
                 window.location.replace("login.html");
 
             }).catch(function (error) {
-                console.log("错误！！！");
+                console.log("Erros...！");
             });
         });
     });
-    //Ends
+
+    /////////Ends///////////////////
 });

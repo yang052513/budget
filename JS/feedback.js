@@ -5,12 +5,14 @@ $(document).ready(function () {
     //Get all user past expense, order by Date from the newest to the oldest
     db.collection("feedback").get().then(function (snap) {
         snap.forEach(function(doc) {
+           //Read data from firebase
             var category = doc.data().Category;
             var email = doc.data().EmailAddress;
             var fname = doc.data().FirstName;
             var lname = doc.data().LastName;
             var subject = doc.data().Subject;
 
+            //Create new html element for appending new feedback
             var info_modal = $("<div class=info-modal></div>");
             var category_sec = $(" <p><span class=info-title>Category: </span><span class=category>" + category + "</span></p>");
             var name_sec = $("<p><span class=info-title>Name: </span><span class=name>" + fname + lname + "</span></p>");

@@ -407,8 +407,6 @@ ul {
     color: rgb(34, 146, 187);
 }
 
-
-
 /* Responsive layout - when the screen is more than 900px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (min-width: 900px) {
 
@@ -480,13 +478,14 @@ ul {
         font-family: 'Quicksand', sans-serif;
         border: 1px solid rgb(18, 115, 160);
         border-radius: 25px;
-        position: absolute;;
-        right:38vw;
+        position: absolute;
+        ;
+        right: 38vw;
         top: 42vw;
         display: block;
-    
+
     }
-    
+
     .read-more-btn:hover {
         background-color: rgb(23, 109, 148);
         color: white;
@@ -671,7 +670,8 @@ ul {
     .main-title {
         font-size: 15vw;
         color: rgb(255, 255, 255);
-        padding-left: 0.5em;;
+        padding-left: 0.5em;
+        ;
         margin-top: 50px;
     }
 

@@ -2,11 +2,13 @@ $(document).ready(function () {
 
     function DarkMode() {
         var darkMode = false;
+        ////////Color reference/////////
         //Primary color: #121212
         //Secondary color on surface: #393838
         //Title text color: rgb(34, 146, 187)
         //Normal text: rgba(255, 255, 255, 0.7
 
+        //Turn on the dark mode: change color scheme
         $("#dark-mode-icon").click(function () {
             if (!darkMode) {
                 $("#mode-content").html("Light Mode");
@@ -44,8 +46,8 @@ $(document).ready(function () {
                 $(".category-card").mouseleave(function () {
                     $(this).css("background-color", "#393838");
                 });
-
                 darkMode = true;
+
             } else {
                 $("#mode-content").html("Dark Mode");
                 $("#mode-content-sub").html("Enable the dark mode on your screen");
@@ -84,18 +86,22 @@ $(document).ready(function () {
             }
         });
 
+        //Tool menu, open index page
         $("#landing-tool").click(function () {
             window.open("index.html");
         });
 
+        //Tool menu, open about page
         $("#about-tool").click(function () {
             window.open("about.html");
         });
 
+        //Tool menu, open contact pagee
         $("#contact-tool").click(function () {
             window.open("contact.html");
         });
 
+        //Tool menu, open project page
         $("#project-tool").click(function () {
             window.open("Ourproject.html");
         });
