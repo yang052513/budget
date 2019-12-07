@@ -31,7 +31,7 @@ Our idea originated from a discussion of how we would survive the semester at BC
 - [Menhera-chan Emoji](https://www.pixiv.net/member.php?id=2302136)
 
 ## How to use the app?
-We are hosting the web at [here](https://www.comp1930-inclass.firebaseapp.com)
+We are hosting the web at [here](comp1930-inclass.firebaseapp.com)
 
 ## Common FAQ
 ### What is the largest number I can input?
