@@ -4,6 +4,26 @@
 
 Our idea originated from a discussion of how we would survive the semester at BCIT. We talked about how we would balance our courses, social life, and finances. Then we had to do a project for our COMP 1930 class, so we decided to create something that could actually help us during out time with BCIT. So we decided to go with "Budget", our budget and expense tracking app.
 
+## Screenshots
+<i style="font-size: 13px">Login</i>
+![avatar](ref/1.png)
+
+<i style="font-size: 13px">Enter budget and duration</i>
+![avatar](ref/2.png)
+
+<i style="font-size: 13px">Expense category</i>
+![avatar](ref/3.png)
+
+<i style="font-size: 13px">Animated water effect</i>
+![avatar](ref/4.png)
+
+<i style="font-size: 13px">Settings</i>
+![avatar](ref/5.png)
+
+<i style="font-size: 13px">Darkmode</i>
+![avatar](ref/6.png)
+
+
 ## Feature
 
 - Add expenses to your account with simple click
